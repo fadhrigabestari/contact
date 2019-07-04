@@ -103,6 +103,7 @@
 		0FFF529022CDAE6800CD18D4 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
+				0FFF52C722CDCD4F00CD18D4 /* Contact Cell */,
 				0FFF52C222CDAEBF00CD18D4 /* Home */,
 				0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */,
 				0FFF529B22CDAE6900CD18D4 /* Assets.xcassets */,
@@ -134,9 +135,9 @@
 		0FFF52C222CDAEBF00CD18D4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0FFF52C722CDCD4F00CD18D4 /* Contact Cell */,
-				0FFF52C322CDAF4D00CD18D4 /* HomeViewController.swift */,
-				0FFF52C422CDAF4D00CD18D4 /* HomeViewController.xib */,
+				0FFF52CC22CDE40000CD18D4 /* Model */,
+				0FFF52CD22CDE40700CD18D4 /* View */,
+				0FFF52CE22CDE40E00CD18D4 /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -144,10 +145,57 @@
 		0FFF52C722CDCD4F00CD18D4 /* Contact Cell */ = {
 			isa = PBXGroup;
 			children = (
-				0FFF52C822CDCD6A00CD18D4 /* ContactViewCell.swift */,
-				0FFF52C922CDCD6A00CD18D4 /* ContactViewCell.xib */,
+				0FFF52CF22CDE45700CD18D4 /* Model */,
+				0FFF52D022CDE45E00CD18D4 /* View */,
+				0FFF52D122CDE46300CD18D4 /* Controller */,
 			);
 			path = "Contact Cell";
+			sourceTree = "<group>";
+		};
+		0FFF52CC22CDE40000CD18D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FFF52CD22CDE40700CD18D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF52C422CDAF4D00CD18D4 /* HomeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0FFF52CE22CDE40E00CD18D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF52C322CDAF4D00CD18D4 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0FFF52CF22CDE45700CD18D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FFF52D022CDE45E00CD18D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF52C922CDCD6A00CD18D4 /* ContactViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0FFF52D122CDE46300CD18D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF52C822CDCD6A00CD18D4 /* ContactViewCell.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
