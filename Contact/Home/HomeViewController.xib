@@ -28,8 +28,8 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <items>
                         <navigationItem title="Contact" id="wyw-7O-vbn">
-                            <barButtonItem key="leftBarButtonItem" title="Groups" style="plain" id="ByY-rj-lGq"/>
-                            <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="jlg-HG-xyC"/>
+                            <barButtonItem key="leftBarButtonItem" title="Groups" id="ByY-rj-lGq"/>
+                            <barButtonItem key="rightBarButtonItem" systemItem="add" id="jlg-HG-xyC"/>
                         </navigationItem>
                     </items>
                 </navigationBar>
@@ -48,11 +48,5 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="138.40000000000001" y="152.47376311844079"/>
         </view>
-        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KEf-M4-kjN">
-            <rect key="frame" x="0.0" y="0.0" width="46" height="71"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="Button"/>
-            <point key="canvasLocation" x="84.799999999999997" y="552.77361319340332"/>
-        </button>
     </objects>
 </document>
