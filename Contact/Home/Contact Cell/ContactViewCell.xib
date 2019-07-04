@@ -15,24 +15,25 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="KGk-i7-Jjw" customClass="ContactViewCell" customModule="Contact" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="334" height="62"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="ContactViewCell" customModule="Contact" customModuleProvider="target">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="334" height="61.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ci-Wm-dxW">
-                        <rect key="frame" x="74" y="20.5" width="42" height="21"/>
+                        <rect key="frame" x="74" y="19.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="waW-ic-372">
-                        <rect key="frame" x="16" y="8" width="44" height="45.5"/>
+                        <rect key="frame" x="16" y="8" width="44" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="7IP-PO-ycw"/>
+                            <constraint firstAttribute="width" constant="44" id="a60-Dg-L7v"/>
+                            <constraint firstAttribute="height" constant="44" id="qkP-Uc-eeF"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭑" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7f-Aj-UFc">
-                        <rect key="frame" x="289" y="16" width="20" height="30"/>
+                        <rect key="frame" x="289" y="15" width="20" height="30"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -40,8 +41,9 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="waW-ic-372" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="2Pd-OF-fVN"/>
+                    <constraint firstItem="waW-ic-372" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9BQ-Ta-NsO"/>
                     <constraint firstItem="B7f-Aj-UFc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GTM-MV-TS0"/>
+                    <constraint firstAttribute="bottom" secondItem="waW-ic-372" secondAttribute="bottom" constant="8" id="Lax-RR-1dN"/>
                     <constraint firstItem="waW-ic-372" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M7N-mr-1i0"/>
                     <constraint firstItem="waW-ic-372" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cUv-9L-LdQ"/>
                     <constraint firstAttribute="trailing" secondItem="B7f-Aj-UFc" secondAttribute="trailing" constant="25" id="dy0-gp-Jbd"/>
@@ -51,9 +53,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="favouriteCell" destination="B7f-Aj-UFc" id="Ndh-se-SzF"/>
-                <outlet property="imageCell" destination="waW-ic-372" id="ap9-cs-dRV"/>
-                <outlet property="nameCell" destination="2Ci-Wm-dxW" id="o7c-7F-jYw"/>
+                <outlet property="contactFavourite" destination="B7f-Aj-UFc" id="Ndh-se-SzF"/>
+                <outlet property="contactImage" destination="waW-ic-372" id="ap9-cs-dRV"/>
+                <outlet property="contactName" destination="2Ci-Wm-dxW" id="o7c-7F-jYw"/>
             </connections>
             <point key="canvasLocation" x="64" y="40.479760119940032"/>
         </tableViewCell>

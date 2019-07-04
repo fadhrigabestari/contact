@@ -14,7 +14,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let nib = UINib(nibName: "ContactViewCell", bundle: nil)
+        self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
+        contactTableView.dataSource = self
+        contactTableView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -33,24 +36,19 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as! ContactViewCell
+        
+        let cellImageLayer: CALayer? = cell.contactImage.layer
+        cellImageLayer!.cornerRadius = cell.contactImage.frame.width / 2
+        cellImageLayer!.masksToBounds = true
+        
+        cell.contactImage.image = UIImage(named: "random_face")
+        cell.contactName.text = "Fadhriga Bestari"
+        cell.contactFavourite.text = "⭑"
         return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 26
-    }
-    
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        switch(section) {
-        case 1:
-            return "A"
-        default:
-            return "Z"
-        }
     }
 }
