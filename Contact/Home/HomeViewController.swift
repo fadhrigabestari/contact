@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var contactTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +29,28 @@ class HomeViewController: UIViewController {
     }
     */
 
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 26
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch(section) {
+        case 1:
+            return "A"
+        default:
+            return "Z"
+        }
+    }
 }

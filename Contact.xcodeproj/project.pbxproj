@@ -15,6 +15,8 @@
 		0FFF52B522CDAE6A00CD18D4 /* ContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF52B422CDAE6A00CD18D4 /* ContactUITests.swift */; };
 		0FFF52C522CDAF4D00CD18D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF52C322CDAF4D00CD18D4 /* HomeViewController.swift */; };
 		0FFF52C622CDAF4D00CD18D4 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF52C422CDAF4D00CD18D4 /* HomeViewController.xib */; };
+		0FFF52CA22CDCD6A00CD18D4 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF52C822CDCD6A00CD18D4 /* ContactViewCell.swift */; };
+		0FFF52CB22CDCD6A00CD18D4 /* ContactViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF52C922CDCD6A00CD18D4 /* ContactViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		0FFF52B622CDAE6A00CD18D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FFF52C322CDAF4D00CD18D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0FFF52C422CDAF4D00CD18D4 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		0FFF52C822CDCD6A00CD18D4 /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
+		0FFF52C922CDCD6A00CD18D4 /* ContactViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +134,20 @@
 		0FFF52C222CDAEBF00CD18D4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0FFF52C722CDCD4F00CD18D4 /* Contact Cell */,
 				0FFF52C322CDAF4D00CD18D4 /* HomeViewController.swift */,
 				0FFF52C422CDAF4D00CD18D4 /* HomeViewController.xib */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		0FFF52C722CDCD4F00CD18D4 /* Contact Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF52C822CDCD6A00CD18D4 /* ContactViewCell.swift */,
+				0FFF52C922CDCD6A00CD18D4 /* ContactViewCell.xib */,
+			);
+			path = "Contact Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +258,7 @@
 				0FFF529F22CDAE6900CD18D4 /* LaunchScreen.storyboard in Resources */,
 				0FFF529C22CDAE6900CD18D4 /* Assets.xcassets in Resources */,
 				0FFF52C622CDAF4D00CD18D4 /* HomeViewController.xib in Resources */,
+				0FFF52CB22CDCD6A00CD18D4 /* ContactViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +286,7 @@
 				0FFF529222CDAE6800CD18D4 /* AppDelegate.swift in Sources */,
 				0FFF529A22CDAE6800CD18D4 /* Contact.xcdatamodeld in Sources */,
 				0FFF52C522CDAF4D00CD18D4 /* HomeViewController.swift in Sources */,
+				0FFF52CA22CDCD6A00CD18D4 /* ContactViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
