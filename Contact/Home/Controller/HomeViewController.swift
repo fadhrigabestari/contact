@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class HomeViewController: UIViewController {
 
@@ -18,6 +19,9 @@ class HomeViewController: UIViewController {
         self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
         contactTableView.dataSource = self
         contactTableView.delegate = self
+        fetchAllContacts { (contacts) in
+            print("wa")
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +35,34 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func fetchAllContacts(completion: @escaping ([Contact]?) -> Void) {
+        guard let url = URL(string: "http://gojek-contacts-app.herokuapp.com/contacts.json") else {
+            completion(nil)
+            return
+        }
+        
+        Alamofire.request(url,
+                          method: .get)
+        .validate()
+        .responseJSON {
+            response in guard response.result.isSuccess else {
+                print("Error while fetching remote rooms: \(String(describing: response.result.error))")
+                completion(nil)
+                return
+            }
+            
+            guard let contacts = response.result.value as? [[String: Any]] else {
+                print("Malformed data received from FetchAllContacts service")
+                completion(nil)
+                return
+            }
+            
+            print(contacts[0])
+            
+            completion(nil)
+            return
+        }
+    }
 
 }
 
@@ -49,6 +81,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cell.contactImage.image = UIImage(named: "random_face")
         cell.contactName.text = "Fadhriga Bestari"
         cell.contactFavourite.text = "⭑"
+        cell.selectionStyle = .none
         return cell
     }
 }
