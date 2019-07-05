@@ -12,9 +12,9 @@ struct Contact: Codable {
     var id: Int
     var firstName: String
     var lastName: String
-    var profilePic: URL
+    var profilePic: String
     var isFavorite: Bool
-    var url: URL
+    var url: String
     
     enum CodingKeys: String, CodingKey {
         case id

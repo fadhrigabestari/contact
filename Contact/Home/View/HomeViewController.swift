@@ -95,14 +95,17 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cellImageLayer!.masksToBounds = true
         
         let contact = contacts[indexPath.row]
-        cell.contactImage.load(url: contact.profilePic)
-        cell.contactName.text = "\(contact.firstName) \(contact.lastName)"
-        if contact.isFavorite {
-            cell.contactFavourite.text = "⭑"
-        } else {
-            cell.contactFavourite.text = ""
-        }
+        
         cell.selectionStyle = .none
+        cell.contactName.text = "\(contact.firstName) \(contact.lastName)"
+        cell.contactFavourite.text = contact.isFavorite ? "⭑" : ""
+        if contact.profilePic.isValidURL {
+            let url = URL(string: contact.profilePic)!
+            cell.contactImage.load(url: url)
+        } else {
+            cell.contactImage.image = UIImage(named: "default-contact-image")
+        }
+        
         return cell
     }
 }
