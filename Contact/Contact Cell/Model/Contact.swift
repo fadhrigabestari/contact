@@ -13,7 +13,7 @@ struct Contact: Codable {
     var firstName: String
     var lastName: String
     var profilePic: URL
-    var isFavourite: Bool
+    var isFavorite: Bool
     var url: URL
     
     enum CodingKeys: String, CodingKey {
@@ -21,7 +21,7 @@ struct Contact: Codable {
         case firstName = "first_name"
         case lastName = "last_name"
         case profilePic = "profile_pic"
-        case isFavourite = "favourite"
+        case isFavorite = "favorite"
         case url
     }
 }

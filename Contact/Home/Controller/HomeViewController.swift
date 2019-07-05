@@ -12,6 +12,7 @@ import Alamofire
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var contactTableView: UITableView!
+    var contacts: [Contact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +20,14 @@ class HomeViewController: UIViewController {
         self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
         contactTableView.dataSource = self
         contactTableView.delegate = self
+
         fetchAllContacts { (contacts) in
-            print("wa")
+            if let arrContact = contacts {
+                self.contacts = arrContact
+                self.contactTableView.reloadData()
+            }
         }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -51,16 +57,21 @@ class HomeViewController: UIViewController {
                 return
             }
             
-            guard let contacts = response.result.value as? [[String: Any]] else {
+            guard let contacts = response.data else {
                 print("Malformed data received from FetchAllContacts service")
                 completion(nil)
                 return
             }
             
-            print(contacts[0])
-            
-            completion(nil)
-            return
+            do {
+                let contactsDecoded = try JSONDecoder().decode([Contact].self, from: contacts)
+                completion(contactsDecoded)
+                return
+            } catch {
+                print(error)
+                completion(nil)
+                return
+            }
         }
     }
 
@@ -68,7 +79,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,9 +89,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cellImageLayer!.cornerRadius = cell.contactImage.frame.width / 2
         cellImageLayer!.masksToBounds = true
         
-        cell.contactImage.image = UIImage(named: "random_face")
-        cell.contactName.text = "Fadhriga Bestari"
-        cell.contactFavourite.text = "⭑"
+        let contact = contacts[indexPath.row]
+        cell.contactImage.load(url: contact.profilePic)
+        cell.contactName.text = "\(contact.firstName) \(contact.lastName)"
+        if contact.isFavorite {
+            cell.contactFavourite.text = "⭑"
+        } else {
+            cell.contactFavourite.text = ""
+        }
         cell.selectionStyle = .none
         return cell
     }
