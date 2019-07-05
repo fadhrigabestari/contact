@@ -10,23 +10,28 @@ import UIKit
 import Alamofire
 
 class HomeViewController: UIViewController {
+    var presenter: HomeViewToPresenterProtocol?
 
     @IBOutlet weak var contactTableView: UITableView!
     var contacts: [Contact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let nib = UINib(nibName: "ContactViewCell", bundle: nil)
         self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
+        
+        presenter?.startFetchingContacts()
+        
         contactTableView.dataSource = self
         contactTableView.delegate = self
 
-        fetchAllContacts { (contacts) in
-            if let arrContact = contacts {
-                self.contacts = arrContact
-                self.contactTableView.reloadData()
-            }
-        }
+//        fetchAllContacts { (contacts) in
+//            if let arrContact = contacts {
+//                self.contacts = arrContact
+//                self.contactTableView.reloadData()
+//            }
+//        }
         
         // Do any additional setup after loading the view.
     }
@@ -99,5 +104,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+extension HomeViewController: HomePresenterToViewProtocol {
+    func showContacts(contacts: [Contact]) {
+        self.contacts = contacts
+        self.contactTableView.reloadData()
     }
 }

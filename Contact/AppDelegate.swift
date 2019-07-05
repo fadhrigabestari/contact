@@ -16,14 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let homeModule = HomeWireframe.createModule()
         
-        let viewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
-        let navigationController = UINavigationController(rootViewController: viewController)
+        let navigationController = UINavigationController(rootViewController: homeModule)
         navigationController.navigationBar.isHidden = true
+
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController
-        
         self.window?.makeKeyAndVisible()
+        
         return true
     }
 
