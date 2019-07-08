@@ -13,7 +13,7 @@ protocol HomeViewToPresenterProtocol: class {
     func startFetchingContacts()
     func onAddButtonPressed(navigationController: UINavigationController)
     func onGroupsButtonPressed(navigationController: UINavigationController)
-    func onContactsCellPressed(navigationController: UINavigationController)
+    func onContactsCellPressed(navigationController: UINavigationController, id: Int)
 }
 
 protocol HomePresenterToViewProtocol: class {
@@ -24,7 +24,7 @@ protocol HomePresenterToWireframeProtocol: class {
     func createModule() -> HomeViewController
     func pushToAddScreen(navigationController: UINavigationController)
     func pushToGroupsScreen(navigationController: UINavigationController)
-    func pushToContactDetailScreen(navigationController: UINavigationController)
+    func pushToContactDetailScreen(navigationController: UINavigationController, id: Int)
 }
 
 protocol HomePresenterToInteractorProtocol: class {

@@ -31,8 +31,9 @@ class HomeWireframe: HomePresenterToWireframeProtocol {
 //        navigationController.pushViewController(groupsModule, animated: true)
     }
     
-    func pushToContactDetailScreen(navigationController: UINavigationController) {
+    func pushToContactDetailScreen(navigationController: UINavigationController, id: Int) {
 //        let contactDetailModule = ContactDetailWireframe.createModule()
-//        navigationController.pushViewController(contactDetailModule, animated: true)
+        print(id)
+        navigationController.pushViewController(ContactDetailViewController(), animated: true)
     }
 }

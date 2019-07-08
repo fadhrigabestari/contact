@@ -31,8 +31,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             cell.contactImage.image = UIImage(named: "default-contact-image")
         }
-        cell.contactFavourite.text = contact.isFavorite
+        cell.contactFavourite.text = "⭑"
+        cell.contactFavourite.isHidden = contact.isFavorite
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.onContactsCellPressed(navigationController: navigationController!, id: contactCells[indexPath.row].id)
     }
 }

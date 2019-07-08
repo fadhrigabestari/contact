@@ -12,5 +12,5 @@ struct ContactCell {
     let id: Int
     let name: String
     let profilePic: String
-    let isFavorite: String
+    let isFavorite: Bool
 }

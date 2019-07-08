@@ -9,13 +9,15 @@
 import UIKit
 
 class ContactDetailViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = editButton
         // Do any additional setup after loading the view.
     }
-    
+
 
     /*
     // MARK: - Navigation

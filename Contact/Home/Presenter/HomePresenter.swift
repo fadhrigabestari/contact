@@ -32,8 +32,8 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
         wireframe?.pushToGroupsScreen(navigationController: navigationController)
     }
     
-    func onContactsCellPressed(navigationController: UINavigationController) {
-        wireframe?.pushToContactDetailScreen(navigationController: navigationController)
+    func onContactsCellPressed(navigationController: UINavigationController, id: Int) {
+        wireframe?.pushToContactDetailScreen(navigationController: navigationController, id: id)
     }
     
     func contactsFetchSuccess(contacts: [Contact]) {
@@ -47,7 +47,7 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
     func streamlineContact(contacts: [Contact]) -> [ContactCell] {
         let contactCells = contacts.map { (contact) -> ContactCell in
             let name = "\(contact.firstName) \(contact.lastName)"
-            let isFavorite = contact.isFavorite ? "⭑" : ""
+            let isFavorite = contact.isFavorite
             let contactCell = ContactCell(id: contact.id,
                                           name: name,
                                           profilePic: contact.profilePic,

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeModule = homeWireframe.createModule()
         
         let navigationController = UINavigationController(rootViewController: homeModule)
-        navigationController.navigationBar.isHidden = true
+//        navigationController.navigationBar.isHidden = true
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController

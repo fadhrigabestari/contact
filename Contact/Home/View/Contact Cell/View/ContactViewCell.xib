@@ -19,8 +19,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="334" height="61.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ci-Wm-dxW">
-                        <rect key="frame" x="74" y="19.5" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ci-Wm-dxW">
+                        <rect key="frame" x="74" y="19.5" width="207" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
                     <constraint firstAttribute="bottom" secondItem="waW-ic-372" secondAttribute="bottom" constant="8" id="Lax-RR-1dN"/>
                     <constraint firstItem="waW-ic-372" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M7N-mr-1i0"/>
                     <constraint firstItem="waW-ic-372" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cUv-9L-LdQ"/>
+                    <constraint firstItem="B7f-Aj-UFc" firstAttribute="leading" secondItem="2Ci-Wm-dxW" secondAttribute="trailing" constant="8" id="dcm-ep-pDV"/>
                     <constraint firstAttribute="trailing" secondItem="B7f-Aj-UFc" secondAttribute="trailing" constant="25" id="dy0-gp-Jbd"/>
                     <constraint firstItem="2Ci-Wm-dxW" firstAttribute="leading" secondItem="waW-ic-372" secondAttribute="trailing" constant="14" id="haX-kh-AjU"/>
                     <constraint firstItem="waW-ic-372" firstAttribute="centerY" secondItem="2Ci-Wm-dxW" secondAttribute="centerY" id="s61-YN-sUL"/>
