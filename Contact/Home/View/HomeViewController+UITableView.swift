@@ -11,7 +11,7 @@ import UIKit
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return contactCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -21,17 +21,17 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         cellImageLayer!.cornerRadius = cell.contactImage.frame.width / 2
         cellImageLayer!.masksToBounds = true
         
-        let contact = contacts[indexPath.row]
+        let contact = contactCells[indexPath.row]
         
         cell.selectionStyle = .none
-        cell.contactName.text = "\(contact.firstName) \(contact.lastName)"
-        cell.contactFavourite.text = contact.isFavorite ? "⭑" : ""
+        cell.contactName.text = contact.name
         if contact.profilePic.isValidURL {
             let url = URL(string: contact.profilePic)!
             cell.contactImage.load(url: url)
         } else {
             cell.contactImage.image = UIImage(named: "default-contact-image")
         }
+        cell.contactFavourite.text = contact.isFavorite
         
         return cell
     }

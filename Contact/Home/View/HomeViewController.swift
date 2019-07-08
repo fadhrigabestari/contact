@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     var presenter: HomeViewToPresenterProtocol?
 
     @IBOutlet weak var contactTableView: UITableView!
-    var contacts: [Contact] = []
+    var contactCells: [ContactCell] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

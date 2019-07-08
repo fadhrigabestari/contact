@@ -9,8 +9,8 @@
 import Foundation
 
 extension HomeViewController: HomePresenterToViewProtocol {
-    func showContacts(contacts: [Contact]) {
-        self.contacts = contacts
+    func showContacts(contactCells: [ContactCell]) {
+        self.contactCells = contactCells
         self.contactTableView.reloadData()
     }
 }

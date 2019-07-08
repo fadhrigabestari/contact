@@ -17,7 +17,7 @@ protocol HomeViewToPresenterProtocol: class {
 }
 
 protocol HomePresenterToViewProtocol: class {
-    func showContacts(contacts: [Contact])
+    func showContacts(contactCells: [ContactCell])
 }
 
 protocol HomePresenterToWireframeProtocol: class {
