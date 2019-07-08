@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactDetailCell: UITableViewCell {
+class ContactDetailViewCell: UITableViewCell {
     @IBOutlet weak var contactDetailCategory: UILabel!
     @IBOutlet weak var contactDetailLabel: UILabel!
     

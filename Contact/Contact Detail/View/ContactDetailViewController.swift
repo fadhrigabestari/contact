@@ -20,7 +20,7 @@ class ContactDetailViewController: UIViewController {
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = editButton
         
-        let nib = UINib(nibName: "ContactDetailCell", bundle: nil)
+        let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
         self.contactDetailTableView.register(nib, forCellReuseIdentifier: "ContactDetailCell")
         
         contactDetailTableView.dataSource = self
@@ -35,7 +35,7 @@ extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactDetailCell") as! ContactDetailCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactDetailCell") as! ContactDetailViewCell
         
         switch(indexPath.row) {
         case 0:
