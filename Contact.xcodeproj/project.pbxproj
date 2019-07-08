@@ -29,6 +29,8 @@
 		0FFFB15522D2F1FB00931382 /* HomeViewController+PresenterToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB15422D2F1FB00931382 /* HomeViewController+PresenterToView.swift */; };
 		0FFFB15722D2F8AE00931382 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB15622D2F8AE00931382 /* ContactCell.swift */; };
 		0FFFB15A22D2FFC100931382 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB15922D2FFC100931382 /* ContactDetailViewController.swift */; };
+		0FFFB16222D3010200931382 /* ContactDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB16122D3010200931382 /* ContactDetailProtocol.swift */; };
+		0FFFB16422D3017E00931382 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB16322D3017E00931382 /* ContactDetail.swift */; };
 		21320C98C049BF221F72E7FD /* Pods_ContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94813554093AB666D08B7C03 /* Pods_ContactTests.framework */; };
 		5AE232484EE69DE298C0EA00 /* Pods_ContactUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BCB6391A680D195D84094B /* Pods_ContactUITests.framework */; };
 		F6F255A027E37D18BDFC0B57 /* Pods_Contact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6B4042BF9C202501ADF900 /* Pods_Contact.framework */; };
@@ -81,6 +83,8 @@
 		0FFFB15422D2F1FB00931382 /* HomeViewController+PresenterToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+PresenterToView.swift"; sourceTree = "<group>"; };
 		0FFFB15622D2F8AE00931382 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		0FFFB15922D2FFC100931382 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		0FFFB16122D3010200931382 /* ContactDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailProtocol.swift; sourceTree = "<group>"; };
+		0FFFB16322D3017E00931382 /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		1806B761A968226112AB3461 /* Pods-ContactUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactUITests.debug.xcconfig"; path = "Target Support Files/Pods-ContactUITests/Pods-ContactUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3CD3B6B3E4C58D613F06C3B8 /* Pods-ContactTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactTests.debug.xcconfig"; path = "Target Support Files/Pods-ContactTests/Pods-ContactTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E8E0A9EBD14F36311416EB8 /* Pods-ContactUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactUITests.release.xcconfig"; path = "Target Support Files/Pods-ContactUITests/Pods-ContactUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,7 +194,6 @@
 		0FFF52C722CDCD4F00CD18D4 /* Contact Cell */ = {
 			isa = PBXGroup;
 			children = (
-				0FFF52CF22CDE45700CD18D4 /* Entity */,
 				0FFF52D022CDE45E00CD18D4 /* View */,
 			);
 			path = "Contact Cell";
@@ -199,6 +202,7 @@
 		0FFF52CC22CDE40000CD18D4 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				0FFF52D222CDE4FE00CD18D4 /* Contact.swift */,
 				0FFFB15622D2F8AE00931382 /* ContactCell.swift */,
 			);
 			path = Entity;
@@ -222,14 +226,6 @@
 				0FFFB14E22CF5D0F00931382 /* HomeWireframe.swift */,
 			);
 			path = Router;
-			sourceTree = "<group>";
-		};
-		0FFF52CF22CDE45700CD18D4 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				0FFF52D222CDE4FE00CD18D4 /* Contact.swift */,
-			);
-			path = Entity;
 			sourceTree = "<group>";
 		};
 		0FFF52D022CDE45E00CD18D4 /* View */ = {
@@ -298,6 +294,7 @@
 		0FFFB15C22D2FFCF00931382 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				0FFFB16322D3017E00931382 /* ContactDetail.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -327,6 +324,7 @@
 		0FFFB16022D2FFE900931382 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				0FFFB16122D3010200931382 /* ContactDetailProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -587,8 +585,10 @@
 				0FFF529A22CDAE6800CD18D4 /* Contact.xcdatamodeld in Sources */,
 				0FFFB15122CF826F00931382 /* String.swift in Sources */,
 				0FFF52D322CDE4FE00CD18D4 /* Contact.swift in Sources */,
+				0FFFB16222D3010200931382 /* ContactDetailProtocol.swift in Sources */,
 				0FFFB14A22CF5AEB00931382 /* HomeInteractor.swift in Sources */,
 				0FFFB15522D2F1FB00931382 /* HomeViewController+PresenterToView.swift in Sources */,
+				0FFFB16422D3017E00931382 /* ContactDetail.swift in Sources */,
 				0FFF52C522CDAF4D00CD18D4 /* HomeViewController.swift in Sources */,
 				0FFF52CA22CDCD6A00CD18D4 /* ContactViewCell.swift in Sources */,
 				0FFFB15A22D2FFC100931382 /* ContactDetailViewController.swift in Sources */,
