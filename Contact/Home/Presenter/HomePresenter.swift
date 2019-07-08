@@ -48,7 +48,8 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
         let contactCells = contacts.map { (contact) -> ContactCell in
             let name = "\(contact.firstName) \(contact.lastName)"
             let isFavorite = contact.isFavorite ? "⭑" : ""
-            let contactCell = ContactCell(name: name,
+            let contactCell = ContactCell(id: contact.id,
+                                          name: name,
                                           profilePic: contact.profilePic,
                                           isFavorite: isFavorite)
             return contactCell

@@ -9,6 +9,7 @@
 import Foundation
 
 struct ContactCell {
+    let id: Int
     let name: String
     let profilePic: String
     let isFavorite: String
