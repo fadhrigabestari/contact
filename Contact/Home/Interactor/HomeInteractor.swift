@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class HomeInteractor: HomePresenterToInteractorProtocol {
-    var presenter: HomeInteractorToPresenterProtocol?
+    weak var presenter: HomeInteractorToPresenterProtocol?
     
     func fetchContacts() {
         guard let url = URL(string: "http://gojek-contacts-app.herokuapp.com/contacts.json") else {

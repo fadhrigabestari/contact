@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let homeModule = HomeWireframe.createModule()
+        let homeWireframe = HomeWireframe()
+        let homeModule = homeWireframe.createModule()
         
         let navigationController = UINavigationController(rootViewController: homeModule)
         navigationController.navigationBar.isHidden = true

@@ -10,17 +10,12 @@ import Foundation
 import UIKit
 
 class HomeWireframe: HomePresenterToWireframeProtocol {
-    static func createModule() -> HomeViewController {
+    internal func createModule() -> HomeViewController {
         let view = HomeViewController(nibName: "HomeViewController", bundle: nil)
-        
-        let presenter: HomeViewToPresenterProtocol & HomeInteractorToPresenterProtocol = HomePresenter()
-        let interactor: HomePresenterToInteractorProtocol = HomeInteractor()
-        let wireframe: HomePresenterToWireframeProtocol = HomeWireframe()
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter(view: view, interactor: interactor, wireframe: self)
         
         view.presenter = presenter
-        presenter.view = view
-        presenter.interactor = interactor
-        presenter.wireframe = wireframe
         interactor.presenter = presenter
         
         return view

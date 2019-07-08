@@ -10,9 +10,15 @@ import Foundation
 import UIKit
 
 class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProtocol {
-    var view: HomePresenterToViewProtocol?
-    var wireframe: HomePresenterToWireframeProtocol?
+    weak var view: HomePresenterToViewProtocol?
     var interactor: HomePresenterToInteractorProtocol?
+    var wireframe: HomePresenterToWireframeProtocol?
+    
+    init(view: HomePresenterToViewProtocol, interactor: HomePresenterToInteractorProtocol, wireframe: HomePresenterToWireframeProtocol) {
+        self.view = view
+        self.interactor = interactor
+        self.wireframe = wireframe
+    }
     
     func startFetchingContacts() {
         interactor?.fetchContacts()

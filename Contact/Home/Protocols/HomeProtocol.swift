@@ -10,10 +10,6 @@ import Foundation
 import UIKit
 
 protocol HomeViewToPresenterProtocol: class {
-    var view: HomePresenterToViewProtocol? {get set}
-    var wireframe: HomePresenterToWireframeProtocol? {get set}
-    var interactor: HomePresenterToInteractorProtocol? {get set}
-    
     func startFetchingContacts()
     func onAddButtonPressed(navigationController: UINavigationController)
     func onGroupsButtonPressed(navigationController: UINavigationController)
@@ -25,7 +21,7 @@ protocol HomePresenterToViewProtocol: class {
 }
 
 protocol HomePresenterToWireframeProtocol: class {
-    static func createModule() -> HomeViewController
+    func createModule() -> HomeViewController
     func pushToAddScreen(navigationController: UINavigationController)
     func pushToGroupsScreen(navigationController: UINavigationController)
     func pushToContactDetailScreen(navigationController: UINavigationController)
