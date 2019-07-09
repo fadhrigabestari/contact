@@ -14,17 +14,15 @@ class ContactDetailViewController: UIViewController {
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fullName: UILabel!
-    @IBOutlet weak var messageIcon: UIImageView!
-    @IBOutlet weak var callIcon: UIImageView!
-    @IBOutlet weak var emailIcon: UIImageView!
-    @IBOutlet weak var favoriteIcon: UIImageView!
+    @IBOutlet weak var messageIcon: UIButton!
+    @IBOutlet weak var callIcon: UIButton!
+    @IBOutlet weak var emailIcon: UIButton!
+    @IBOutlet weak var favoriteIcon: UIButton!
     
     @IBOutlet weak var contactDetailTableView: UITableView!
     
     var categories = ["mobile", "email"]
     var contactDetail: ContactDetailView?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,41 +35,31 @@ class ContactDetailViewController: UIViewController {
         
         self.profilePicture.roundImage()
         
-        insertImageToIcon()
-        assignFunctionToIcon()
+        setupTableView()
+        setupButton()
         presenter?.startFetchingContactDetail(id: id!)
-        
+    }
+    
+    private func setupTableView() {
         contactDetailTableView.dataSource = self
         contactDetailTableView.delegate = self
-        // Do any additional setup after loading the view.
+        contactDetailTableView.isScrollEnabled = false
+        contactDetailTableView.separatorInset = UIEdgeInsets(top: 0, left: self.view.bounds.width, bottom: 0, right: 0)
     }
     
-    func insertImageToIcon() {
-        messageIcon.image = UIImage(named: "default-contact-image")
-        callIcon.image = UIImage(named: "default-contact-image")
-        emailIcon.image = UIImage(named: "default-contact-image")
-        favoriteIcon.image = UIImage(named: "default-contact-image")
+    private func setupButton() {
+        applyRoundCorner(messageIcon)
+        applyRoundCorner(callIcon)
+        applyRoundCorner(emailIcon)
+        applyRoundCorner(favoriteIcon)
         
-        self.messageIcon.roundImage()
-        self.callIcon.roundImage()
-        self.emailIcon.roundImage()
-        self.favoriteIcon.roundImage()
-    }
-    
-    func assignFunctionToIcon() {
-        var tap: UITapGestureRecognizer
+        messageIcon.addTarget(self, action: #selector(self.tappedMessageIcon), for: .touchUpInside)
         
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMessageIcon))
-        messageIcon.addGestureRecognizer(tap)
-        messageIcon.isUserInteractionEnabled = true
+        callIcon.addTarget(self, action: #selector(self.tappedCallIcon), for: .touchUpInside)
         
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedCallIcon))
-        callIcon.addGestureRecognizer(tap)
-        callIcon.isUserInteractionEnabled = true
+        emailIcon.addTarget(self, action: #selector(self.tappedEmailIcon), for: .touchUpInside)
         
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedEmailIcon))
-        emailIcon.addGestureRecognizer(tap)
-        emailIcon.isUserInteractionEnabled = true
+//        favoriteIcon.addTarget(self, action: #selector(self.tappedFavoriteIcon), for: .touchUpInside)
         
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedFavoriteIcon))
 //        favoriteIcon.addGestureRecognizer(tap)
