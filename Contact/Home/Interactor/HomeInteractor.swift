@@ -20,8 +20,7 @@ class HomeInteractor: HomePresenterToInteractorProtocol {
         
         Alamofire.request(url,
                           method: .get)
-            .validate()
-            .responseJSON {
+            .validate().responseJSON {
                 response in guard response.result.isSuccess else {
                     print("Error while fetching remote rooms: \(String(describing: response.result.error))")
                     self.presenter?.contactsFetchFailed()

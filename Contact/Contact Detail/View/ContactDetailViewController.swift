@@ -9,6 +9,16 @@
 import UIKit
 
 class ContactDetailViewController: UIViewController {
+    var id: Int?
+    var presenter: IContactDetailPresenter?
+    
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var fullName: UILabel!
+    @IBOutlet weak var messageIcon: UIImageView!
+    @IBOutlet weak var callIcon: UIImageView!
+    @IBOutlet weak var emailIcon: UIImageView!
+    @IBOutlet weak var favoriteIcon: UIImageView!
+    
     @IBOutlet weak var contactDetailTableView: UITableView!
     
     var categories = ["mobile", "email"]
@@ -23,9 +33,26 @@ class ContactDetailViewController: UIViewController {
         let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
         self.contactDetailTableView.register(nib, forCellReuseIdentifier: "ContactDetailCell")
         
+        self.profilePicture.roundImage()
+        
+        insertImageToIcon()
+        presenter?.startFetchingContactDetail(id: id!)
+        
         contactDetailTableView.dataSource = self
         contactDetailTableView.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    func insertImageToIcon() {        
+        messageIcon.image = UIImage(named: "default-contact-image")
+        callIcon.image = UIImage(named: "default-contact-image")
+        emailIcon.image = UIImage(named: "default-contact-image")
+        favoriteIcon.image = UIImage(named: "default-contact-image")
+        
+        self.messageIcon.roundImage()
+        self.callIcon.roundImage()
+        self.emailIcon.roundImage()
+        self.favoriteIcon.roundImage()
     }
 }
 
@@ -47,7 +74,6 @@ extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegat
             cell.contactDetailLabel.text = contactDetail?.email
             break
         default: break
-            
         }
         
         return cell

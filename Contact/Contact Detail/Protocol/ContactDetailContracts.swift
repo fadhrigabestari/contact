@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-protocol IContactDetailView {
+protocol IContactDetailView: class {
     func showContactDetail(contactDetail: ContactDetailView)
 }
 
-protocol IContactDetailPresenter {
+protocol IContactDetailPresenter: class {
     func onMessageButtonPressed(navigationController: UINavigationController)
     func onCallButtonPressed(navigationController: UINavigationController)
     func onEmailButtonPressed(navigationController: UINavigationController)
@@ -22,15 +22,16 @@ protocol IContactDetailPresenter {
     func onEditButtonPressed(navigationController: UINavigationController)
     func startFetchingContactDetail(id: Int)
     func contactDetailFetchSuccess(contactDetail: ContactDetail)
+    func contactDetailFetchFailed()
 }
 
-protocol IContactDetailInteractor {
-    var preseter: IContactDetailPresenter? {get set}
+protocol IContactDetailInteractor: class {
+    var presenter: IContactDetailPresenter? {get set}
     
     func fetchContactDetail(id: Int)
 }
 
-protocol IContactDetailWireframe {
+protocol IContactDetailWireframe: class {
     func createModule() -> ContactDetailViewController
     func pushToMessageScreen(navigationController: UINavigationController)
     func pushToCallScreen(navigationController: UINavigationController)

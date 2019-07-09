@@ -12,7 +12,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactDetailViewController" customModule="Contact" customModuleProvider="target">
             <connections>
+                <outlet property="callIcon" destination="8cz-5r-iX1" id="T9e-tr-32K"/>
                 <outlet property="contactDetailTableView" destination="IVL-Ds-84R" id="zvk-Rz-lmk"/>
+                <outlet property="emailIcon" destination="4t1-jI-9xf" id="xZy-vU-4n2"/>
+                <outlet property="favoriteIcon" destination="o6n-Bs-VJS" id="DmQ-1K-2C0"/>
+                <outlet property="fullName" destination="LoD-sX-LDC" id="BOy-Ah-ORM"/>
+                <outlet property="messageIcon" destination="2tx-2q-QIX" id="vcG-74-thx"/>
+                <outlet property="profilePicture" destination="pYi-tC-3bn" id="HIw-qR-za4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,14 +33,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGv-Nm-nYG" userLabel="Top View">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pYi-tC-3bn" userLabel="Profile Picture">
-                                    <rect key="frame" x="113" y="8" width="94" height="94"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="pYi-tC-3bn" userLabel="Profile Picture">
+                                    <rect key="frame" x="112" y="8" width="96" height="96.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="pYi-tC-3bn" secondAttribute="height" multiplier="1:1" id="0pT-aF-WEz"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fadhriga Bestarialsmdlasmldasldmlkamsa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoD-sX-LDC">
-                                    <rect key="frame" x="33" y="109.5" width="254" height="24"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoD-sX-LDC">
+                                    <rect key="frame" x="33" y="112" width="254" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="3qZ-6F-Wh8"/>
                                     </constraints>
@@ -43,71 +49,71 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="qlN-gm-FXD">
-                                    <rect key="frame" x="33" y="148.5" width="254" height="73.5"/>
+                                    <rect key="frame" x="33" y="151" width="254" height="71"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yhp-ao-De9" userLabel="Message Button">
-                                            <rect key="frame" x="0.0" y="0.0" width="57" height="73.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="57" height="71"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2tx-2q-QIX" userLabel="Message Button Image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="2tx-2q-QIX" userLabel="Message Button Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="57" height="56.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="2tx-2q-QIX" secondAttribute="height" multiplier="1:1" id="4SJ-va-Mze"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W94-Jy-AyR">
-                                                    <rect key="frame" x="0.0" y="57.5" width="57" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W94-Jy-AyR">
+                                                    <rect key="frame" x="0.0" y="57.5" width="57" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DMK-BY-bv5" userLabel="Call Button">
-                                            <rect key="frame" x="66" y="0.0" width="56.5" height="73.5"/>
+                                            <rect key="frame" x="66" y="0.0" width="56.5" height="71"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8cz-5r-iX1" userLabel="Call Button Image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="8cz-5r-iX1" userLabel="Call Button Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="56.5" height="56.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="8cz-5r-iX1" secondAttribute="height" multiplier="1:1" id="jY3-kn-bgd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY7-u4-rJR">
-                                                    <rect key="frame" x="0.0" y="57.5" width="56.5" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="call" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY7-u4-rJR">
+                                                    <rect key="frame" x="0.0" y="57.5" width="56.5" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ySE-jk-Vff" userLabel="Email Button">
-                                            <rect key="frame" x="131.5" y="0.0" width="57" height="73.5"/>
+                                            <rect key="frame" x="131.5" y="0.0" width="57" height="71"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4t1-jI-9xf" userLabel="Email Button Image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="4t1-jI-9xf" userLabel="Email Button Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="57" height="56.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="4t1-jI-9xf" secondAttribute="height" multiplier="1:1" id="vXM-kn-4Nb"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmu-29-CN4">
-                                                    <rect key="frame" x="0.0" y="57.5" width="57" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmu-29-CN4">
+                                                    <rect key="frame" x="0.0" y="57.5" width="57" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DWq-C6-v8Q" userLabel="Favorite Button">
-                                            <rect key="frame" x="197.5" y="0.0" width="56.5" height="73.5"/>
+                                            <rect key="frame" x="197.5" y="0.0" width="56.5" height="71"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o6n-Bs-VJS" userLabel="Favorite Button Image">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="o6n-Bs-VJS" userLabel="Favorite Button Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="56.5" height="56.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="o6n-Bs-VJS" secondAttribute="height" multiplier="1:1" id="1DD-oJ-ygZ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favorite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjo-ql-oaj" userLabel="Favorite">
-                                                    <rect key="frame" x="0.0" y="57.5" width="56.5" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favorite" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjo-ql-oaj" userLabel="Favorite">
+                                                    <rect key="frame" x="0.0" y="57.5" width="56.5" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -167,4 +173,7 @@
             <point key="canvasLocation" x="52.5" y="91.25"/>
         </view>
     </objects>
+    <resources>
+        <image name="default-contact-image" width="126" height="126"/>
+    </resources>
 </document>
