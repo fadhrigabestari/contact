@@ -14,7 +14,8 @@ class ContactDetailViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.separatorInset = .zero
+        self.backgroundColor = UIColor.clear
+        self.separatorInset.left = 15
         // Initialization code
     }
 

@@ -242,10 +242,9 @@
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IVL-Ds-84R">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="0.14701947773972604" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="IVL-Ds-84R" secondAttribute="trailing" id="KUf-cf-i3R"/>
                                 <constraint firstAttribute="bottom" secondItem="IVL-Ds-84R" secondAttribute="bottom" id="OzZ-N4-BCQ"/>
@@ -269,7 +268,7 @@
     </objects>
     <resources>
         <image name="call-icon" width="16.5" height="16.5"/>
-        <image name="default-contact-image" width="84" height="84"/>
+        <image name="default-contact-image" width="83" height="83"/>
         <image name="favorite-icon" width="16.5" height="16.5"/>
         <image name="mail-icon" width="16.5" height="16.5"/>
         <image name="message-icon" width="16.5" height="16.5"/>

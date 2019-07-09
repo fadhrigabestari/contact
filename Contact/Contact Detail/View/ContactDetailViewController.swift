@@ -40,11 +40,16 @@ class ContactDetailViewController: UIViewController {
         presenter?.startFetchingContactDetail(id: id!)
     }
     
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        self.contactDetailTableView.separatorInset.left = UIScreen.main.bounds.width
+        self.contactDetailTableView.reloadData()
+    }
+    
     private func setupTableView() {
         contactDetailTableView.dataSource = self
         contactDetailTableView.delegate = self
         contactDetailTableView.isScrollEnabled = false
-        contactDetailTableView.separatorStyle = .none
+        contactDetailTableView.separatorInset.left = UIScreen.main.bounds.width
     }
     
     private func setupButton() {
