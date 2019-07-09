@@ -24,6 +24,8 @@ class ContactDetailViewController: UIViewController {
     var categories = ["mobile", "email"]
     var contactDetail: ContactDetailView?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
