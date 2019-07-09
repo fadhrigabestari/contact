@@ -36,6 +36,7 @@ class ContactDetailViewController: UIViewController {
         self.profilePicture.roundImage()
         
         insertImageToIcon()
+        assignFunctionToIcon()
         presenter?.startFetchingContactDetail(id: id!)
         
         contactDetailTableView.dataSource = self
@@ -43,7 +44,7 @@ class ContactDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func insertImageToIcon() {        
+    func insertImageToIcon() {
         messageIcon.image = UIImage(named: "default-contact-image")
         callIcon.image = UIImage(named: "default-contact-image")
         emailIcon.image = UIImage(named: "default-contact-image")
@@ -54,6 +55,47 @@ class ContactDetailViewController: UIViewController {
         self.emailIcon.roundImage()
         self.favoriteIcon.roundImage()
     }
+    
+    func assignFunctionToIcon() {
+        var tap: UITapGestureRecognizer
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMessageIcon))
+        messageIcon.addGestureRecognizer(tap)
+        messageIcon.isUserInteractionEnabled = true
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedCallIcon))
+        callIcon.addGestureRecognizer(tap)
+        callIcon.isUserInteractionEnabled = true
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedEmailIcon))
+        emailIcon.addGestureRecognizer(tap)
+        emailIcon.isUserInteractionEnabled = true
+        
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedFavoriteIcon))
+//        favoriteIcon.addGestureRecognizer(tap)
+//        favoriteIcon.isUserInteractionEnabled = true
+    }
+    
+    @objc func tappedMessageIcon() {
+        guard let number = contactDetail?.phoneNumber else {
+            return
+        }
+        self.presenter?.onMessageButtonPressed(number: number)
+    }
+    
+    @objc func tappedCallIcon() {
+        guard let number = contactDetail?.phoneNumber else {
+            return
+        }
+        self.presenter?.onCallButtonPressed(number: number)
+    }
+    
+    @objc func tappedEmailIcon() {
+        guard let email = contactDetail?.email else {
+            return
+        }
+        self.presenter?.onEmailButtonPressed(email: email)
+    }
 }
 
 extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -63,6 +105,7 @@ extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactDetailCell") as! ContactDetailViewCell
+        cell.selectionStyle = .none
         
         switch(indexPath.row) {
         case 0:

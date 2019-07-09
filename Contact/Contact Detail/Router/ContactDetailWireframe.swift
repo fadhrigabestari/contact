@@ -21,20 +21,16 @@ class ContactDetailWireframe: IContactDetailWireframe {
         return view
     }
     
-    func pushToMessageScreen(navigationController: UINavigationController) {
-        //
+    func pushToMessageScreen(number: String) {
+        UIApplication.shared.open(URL(string: "sms:+\(number)")!, options: [:], completionHandler: nil)
     }
     
-    func pushToCallScreen(navigationController: UINavigationController) {
-        //
+    func pushToCallScreen(number: String) {
+        UIApplication.shared.open(URL(string: "tel:+\(number)")!, options: [:], completionHandler: nil)
     }
     
-    func pushToEmailScreen(navigationController: UINavigationController) {
-        //
-    }
-    
-    func pushToHomeScreen(navigationController: UINavigationController) {
-        //
+    func pushToEmailScreen(email: String) {
+        UIApplication.shared.open(URL(string: "mailto:+\(email)")!, options: [:], completionHandler: nil)
     }
     
     func pushToEditScreen(navigationController: UINavigationController) {

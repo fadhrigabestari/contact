@@ -14,11 +14,10 @@ protocol IContactDetailView: class {
 }
 
 protocol IContactDetailPresenter: class {
-    func onMessageButtonPressed(navigationController: UINavigationController)
-    func onCallButtonPressed(navigationController: UINavigationController)
-    func onEmailButtonPressed(navigationController: UINavigationController)
+    func onMessageButtonPressed(number: String)
+    func onCallButtonPressed(number: String)
+    func onEmailButtonPressed(email: String)
     func onFavoriteButtonPressed(navigationController: UINavigationController)
-    func onBackButtonPressed(navigationController: UINavigationController)
     func onEditButtonPressed(navigationController: UINavigationController)
     func startFetchingContactDetail(id: Int)
     func contactDetailFetchSuccess(contactDetail: ContactDetail)
@@ -33,9 +32,8 @@ protocol IContactDetailInteractor: class {
 
 protocol IContactDetailWireframe: class {
     func createModule() -> ContactDetailViewController
-    func pushToMessageScreen(navigationController: UINavigationController)
-    func pushToCallScreen(navigationController: UINavigationController)
-    func pushToEmailScreen(navigationController: UINavigationController)
-    func pushToHomeScreen(navigationController: UINavigationController)
+    func pushToMessageScreen(number: String)
+    func pushToCallScreen(number: String)
+    func pushToEmailScreen(email: String)
     func pushToEditScreen(navigationController: UINavigationController)
 }

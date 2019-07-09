@@ -20,23 +20,19 @@ class ContactDetailPresenter: IContactDetailPresenter {
         self.wireframe = wireframe
     }
     
-    func onMessageButtonPressed(navigationController: UINavigationController) {
-        //
+    func onMessageButtonPressed(number: String) {
+        wireframe?.pushToMessageScreen(number: number)
     }
     
-    func onCallButtonPressed(navigationController: UINavigationController) {
-        //
+    func onCallButtonPressed(number: String) {
+        wireframe?.pushToCallScreen(number: number)
     }
     
-    func onEmailButtonPressed(navigationController: UINavigationController) {
-        //
+    func onEmailButtonPressed(email: String) {
+        wireframe?.pushToEmailScreen(email: email)
     }
     
     func onFavoriteButtonPressed(navigationController: UINavigationController) {
-        //
-    }
-    
-    func onBackButtonPressed(navigationController: UINavigationController) {
         //
     }
     
