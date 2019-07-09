@@ -14,10 +14,10 @@ class ContactDetailViewController: UIViewController {
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fullName: UILabel!
-    @IBOutlet weak var messageIcon: UIButton!
-    @IBOutlet weak var callIcon: UIButton!
-    @IBOutlet weak var emailIcon: UIButton!
-    @IBOutlet weak var favoriteIcon: UIButton!
+    @IBOutlet weak var messageIcon: UIView!
+    @IBOutlet weak var callIcon: UIView!
+    @IBOutlet weak var emailIcon: UIView!
+    @IBOutlet weak var favoriteIcon: UIView!
     
     @IBOutlet weak var contactDetailTableView: UITableView!
     
@@ -44,7 +44,7 @@ class ContactDetailViewController: UIViewController {
         contactDetailTableView.dataSource = self
         contactDetailTableView.delegate = self
         contactDetailTableView.isScrollEnabled = false
-        contactDetailTableView.separatorInset = UIEdgeInsets(top: 0, left: self.view.bounds.width, bottom: 0, right: 0)
+        contactDetailTableView.separatorStyle = .none
     }
     
     private func setupButton() {
@@ -53,14 +53,20 @@ class ContactDetailViewController: UIViewController {
         applyRoundCorner(emailIcon)
         applyRoundCorner(favoriteIcon)
         
-        messageIcon.addTarget(self, action: #selector(self.tappedMessageIcon), for: .touchUpInside)
+        var tap: UITapGestureRecognizer
         
-        callIcon.addTarget(self, action: #selector(self.tappedCallIcon), for: .touchUpInside)
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMessageIcon))
+        messageIcon.addGestureRecognizer(tap)
+        messageIcon.isUserInteractionEnabled = true
         
-        emailIcon.addTarget(self, action: #selector(self.tappedEmailIcon), for: .touchUpInside)
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedCallIcon))
+        callIcon.addGestureRecognizer(tap)
+        callIcon.isUserInteractionEnabled = true
         
-//        favoriteIcon.addTarget(self, action: #selector(self.tappedFavoriteIcon), for: .touchUpInside)
-        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedEmailIcon))
+        emailIcon.addGestureRecognizer(tap)
+        emailIcon.isUserInteractionEnabled = true
+
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedFavoriteIcon))
 //        favoriteIcon.addGestureRecognizer(tap)
 //        favoriteIcon.isUserInteractionEnabled = true

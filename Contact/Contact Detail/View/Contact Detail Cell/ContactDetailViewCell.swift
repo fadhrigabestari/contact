@@ -14,6 +14,7 @@ class ContactDetailViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.separatorInset = .zero
         // Initialization code
     }
 
