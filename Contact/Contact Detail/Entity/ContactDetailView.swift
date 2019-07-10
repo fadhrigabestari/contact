@@ -14,4 +14,5 @@ struct ContactDetailView {
     var profilePic: String
     var phoneNumber: String
     var email: String
+    var isFavorite: Bool
 }

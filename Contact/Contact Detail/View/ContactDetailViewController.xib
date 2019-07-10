@@ -16,6 +16,7 @@
                 <outlet property="contactDetailTableView" destination="IVL-Ds-84R" id="zvk-Rz-lmk"/>
                 <outlet property="emailIcon" destination="BdA-4Z-zNr" id="UEG-42-AfY"/>
                 <outlet property="favoriteIcon" destination="rnz-md-SDc" id="hJV-y8-9vz"/>
+                <outlet property="favoriteIconImageView" destination="suQ-Sa-4Xl" id="ozZ-7q-EtT"/>
                 <outlet property="fullName" destination="LoD-sX-LDC" id="BOy-Ah-ORM"/>
                 <outlet property="messageIcon" destination="npC-GZ-GaU" id="R8C-x5-anz"/>
                 <outlet property="profilePicture" destination="pYi-tC-3bn" id="HIw-qR-za4"/>
@@ -193,7 +194,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnz-md-SDc">
                                                     <rect key="frame" x="5" y="0.0" width="40" height="40"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite-icon" translatesAutoresizingMaskIntoConstraints="NO" id="suQ-Sa-4Xl">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="non-favorite-icon-grey" translatesAutoresizingMaskIntoConstraints="NO" id="suQ-Sa-4Xl">
                                                             <rect key="frame" x="10" y="10" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="505-3D-BJk"/>
@@ -201,7 +202,7 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="suQ-Sa-4Xl" firstAttribute="centerY" secondItem="rnz-md-SDc" secondAttribute="centerY" id="A41-lM-hj2"/>
                                                         <constraint firstAttribute="width" constant="40" id="T3E-gY-Qu9"/>
@@ -269,8 +270,8 @@
     <resources>
         <image name="call-icon" width="16.5" height="16.5"/>
         <image name="default-contact-image" width="83" height="83"/>
-        <image name="favorite-icon" width="16.5" height="16.5"/>
         <image name="mail-icon" width="16.5" height="16.5"/>
         <image name="message-icon" width="16.5" height="16.5"/>
+        <image name="non-favorite-icon-grey" width="16.5" height="16.5"/>
     </resources>
 </document>

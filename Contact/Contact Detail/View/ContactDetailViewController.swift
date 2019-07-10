@@ -18,6 +18,7 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var callIcon: UIView!
     @IBOutlet weak var emailIcon: UIView!
     @IBOutlet weak var favoriteIcon: UIView!
+    @IBOutlet weak var favoriteIconImageView: UIImageView!
     
     @IBOutlet weak var contactDetailTableView: UITableView!
     

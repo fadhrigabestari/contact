@@ -17,6 +17,13 @@ extension ContactDetailViewController: IContactDetailView {
         } else {
             self.profilePicture.image = UIImage(named: "default-contact-image")
         }
+        if contactDetail.isFavorite {
+            self.favoriteIcon.backgroundColor = UIColor.white
+            self.favoriteIconImageView.image = UIImage(named: "non-favorite-icon-grey")
+        } else {
+            self.favoriteIcon.backgroundColor = UIColor.blue
+            self.favoriteIconImageView.image = UIImage(named: "favorite-icon")
+        }
         self.profilePicture.roundImage()
         self.fullName.text = "\(contactDetail.firstName) \(contactDetail.lastName)"
         self.contactDetail = contactDetail

@@ -50,7 +50,8 @@ class ContactDetailPresenter: IContactDetailPresenter {
             lastName: contactDetail.lastName,
             profilePic: contactDetail.profilePic,
             phoneNumber: contactDetail.phoneNumber,
-            email: contactDetail.email)
+            email: contactDetail.email,
+            isFavorite: contactDetail.isFavorite)
         view?.showContactDetail(contactDetail: contactDetailView)
     }
     
