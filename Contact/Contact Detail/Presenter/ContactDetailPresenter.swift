@@ -37,7 +37,7 @@ class ContactDetailPresenter: IContactDetailPresenter {
     }
     
     func onEditButtonPressed(navigationController: UINavigationController) {
-        //
+        wireframe?.pushToEditScreen(navigationController: navigationController)
     }
     
     func startFetchingContactDetail(id: Int) {

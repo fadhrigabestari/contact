@@ -34,6 +34,8 @@ class ContactDetailWireframe: IContactDetailWireframe {
     }
     
     func pushToEditScreen(navigationController: UINavigationController) {
-        //
+        let editContactDetailWireframe = EditContactDetailWireframe()
+        let editContactDetailViewController = editContactDetailWireframe.createModule()
+        navigationController.pushViewController(editContactDetailViewController, animated: true)
     }
 }

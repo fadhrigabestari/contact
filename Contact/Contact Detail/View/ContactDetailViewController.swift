@@ -53,7 +53,7 @@ class ContactDetailViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.tappedEditButton))
         self.navigationItem.rightBarButtonItem = editButton
     }
     
@@ -117,6 +117,10 @@ class ContactDetailViewController: UIViewController {
             return
         }
         self.presenter?.onEmailButtonPressed(email: email)
+    }
+    
+    @objc func tappedEditButton() {
+        self.presenter?.onEditButtonPressed(navigationController: self.navigationController!)
     }
 }
 
