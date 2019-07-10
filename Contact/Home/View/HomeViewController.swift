@@ -42,7 +42,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as! ContactViewCell
         
-        cell.contactImage.roundImage()
+        applyRoundCorner(cell.contactImage)
         
         let contact = contactCells[indexPath.row]
         

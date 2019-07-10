@@ -35,15 +35,15 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="pYi-tC-3bn" userLabel="Profile Picture">
-                                    <rect key="frame" x="106" y="8" width="108" height="108"/>
+                                    <rect key="frame" x="111" y="8" width="98" height="98"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="pYi-tC-3bn" secondAttribute="height" multiplier="1:1" id="0pT-aF-WEz"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoD-sX-LDC">
-                                    <rect key="frame" x="33" y="128" width="254" height="15"/>
+                                    <rect key="frame" x="33" y="118" width="254" height="25"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="15" id="3qZ-6F-Wh8"/>
+                                        <constraint firstAttribute="height" constant="25" id="3qZ-6F-Wh8"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                     <nil key="textColor"/>
