@@ -21,7 +21,7 @@ extension ContactDetailViewController: IContactDetailView {
             self.favoriteIcon.backgroundColor = UIColor.white
             self.favoriteIconImageView.image = UIImage(named: "non-favorite-icon-grey")
         } else {
-            self.favoriteIcon.backgroundColor = UIColor.blue
+            self.favoriteIcon.backgroundColor = "#50E3C2".toUIColor()
             self.favoriteIconImageView.image = UIImage(named: "favorite-icon")
         }
         self.profilePicture.roundImage()

@@ -12,6 +12,7 @@ class ContactDetailViewController: UIViewController {
     var id: Int?
     var presenter: IContactDetailPresenter?
     
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var messageIcon: UIView!
@@ -28,14 +29,8 @@ class ContactDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = editButton
-        
-        let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
-        self.contactDetailTableView.register(nib, forCellReuseIdentifier: "ContactDetailCell")
-        
-        self.profilePicture.roundImage()
-        
+        setupNavigationBar()
+        setupProfilePicture()
         setupTableView()
         setupButton()
         presenter?.startFetchingContactDetail(id: id!)
@@ -46,7 +41,32 @@ class ContactDetailViewController: UIViewController {
         self.contactDetailTableView.reloadData()
     }
     
+    private func setupTopView() {
+        let colorTop = "#FFFFFF".toUIColor()
+        let colorBottom = "#50E3C2".toUIColor().withAlphaComponent(0.28)
+        self.topView.alpha = 0.55
+        let gradient = CAGradientLayer()
+        
+        gradient.colors = [colorTop, colorBottom]
+        gradient.locations = [0.0, 1.0]
+        self.topView.layer.insertSublayer(gradient, at: 0)
+    }
+    
+    private func setupNavigationBar() {
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = editButton
+    }
+    
+    private func setupProfilePicture() {
+        self.profilePicture.roundImage()
+        self.profilePicture.layer.borderColor = UIColor.white.cgColor
+        self.profilePicture.layer.borderWidth = 3
+    }
+    
     private func setupTableView() {
+        let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
+        self.contactDetailTableView.register(nib, forCellReuseIdentifier: "ContactDetailCell")
+        
         contactDetailTableView.dataSource = self
         contactDetailTableView.delegate = self
         contactDetailTableView.isScrollEnabled = false
@@ -122,5 +142,9 @@ extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegat
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 54
     }
 }

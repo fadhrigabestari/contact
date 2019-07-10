@@ -13,38 +13,37 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="58" id="KGk-i7-Jjw" userLabel="Contact Detail View Cell" customClass="ContactDetailViewCell" customModule="Contact" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="327" height="58"/>
+            <rect key="frame" x="0.0" y="0.0" width="333" height="58"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="327" height="57.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="333" height="57.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mobile" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isb-S5-mxt">
-                        <rect key="frame" x="24" y="15" width="70" height="27.5"/>
+                        <rect key="frame" x="24" y="20" width="48.5" height="17.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="gUy-Qu-0VH"/>
+                            <constraint firstAttribute="width" constant="48.5" id="v3H-BN-LWB"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+6281340952530" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkU-yo-83O">
-                        <rect key="frame" x="112" y="15" width="199" height="27.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="104.5" y="20" width="206.5" height="17.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="Isb-S5-mxt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="6jz-xa-f6G"/>
-                    <constraint firstItem="Isb-S5-mxt" firstAttribute="baseline" secondItem="kkU-yo-83O" secondAttribute="baseline" id="B89-mY-zGz"/>
-                    <constraint firstItem="Isb-S5-mxt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="T7i-Ui-2e3"/>
-                    <constraint firstAttribute="bottom" secondItem="Isb-S5-mxt" secondAttribute="bottom" constant="15" id="UMo-9v-kco"/>
-                    <constraint firstAttribute="trailing" secondItem="kkU-yo-83O" secondAttribute="trailing" constant="16" id="cHI-PT-p0K"/>
-                    <constraint firstItem="Isb-S5-mxt" firstAttribute="firstBaseline" secondItem="kkU-yo-83O" secondAttribute="firstBaseline" id="i7u-7n-inO"/>
-                    <constraint firstItem="kkU-yo-83O" firstAttribute="leading" secondItem="Isb-S5-mxt" secondAttribute="trailing" constant="18" id="laH-cJ-gtW"/>
-                    <constraint firstItem="Isb-S5-mxt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sbc-IM-iHd"/>
+                    <constraint firstItem="kkU-yo-83O" firstAttribute="leading" secondItem="Isb-S5-mxt" secondAttribute="trailing" constant="32" id="Bh5-0G-EPe"/>
+                    <constraint firstAttribute="bottom" secondItem="Isb-S5-mxt" secondAttribute="bottom" constant="20" id="Jvz-s0-k7R"/>
+                    <constraint firstItem="kkU-yo-83O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="aGJ-Kw-Fnb"/>
+                    <constraint firstAttribute="trailing" secondItem="kkU-yo-83O" secondAttribute="trailing" constant="22" id="ef0-uC-Q9Q"/>
+                    <constraint firstItem="Isb-S5-mxt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="lJA-dP-YyI"/>
+                    <constraint firstItem="Isb-S5-mxt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="tzq-qb-Ds3"/>
+                    <constraint firstAttribute="bottom" secondItem="kkU-yo-83O" secondAttribute="bottom" constant="20" id="yyV-3G-2PP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -52,7 +51,7 @@
                 <outlet property="contactDetailCategory" destination="Isb-S5-mxt" id="7vC-Vh-HQV"/>
                 <outlet property="contactDetailLabel" destination="kkU-yo-83O" id="Te8-9m-jp2"/>
             </connections>
-            <point key="canvasLocation" x="143.19999999999999" y="160.11994002998503"/>
+            <point key="canvasLocation" x="148" y="151.12443778110946"/>
         </tableViewCell>
     </objects>
 </document>

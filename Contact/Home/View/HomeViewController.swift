@@ -19,18 +19,27 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Contact"
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-        let groupsButton = UIBarButtonItem(title: "Groups", style: .plain, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = addButton
-        self.navigationItem.leftBarButtonItem = groupsButton
-        let nib = UINib(nibName: "ContactViewCell", bundle: nil)
-        self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
-        
+        setupNavigationBar()
+        setupTableView()
         presenter?.startFetchingContacts()
         
         contactTableView.dataSource = self
         contactTableView.delegate = self
+    }
+    
+    private func setupNavigationBar() {
+        self.title = "Contact"
+        self.navigationController?.navigationBar.tintColor = "#50E3C2".toUIColor()
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let groupsButton = UIBarButtonItem(title: "Groups", style: .plain, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.leftBarButtonItem = groupsButton
+    }
+    
+    private func setupTableView() {
+        let nib = UINib(nibName: "ContactViewCell", bundle: nil)
+        self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
     }
 }
 
@@ -62,5 +71,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.onContactsCellPressed(navigationController: navigationController!, id: contactCells[indexPath.row].id)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
     }
 }
