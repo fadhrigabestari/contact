@@ -21,7 +21,7 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var favoriteIcon: UIView!
     @IBOutlet weak var favoriteIconImageView: UIImageView!
     
-    @IBOutlet weak var contactDetailTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var categories = ["mobile", "email"]
     var contactDetail: ContactDetailView?
@@ -37,8 +37,8 @@ class ContactDetailViewController: UIViewController {
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        self.contactDetailTableView.separatorInset.left = UIScreen.main.bounds.width
-        self.contactDetailTableView.reloadData()
+        self.tableView.separatorInset.left = UIScreen.main.bounds.width
+        self.tableView.reloadData()
     }
     
     private func setupNavigationBar() {
@@ -58,14 +58,14 @@ class ContactDetailViewController: UIViewController {
     
     private func setupTableView() {
         let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
-        self.contactDetailTableView.register(nib, forCellReuseIdentifier: "ContactDetailCell")
-        self.contactDetailTableView.rowHeight = UITableViewAutomaticDimension
-        self.contactDetailTableView.estimatedRowHeight = 54
+        self.tableView.register(nib, forCellReuseIdentifier: "ContactDetailCell")
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 54
         
-        contactDetailTableView.dataSource = self
-        contactDetailTableView.delegate = self
-        contactDetailTableView.isScrollEnabled = false
-        contactDetailTableView.separatorInset.left = UIScreen.main.bounds.width
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.isScrollEnabled = false
+        tableView.separatorInset.left = UIScreen.main.bounds.width
     }
     
     private func setupButton() {

@@ -15,7 +15,7 @@ class EditContactDetailViewController: UIViewController {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var cameraIcon: UIView!
     
-    @IBOutlet weak var editContactDetailTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +44,9 @@ class EditContactDetailViewController: UIViewController {
     
     private func setupTableView() {
         let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
-        editContactDetailTableView.register(nib, forCellReuseIdentifier: "EditContactCell")
-        self.editContactDetailTableView.delegate = self
-        self.editContactDetailTableView.dataSource = self
+        tableView.register(nib, forCellReuseIdentifier: "EditContactCell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     @objc private func tappedCancelButton() {
@@ -60,11 +60,12 @@ extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = editContactDetailTableView.dequeueReusableCell(withIdentifier: "EditContactCell", for: indexPath) as! ContactDetailViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EditContactCell", for: indexPath) as! ContactDetailViewCell
         
         switch(indexPath.row) {
-        case 0:
-            cell.firstName
+        default: break
         }
+        
+        return cell
     }
 }

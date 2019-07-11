@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,13 +9,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactDetailViewController" customModule="Contact" customModuleProvider="target">
             <connections>
                 <outlet property="callIcon" destination="aU2-I1-Cgh" id="SvV-0Z-C3l"/>
-                <outlet property="contactDetailTableView" destination="IVL-Ds-84R" id="zvk-Rz-lmk"/>
                 <outlet property="emailIcon" destination="vpB-mn-Da4" id="v1j-UW-8qf"/>
                 <outlet property="favoriteIcon" destination="87d-0c-k4E" id="YBW-Kd-eCR"/>
                 <outlet property="favoriteIconImageView" destination="j5Z-Nm-a91" id="2C8-nF-k0D"/>
                 <outlet property="fullName" destination="LoD-sX-LDC" id="BOy-Ah-ORM"/>
                 <outlet property="messageIcon" destination="npC-GZ-GaU" id="R8C-x5-anz"/>
                 <outlet property="profilePicture" destination="pYi-tC-3bn" id="HIw-qR-za4"/>
+                <outlet property="tableView" destination="IVL-Ds-84R" id="zvk-Rz-lmk"/>
                 <outlet property="topView" destination="iGv-Nm-nYG" id="aju-Md-yY3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

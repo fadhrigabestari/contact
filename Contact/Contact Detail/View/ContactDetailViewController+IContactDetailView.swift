@@ -27,6 +27,6 @@ extension ContactDetailViewController: IContactDetailView {
         self.profilePicture.roundImage()
         self.fullName.text = "\(contactDetail.firstName) \(contactDetail.lastName)"
         self.contactDetail = contactDetail
-        self.contactDetailTableView.reloadData()
+        self.tableView.reloadData()
     }
 }

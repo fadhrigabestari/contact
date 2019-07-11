@@ -12,7 +12,7 @@ import Alamofire
 class HomeViewController: UIViewController {
     var presenter: HomeViewToPresenterProtocol?
 
-    @IBOutlet weak var contactTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var contactCells: [ContactCell] = []
     
@@ -23,8 +23,8 @@ class HomeViewController: UIViewController {
         setupTableView()
         presenter?.startFetchingContacts()
         
-        contactTableView.dataSource = self
-        contactTableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func setupNavigationBar() {
@@ -39,9 +39,9 @@ class HomeViewController: UIViewController {
     
     private func setupTableView() {
         let nib = UINib(nibName: "ContactViewCell", bundle: nil)
-        self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
-        self.contactTableView.rowHeight = UITableViewAutomaticDimension
-        self.contactTableView.estimatedRowHeight = 64
+        self.tableView.register(nib, forCellReuseIdentifier: "ContactCell")
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 64
     }
 }
 
