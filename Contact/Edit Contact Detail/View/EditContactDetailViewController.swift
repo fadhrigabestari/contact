@@ -27,6 +27,8 @@ class EditContactDetailViewController: UIViewController {
         setupNavigationBar()
         setupProfilePicture()
         setupTableView()
+        setupNotificationCenter()
+        setupTapRecognizer()
         // Do any additional setup after loading the view.
     }
     
@@ -75,6 +77,40 @@ class EditContactDetailViewController: UIViewController {
     @objc private func tappedCancelButton() {
         self.presenter?.onCancelButtonPressed(navigationController: self.navigationController!)
     }
+    
+    private func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= keyboardFrame.height
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += keyboardFrame.height
+        }
+    }
+    
+    private func setupTapRecognizer() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedView))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tappedView() {
+        view.endEditing(true)
+    }
 }
 
 extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -88,8 +124,23 @@ extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataS
         
         cell.category.text = rows[indexPath.row].category
         cell.textField.text = rows[indexPath.row].value
+        cell.textField.tag = indexPath.row
         cell.textField.placeholder = rows[indexPath.row].placeholder
+        cell.textFieldDelegate = self
         
         return cell
+    }
+}
+
+extension EditContactDetailViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(textField.tag+1)
+        if let next = tableView.viewWithTag(textField.tag + 1) as? UITextField {
+            next.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        
+        return true
     }
 }
