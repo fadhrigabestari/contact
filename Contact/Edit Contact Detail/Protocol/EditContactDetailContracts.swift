@@ -20,6 +20,7 @@ protocol IEditContactDetailPresenter: class {
     func onEditPictureButtonPressed()
     func sendEditedContactDetailSuccess(contact: ContactDetailView)
     func sendEditedContactDetailFailed()
+    func onCancelButtonPressed(navigationController: UINavigationController)
 }
 
 protocol IEditContactDetailInteractor: class {
@@ -31,5 +32,5 @@ protocol IEditContactDetailInteractor: class {
 protocol IEditContactDetailWireframe: class {
     func createModule() -> EditContactDetailViewController
     
-    func pushToContactDetailScreen()
+    func pushToContactDetailScreen(navigationController: UINavigationController)
 }

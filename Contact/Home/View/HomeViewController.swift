@@ -40,6 +40,8 @@ class HomeViewController: UIViewController {
     private func setupTableView() {
         let nib = UINib(nibName: "ContactViewCell", bundle: nil)
         self.contactTableView.register(nib, forCellReuseIdentifier: "ContactCell")
+        self.contactTableView.rowHeight = UITableViewAutomaticDimension
+        self.contactTableView.estimatedRowHeight = 64
     }
 }
 
@@ -71,9 +73,5 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.onContactsCellPressed(navigationController: navigationController!, id: contactCells[indexPath.row].id)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
     }
 }

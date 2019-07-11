@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class EditContactDetailPresenter: IEditContactDetailPresenter {
     weak var view: IEditContactDetailView?
@@ -33,5 +34,9 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
     
     func sendEditedContactDetailFailed() {
         view?.showSendEditedContactDetailError()
+    }
+    
+    func onCancelButtonPressed(navigationController: UINavigationController) {
+        wireframe?.pushToContactDetailScreen(navigationController: navigationController)
     }
 }

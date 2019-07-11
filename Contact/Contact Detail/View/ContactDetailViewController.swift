@@ -41,20 +41,13 @@ class ContactDetailViewController: UIViewController {
         self.contactDetailTableView.reloadData()
     }
     
-    private func setupTopView() {
-        let colorTop = "#FFFFFF".toUIColor()
-        let colorBottom = "#50E3C2".toUIColor().withAlphaComponent(0.28)
-        self.topView.alpha = 0.55
-        let gradient = CAGradientLayer()
-        
-        gradient.colors = [colorTop, colorBottom]
-        gradient.locations = [0.0, 1.0]
-        self.topView.layer.insertSublayer(gradient, at: 0)
-    }
-    
     private func setupNavigationBar() {
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.tappedEditButton))
         self.navigationItem.rightBarButtonItem = editButton
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     private func setupProfilePicture() {
@@ -66,6 +59,8 @@ class ContactDetailViewController: UIViewController {
     private func setupTableView() {
         let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
         self.contactDetailTableView.register(nib, forCellReuseIdentifier: "ContactDetailCell")
+        self.contactDetailTableView.rowHeight = UITableViewAutomaticDimension
+        self.contactDetailTableView.estimatedRowHeight = 54
         
         contactDetailTableView.dataSource = self
         contactDetailTableView.delegate = self
@@ -146,9 +141,5 @@ extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegat
         }
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 54
     }
 }

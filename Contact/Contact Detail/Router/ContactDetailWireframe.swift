@@ -36,6 +36,7 @@ class ContactDetailWireframe: IContactDetailWireframe {
     func pushToEditScreen(navigationController: UINavigationController) {
         let editContactDetailWireframe = EditContactDetailWireframe()
         let editContactDetailViewController = editContactDetailWireframe.createModule()
+        navigationController.navigationItem.hidesBackButton = true
         navigationController.pushViewController(editContactDetailViewController, animated: true)
     }
 }

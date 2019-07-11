@@ -22,7 +22,7 @@ class EditContactDetailWireframe: IEditContactDetailWireframe {
         return view
     }
     
-    func pushToContactDetailScreen() {
-        //
+    func pushToContactDetailScreen(navigationController: UINavigationController) {
+        _ = navigationController.popViewController(animated: true)
     }
 }

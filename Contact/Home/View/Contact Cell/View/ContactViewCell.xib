@@ -20,18 +20,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="fadhriga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ci-Wm-dxW">
-                        <rect key="frame" x="72" y="24" width="194" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="yxu-I2-zyy"/>
-                        </constraints>
+                        <rect key="frame" x="75.5" y="24" width="190.5" height="20.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="waW-ic-372">
-                        <rect key="frame" x="16" y="12" width="40" height="40"/>
+                        <rect key="frame" x="16" y="12" width="43.5" height="43.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="RWW-SS-GLZ"/>
+                            <constraint firstAttribute="width" secondItem="waW-ic-372" secondAttribute="height" multiplier="1:1" id="66y-ja-Ccj"/>
                             <constraint firstAttribute="width" constant="40" id="j2M-y9-O7W"/>
                         </constraints>
                     </imageView>
