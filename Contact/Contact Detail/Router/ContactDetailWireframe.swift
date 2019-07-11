@@ -33,9 +33,16 @@ class ContactDetailWireframe: IContactDetailWireframe {
         UIApplication.shared.open(URL(string: "mailto:+\(email)")!, options: [:], completionHandler: nil)
     }
     
-    func pushToEditScreen(navigationController: UINavigationController) {
+    func pushToEditScreen(navigationController: UINavigationController, contact: ContactDetailEntity) {
         let editContactDetailWireframe = EditContactDetailWireframe()
         let editContactDetailViewController = editContactDetailWireframe.createModule()
+        
+        let contact = EditContactDetailEntity(firstName: contact.firstName, lastName: contact.lastName, profilePic: contact.profilePic, phoneNumber: contact.phoneNumber, email: contact.email)
+        editContactDetailViewController.contact = contact
+        editContactDetailViewController.rows.append(("First Name", contact.firstName, "John"))
+        editContactDetailViewController.rows.append(("Last Name", contact.lastName, "Doe"))
+        editContactDetailViewController.rows.append(("mobile", contact.phoneNumber, "+81234567890"))
+        editContactDetailViewController.rows.append(("email", contact.email, "john.doe@gmail.com"))
         navigationController.navigationItem.hidesBackButton = true
         navigationController.pushViewController(editContactDetailViewController, animated: true)
     }

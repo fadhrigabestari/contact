@@ -11,7 +11,7 @@ import Foundation
 class EditContactDetailInteractor: IEditContactDetailInteractor {
     var presenter: IEditContactDetailPresenter?
     
-    func sendEditedContactDetail(contact: ContactDetailView) {
+    func sendEditedContactDetail(contact: ContactDetailEntity) {
         //
     }
 }

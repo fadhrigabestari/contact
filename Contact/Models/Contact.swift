@@ -12,15 +12,19 @@ struct Contact: Codable {
     var id: Int
     var firstName: String
     var lastName: String
+    var email: String?
     var profilePic: String
+    var phoneNumber: String?
     var isFavorite: Bool
-    var url: String
+    var url: String?
     
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
         case lastName = "last_name"
+        case email
         case profilePic = "profile_pic"
+        case phoneNumber = "phone_number"
         case isFavorite = "favorite"
         case url
     }

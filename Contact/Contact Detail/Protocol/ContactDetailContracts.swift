@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol IContactDetailView: class {
-    func showContactDetail(contactDetail: ContactDetailView)
+    func showContactDetail(contact: ContactDetailEntity)
 }
 
 protocol IContactDetailPresenter: class {
@@ -18,9 +18,9 @@ protocol IContactDetailPresenter: class {
     func onCallButtonPressed(number: String)
     func onEmailButtonPressed(email: String)
     func onFavoriteButtonPressed(navigationController: UINavigationController)
-    func onEditButtonPressed(navigationController: UINavigationController)
+    func onEditButtonPressed(navigationController: UINavigationController, contact: ContactDetailEntity)
     func startFetchingContactDetail(id: Int)
-    func contactDetailFetchSuccess(contactDetail: ContactDetail)
+    func contactDetailFetchSuccess(contact: ContactDetail)
     func contactDetailFetchFailed()
 }
 
@@ -35,5 +35,5 @@ protocol IContactDetailWireframe: class {
     func pushToMessageScreen(number: String)
     func pushToCallScreen(number: String)
     func pushToEmailScreen(email: String)
-    func pushToEditScreen(navigationController: UINavigationController)
+    func pushToEditScreen(navigationController: UINavigationController, contact: ContactDetailEntity)
 }

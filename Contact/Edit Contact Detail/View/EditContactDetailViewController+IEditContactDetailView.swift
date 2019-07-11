@@ -13,7 +13,7 @@ extension EditContactDetailViewController: IEditContactDetailView {
         //
     }
     
-    func showEditedContactDetail(contact: ContactDetailView) {
+    func showEditedContactDetail(contact: ContactDetailEntity) {
         //
     }
     

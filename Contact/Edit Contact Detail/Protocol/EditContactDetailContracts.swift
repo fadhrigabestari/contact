@@ -11,14 +11,14 @@ import UIKit
 
 protocol IEditContactDetailView: class {
     func showEditedProfilePicture()
-    func showEditedContactDetail(contact: ContactDetailView)
+    func showEditedContactDetail(contact: ContactDetailEntity)
     func showSendEditedContactDetailError()
 }
 
 protocol IEditContactDetailPresenter: class {
-    func onDoneButtonPressed(contact: ContactDetailView)
+    func onDoneButtonPressed(contact: ContactDetailEntity)
     func onEditPictureButtonPressed()
-    func sendEditedContactDetailSuccess(contact: ContactDetailView)
+    func sendEditedContactDetailSuccess(contact: ContactDetailEntity)
     func sendEditedContactDetailFailed()
     func onCancelButtonPressed(navigationController: UINavigationController)
 }
@@ -26,7 +26,7 @@ protocol IEditContactDetailPresenter: class {
 protocol IEditContactDetailInteractor: class {
     var presenter: IEditContactDetailPresenter? {get set}
     
-    func sendEditedContactDetail(contact: ContactDetailView)
+    func sendEditedContactDetail(contact: ContactDetailEntity)
 }
 
 protocol IEditContactDetailWireframe: class {

@@ -17,6 +17,10 @@ class EditContactDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var contact: EditContactDetailEntity?
+    typealias RowItem = (category: String, value: String, placeholder: String)
+    var rows = [RowItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +28,10 @@ class EditContactDetailViewController: UIViewController {
         setupProfilePicture()
         setupTableView()
         // Do any additional setup after loading the view.
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
     }
     
     private func setupNavigationBar() {
@@ -35,6 +43,15 @@ class EditContactDetailViewController: UIViewController {
     }
     
     private func setupProfilePicture() {
+        guard let profilePic = contact?.profilePic else {
+            return
+        }
+        
+        if profilePic.isValidURL {
+            self.profilePicture.load(url: URL(string: profilePic)!)
+        } else {
+            self.profilePicture.image = UIImage(named: "default-contact-image")
+        }
         applyRoundCorner(self.profilePicture)
         applyRoundCorner(self.cameraIcon)
         
@@ -43,8 +60,14 @@ class EditContactDetailViewController: UIViewController {
     }
     
     private func setupTableView() {
-        let nib = UINib(nibName: "ContactDetailViewCell", bundle: nil)
+        let nib = UINib(nibName: "EditContactDetailViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "EditContactCell")
+        
+        tableView.isScrollEnabled = false
+        tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 54
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -56,15 +79,16 @@ class EditContactDetailViewController: UIViewController {
 
 extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EditContactCell", for: indexPath) as! ContactDetailViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EditContactCell", for: indexPath) as! EditContactDetailViewCell
+        cell.selectionStyle = .none
         
-        switch(indexPath.row) {
-        default: break
-        }
+        cell.category.text = rows[indexPath.row].category
+        cell.textField.text = rows[indexPath.row].value
+        cell.textField.placeholder = rows[indexPath.row].placeholder
         
         return cell
     }

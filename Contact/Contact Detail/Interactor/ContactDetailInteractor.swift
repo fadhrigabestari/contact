@@ -35,7 +35,7 @@ class ContactDetailInteractor: IContactDetailInteractor {
             
             do {
                 let contactDetailDecoded = try JSONDecoder().decode(ContactDetail.self, from: contactDetail)
-                self.presenter?.contactDetailFetchSuccess(contactDetail: contactDetailDecoded)
+                self.presenter?.contactDetailFetchSuccess(contact: contactDetailDecoded)
                 return
             } catch {
                 print(error)

@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var contactCells: [ContactCell] = []
+    var contacts: [ContactEntity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactCells.count
+        return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +55,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         applyRoundCorner(cell.contactImage)
         
-        let contact = contactCells[indexPath.row]
+        let contact = contacts[indexPath.row]
         
         cell.selectionStyle = .none
         cell.contactName.text = contact.name
@@ -72,6 +72,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.onContactsCellPressed(navigationController: navigationController!, id: contactCells[indexPath.row].id)
+        presenter?.onContactsCellPressed(navigationController: navigationController!, id: contacts[indexPath.row].id)
     }
 }

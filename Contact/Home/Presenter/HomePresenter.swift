@@ -37,24 +37,24 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
     }
     
     func contactsFetchSuccess(contacts: [Contact]) {
-        view?.showContacts(contactCells: streamlineContact(contacts: contacts))
+        view?.showContacts(contacts: streamlineContact(contacts: contacts))
     }
     
     func contactsFetchFailed() {
         // view?.showFail()
     }
     
-    func streamlineContact(contacts: [Contact]) -> [ContactCell] {
-        let contactCells = contacts.map { (contact) -> ContactCell in
+    func streamlineContact(contacts: [Contact]) -> [ContactEntity] {
+        let contactEntities = contacts.map { (contact) -> ContactEntity in
             let name = "\(contact.firstName) \(contact.lastName)"
             let isFavorite = contact.isFavorite
-            let contactCell = ContactCell(id: contact.id,
+            let contactEntity = ContactEntity(id: contact.id,
                                           name: name,
                                           profilePic: contact.profilePic,
                                           isFavorite: isFavorite)
-            return contactCell
+            return contactEntity
         }
         
-        return contactCells
+        return contactEntities
     }
 }

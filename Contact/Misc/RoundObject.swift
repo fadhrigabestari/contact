@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 func applyRoundCorner(_ object: AnyObject) {
-    object.layer.cornerRadius = object.frame.size.width / 2
+    object.layer.cornerRadius = object.frame.width / 2
     object.layer.masksToBounds = true
 }

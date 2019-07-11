@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ContactCell {
+struct ContactEntity {
     let id: Int
     let name: String
     let profilePic: String

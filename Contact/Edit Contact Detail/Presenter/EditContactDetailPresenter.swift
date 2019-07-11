@@ -20,7 +20,7 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
         self.wireframe = wireframe
     }
     
-    func onDoneButtonPressed(contact: ContactDetailView) {
+    func onDoneButtonPressed(contact: ContactDetailEntity) {
         interactor?.sendEditedContactDetail(contact: contact)
     }
     
@@ -28,7 +28,7 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
         view?.showEditedProfilePicture()
     }
     
-    func sendEditedContactDetailSuccess(contact: ContactDetailView) {
+    func sendEditedContactDetailSuccess(contact: ContactDetailEntity) {
         view?.showEditedContactDetail(contact: contact)
     }
     

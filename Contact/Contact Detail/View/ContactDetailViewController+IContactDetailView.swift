@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 extension ContactDetailViewController: IContactDetailView {
-    func showContactDetail(contactDetail: ContactDetailView) {
-        if contactDetail.profilePic.isValidURL {
-            let url = URL(string: contactDetail.profilePic)!
-            self.profilePicture.load(url: url)
+    func showContactDetail(contact: ContactDetailEntity) {
+        self.contact = contact
+        if contact.profilePic.isValidURL {
+            self.profilePicture.load(url: URL(string: contact.profilePic)!)
         } else {
             self.profilePicture.image = UIImage(named: "default-contact-image")
         }
-        if contactDetail.isFavorite {
+        if contact.isFavorite {
             self.favoriteIcon.backgroundColor = UIColor.white
             self.favoriteIconImageView.image = UIImage(named: "non-favorite-icon-grey")
         } else {
@@ -25,8 +25,10 @@ extension ContactDetailViewController: IContactDetailView {
             self.favoriteIconImageView.image = UIImage(named: "favorite-icon")
         }
         self.profilePicture.roundImage()
-        self.fullName.text = "\(contactDetail.firstName) \(contactDetail.lastName)"
-        self.contactDetail = contactDetail
+        self.fullName.text = "\(contact.firstName) \(contact.lastName)"
+        
+        self.rows.append(("mobile", contact.phoneNumber))
+        self.rows.append(("email", contact.email))
         self.tableView.reloadData()
     }
 }

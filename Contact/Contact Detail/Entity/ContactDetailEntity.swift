@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ContactDetailView {
+struct ContactDetailEntity {
     var firstName: String
     var lastName: String
     var profilePic: String

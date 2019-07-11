@@ -23,8 +23,9 @@ class ContactDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var categories = ["mobile", "email"]
-    var contactDetail: ContactDetailView?
+    var contact: ContactDetailEntity?
+    typealias RowItem = (category: String, value: String)
+    var rows = [RowItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,51 +95,42 @@ class ContactDetailViewController: UIViewController {
     }
     
     @objc func tappedMessageIcon() {
-        guard let number = contactDetail?.phoneNumber else {
+        guard let number = contact?.phoneNumber else {
             return
         }
         self.presenter?.onMessageButtonPressed(number: number)
     }
     
     @objc func tappedCallIcon() {
-        guard let number = contactDetail?.phoneNumber else {
+        guard let number = contact?.phoneNumber else {
             return
         }
         self.presenter?.onCallButtonPressed(number: number)
     }
     
     @objc func tappedEmailIcon() {
-        guard let email = contactDetail?.email else {
+        guard let email = contact?.email else {
             return
         }
         self.presenter?.onEmailButtonPressed(email: email)
     }
     
     @objc func tappedEditButton() {
-        self.presenter?.onEditButtonPressed(navigationController: self.navigationController!)
+        self.presenter?.onEditButtonPressed(navigationController: self.navigationController!, contact: self.contact!)
     }
 }
 
 extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactDetailCell") as! ContactDetailViewCell
         cell.selectionStyle = .none
         
-        switch(indexPath.row) {
-        case 0:
-            cell.contactDetailCategory.text = "mobile"
-            cell.contactDetailLabel.text = contactDetail?.phoneNumber
-            break
-        case 1:
-            cell.contactDetailCategory.text = "email"
-            cell.contactDetailLabel.text = contactDetail?.email
-            break
-        default: break
-        }
+        cell.contactDetailCategory.text = rows[indexPath.row].category
+        cell.contactDetailLabel.text = rows[indexPath.row].value
         
         return cell
     }

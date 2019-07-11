@@ -36,23 +36,24 @@ class ContactDetailPresenter: IContactDetailPresenter {
         //
     }
     
-    func onEditButtonPressed(navigationController: UINavigationController) {
-        wireframe?.pushToEditScreen(navigationController: navigationController)
+    func onEditButtonPressed(navigationController: UINavigationController, contact: ContactDetailEntity) {
+        wireframe?.pushToEditScreen(navigationController: navigationController, contact: contact)
     }
     
     func startFetchingContactDetail(id: Int) {
         interactor?.fetchContactDetail(id: id)
     }
     
-    func contactDetailFetchSuccess(contactDetail: ContactDetail) {
-        let contactDetailView = ContactDetailView(
-            firstName: contactDetail.firstName,
-            lastName: contactDetail.lastName,
-            profilePic: contactDetail.profilePic,
-            phoneNumber: contactDetail.phoneNumber,
-            email: contactDetail.email,
-            isFavorite: contactDetail.isFavorite)
-        view?.showContactDetail(contactDetail: contactDetailView)
+    func contactDetailFetchSuccess(contact: ContactDetail) {
+        let contact = ContactDetailEntity(
+            firstName: contact.firstName,
+            lastName: contact.lastName,
+            profilePic: contact.profilePic,
+            phoneNumber: contact.phoneNumber,
+            email: contact.email,
+            isFavorite: contact.isFavorite)
+        
+        view?.showContactDetail(contact: contact)
     }
     
     func contactDetailFetchFailed() {
