@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias RowItemContactDetail = (category: String, value: String)
+
 struct ContactDetailEntity {
     var firstName: String
     var lastName: String
@@ -15,4 +17,5 @@ struct ContactDetailEntity {
     var phoneNumber: String
     var email: String
     var isFavorite: Bool
+    var rows: [RowItemContactDetail]
 }

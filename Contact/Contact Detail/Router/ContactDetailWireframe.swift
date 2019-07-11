@@ -37,12 +37,12 @@ class ContactDetailWireframe: IContactDetailWireframe {
         let editContactDetailWireframe = EditContactDetailWireframe()
         let editContactDetailViewController = editContactDetailWireframe.createModule()
         
-        let contact = EditContactDetailEntity(firstName: contact.firstName, lastName: contact.lastName, profilePic: contact.profilePic, phoneNumber: contact.phoneNumber, email: contact.email)
+        let rows = [("First Name", contact.firstName, "John"),
+                    ("Last Name", contact.lastName, "Doe"),
+                    ("mobile", contact.phoneNumber, "+81234567890"),
+                    ("email", contact.email, "john.doe@gmail.com")]
+        let contact = EditContactDetailEntity(firstName: contact.firstName, lastName: contact.lastName, profilePic: contact.profilePic, phoneNumber: contact.phoneNumber, email: contact.email, rows: rows)
         editContactDetailViewController.contact = contact
-        editContactDetailViewController.rows.append(("First Name", contact.firstName, "John"))
-        editContactDetailViewController.rows.append(("Last Name", contact.lastName, "Doe"))
-        editContactDetailViewController.rows.append(("mobile", contact.phoneNumber, "+81234567890"))
-        editContactDetailViewController.rows.append(("email", contact.email, "john.doe@gmail.com"))
         navigationController.navigationItem.hidesBackButton = true
         navigationController.pushViewController(editContactDetailViewController, animated: true)
     }

@@ -51,7 +51,9 @@ class ContactDetailPresenter: IContactDetailPresenter {
             profilePic: contact.profilePic,
             phoneNumber: contact.phoneNumber,
             email: contact.email,
-            isFavorite: contact.isFavorite)
+            isFavorite: contact.isFavorite,
+            rows: [("mobile", contact.phoneNumber),
+                   ("email", contact.email)])
         
         view?.showContactDetail(contact: contact)
     }

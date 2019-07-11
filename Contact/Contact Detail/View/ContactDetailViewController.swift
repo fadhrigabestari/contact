@@ -24,8 +24,6 @@ class ContactDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var contact: ContactDetailEntity?
-    typealias RowItem = (category: String, value: String)
-    var rows = [RowItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,15 +120,15 @@ class ContactDetailViewController: UIViewController {
 
 extension ContactDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rows.count
+        return contact?.rows.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactDetailCell") as! ContactDetailViewCell
         cell.selectionStyle = .none
         
-        cell.contactDetailCategory.text = rows[indexPath.row].category
-        cell.contactDetailLabel.text = rows[indexPath.row].value
+        cell.contactDetailCategory.text = contact?.rows[indexPath.row].category
+        cell.contactDetailLabel.text = contact?.rows[indexPath.row].value
         
         return cell
     }

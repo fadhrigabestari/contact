@@ -17,9 +17,7 @@ class EditContactDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var contact: EditContactDetailEntity?
-    typealias RowItem = (category: String, value: String, placeholder: String)
-    var rows = [RowItem]()
+    var contact: EditContactDetailEntity!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,17 +113,17 @@ class EditContactDetailViewController: UIViewController {
 
 extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.rows.count
+        return self.contact.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EditContactCell", for: indexPath) as! EditContactDetailViewCell
         cell.selectionStyle = .none
         
-        cell.category.text = rows[indexPath.row].category
-        cell.textField.text = rows[indexPath.row].value
         cell.textField.tag = indexPath.row
-        cell.textField.placeholder = rows[indexPath.row].placeholder
+        cell.category.text = contact.rows[indexPath.row].category
+        cell.textField.text = contact.rows[indexPath.row].value
+        cell.textField.placeholder = contact.rows[indexPath.row].placeholder
         cell.textFieldDelegate = self
         
         return cell
@@ -135,8 +133,8 @@ extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataS
 extension EditContactDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(textField.tag+1)
-        if let next = tableView.viewWithTag(textField.tag + 1) as? UITextField {
-            next.becomeFirstResponder()
+        if let nextTextField = tableView.viewWithTag(textField.tag + 1) as? UITextField {
+            nextTextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
         }
