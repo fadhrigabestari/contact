@@ -72,8 +72,12 @@ class EditContactDetailViewController: UIViewController {
         self.tableView.dataSource = self
     }
     
-    @objc private func tappedCancelButton() {
+    @objc func tappedCancelButton() {
         self.presenter?.onCancelButtonPressed(navigationController: self.navigationController!)
+    }
+    
+    @objc func tappedDoneButton() {
+        self.presenter?.onDoneButtonPressed(contact: contact)
     }
     
     private func setupNotificationCenter() {

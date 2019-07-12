@@ -34,7 +34,9 @@ class ContactDetailInteractor: IContactDetailInteractor {
             }
             
             do {
-                let contactDetailDecoded = try JSONDecoder().decode(ContactDetail.self, from: contactDetail)
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                let contactDetailDecoded = try decoder.decode(Contact.self, from: contactDetail)
                 self.presenter?.contactDetailFetchSuccess(contact: contactDetailDecoded)
                 return
             } catch {

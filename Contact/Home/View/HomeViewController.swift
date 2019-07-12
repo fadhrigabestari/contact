@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let timestamp = NSDate().timeIntervalSince1970
+        
+        print(timestamp)
         
         setupNavigationBar()
         setupTableView()

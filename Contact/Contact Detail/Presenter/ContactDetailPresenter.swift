@@ -14,6 +14,9 @@ class ContactDetailPresenter: IContactDetailPresenter {
     var interactor: IContactDetailInteractor?
     var wireframe: IContactDetailWireframe?
     
+    var createdAt: Date?
+    var updatedAt: Date?
+    
     init(view: IContactDetailView, interactor: IContactDetailInteractor, wireframe: IContactDetailWireframe) {
         self.view = view
         self.interactor = interactor
@@ -44,18 +47,21 @@ class ContactDetailPresenter: IContactDetailPresenter {
         interactor?.fetchContactDetail(id: id)
     }
     
-    func contactDetailFetchSuccess(contact: ContactDetail) {
-        let contact = ContactDetailEntity(
+    func contactDetailFetchSuccess(contact: Contact) {
+        let contactDetail = ContactDetailEntity(
+            id: contact.id,
             firstName: contact.firstName,
             lastName: contact.lastName,
+            email: contact.email!,
+            phoneNumber: contact.phoneNumber!,
             profilePic: contact.profilePic,
-            phoneNumber: contact.phoneNumber,
-            email: contact.email,
             isFavorite: contact.isFavorite,
-            rows: [("mobile", contact.phoneNumber),
-                   ("email", contact.email)])
+            createdAt: contact.createdAt!,
+            updatedAt: contact.updatedAt!,
+            rows: [("mobile", contact.phoneNumber!),
+                   ("email", contact.email!)])
         
-        view?.showContactDetail(contact: contact)
+        view?.showContactDetail(contact: contactDetail)
     }
     
     func contactDetailFetchFailed() {

@@ -34,7 +34,9 @@ class HomeInteractor: HomePresenterToInteractorProtocol {
                 }
                 
                 do {
-                    let contactsDecoded = try JSONDecoder().decode([Contact].self, from: contacts)
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                    let contactsDecoded = try decoder.decode([Contact].self, from: contacts)
                     self.presenter?.contactsFetchSuccess(contacts: contactsDecoded)
                     return
                 } catch {

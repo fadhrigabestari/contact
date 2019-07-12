@@ -11,10 +11,15 @@ import Foundation
 typealias RowItemEditContactDetail = (category: String, value: String, placeholder: String)
 
 struct EditContactDetailEntity {
+    var id: Int
     var firstName: String
     var lastName: String
-    var profilePic: String
-    var phoneNumber: String
     var email: String
+    var phoneNumber: String
+    var profilePic: String
+    var isFavorite: Bool
+    var createdAt: Date
+    var updatedAt: Date
+    
     var rows: [RowItemEditContactDetail]
 }

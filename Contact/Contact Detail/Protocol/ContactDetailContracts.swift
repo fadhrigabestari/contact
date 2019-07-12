@@ -20,7 +20,7 @@ protocol IContactDetailPresenter: class {
     func onFavoriteButtonPressed(navigationController: UINavigationController)
     func onEditButtonPressed(navigationController: UINavigationController, contact: ContactDetailEntity)
     func startFetchingContactDetail(id: Int)
-    func contactDetailFetchSuccess(contact: ContactDetail)
+    func contactDetailFetchSuccess(contact: Contact)
     func contactDetailFetchFailed()
 }
 

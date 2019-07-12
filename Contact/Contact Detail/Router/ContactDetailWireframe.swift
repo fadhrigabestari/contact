@@ -41,8 +41,17 @@ class ContactDetailWireframe: IContactDetailWireframe {
                     ("Last Name", contact.lastName, "Doe"),
                     ("mobile", contact.phoneNumber, "+81234567890"),
                     ("email", contact.email, "john.doe@gmail.com")]
-        let contact = EditContactDetailEntity(firstName: contact.firstName, lastName: contact.lastName, profilePic: contact.profilePic, phoneNumber: contact.phoneNumber, email: contact.email, rows: rows)
-        editContactDetailViewController.contact = contact
+        let editContact = EditContactDetailEntity(id: contact.id,
+                                                  firstName: contact.firstName,
+                                                  lastName: contact.lastName,
+                                                  email: contact.email,
+                                                  phoneNumber: contact.phoneNumber,
+                                                  profilePic: contact.profilePic,
+                                                  isFavorite: contact.isFavorite,
+                                                  createdAt: contact.createdAt,
+                                                  updatedAt: contact.updatedAt,
+                                                  rows: rows)
+        editContactDetailViewController.contact = editContact
         navigationController.navigationItem.hidesBackButton = true
         navigationController.pushViewController(editContactDetailViewController, animated: true)
     }

@@ -17,6 +17,8 @@ struct Contact: Codable {
     var phoneNumber: String?
     var isFavorite: Bool
     var url: String?
+    var createdAt: Date?
+    var updatedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -27,5 +29,7 @@ struct Contact: Codable {
         case phoneNumber = "phone_number"
         case isFavorite = "favorite"
         case url
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
     }
 }
