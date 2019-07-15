@@ -38,7 +38,7 @@ class EditContactDetailViewController: UIViewController {
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(tappedCancelButton))
         self.navigationItem.leftBarButtonItem = cancelButton
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tappedDoneButton))
         self.navigationItem.rightBarButtonItem = doneButton
     }
     
@@ -78,6 +78,7 @@ class EditContactDetailViewController: UIViewController {
     
     @objc func tappedDoneButton() {
         self.presenter?.onDoneButtonPressed(contact: contact)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func setupNotificationCenter() {
@@ -136,11 +137,31 @@ extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataS
 
 extension EditContactDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(textField.tag+1)
         if let nextTextField = tableView.viewWithTag(textField.tag + 1) as? UITextField {
             nextTextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
+        switch(textField.tag) {
+        case 0:
+            contact.firstName = updatedString ?? ""
+            break
+        case 1:
+            contact.lastName = updatedString ?? ""
+            break
+        case 2:
+            contact.phoneNumber = updatedString ?? ""
+            break
+        case 3:
+            contact.email = updatedString ?? ""
+            break
+        default: break
         }
         
         return true

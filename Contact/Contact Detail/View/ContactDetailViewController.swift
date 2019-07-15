@@ -31,7 +31,10 @@ class ContactDetailViewController: UIViewController {
         setupNavigationBar()
         setupProfilePicture()
         setupTableView()
-        setupButton()
+        setupButton()h
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         presenter?.startFetchingContactDetail(id: id!)
     }
     

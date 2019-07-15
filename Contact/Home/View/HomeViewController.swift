@@ -18,16 +18,16 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let timestamp = NSDate().timeIntervalSince1970
-        
-        print(timestamp)
         
         setupNavigationBar()
         setupTableView()
-        presenter?.startFetchingContacts()
         
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presenter?.startFetchingContacts()
     }
     
     private func setupNavigationBar() {

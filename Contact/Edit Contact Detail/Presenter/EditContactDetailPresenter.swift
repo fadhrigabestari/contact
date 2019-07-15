@@ -21,7 +21,9 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
     }
     
     func onDoneButtonPressed(contact: EditContactDetailEntity) {
-        interactor?.sendEditedContactDetail(contact: contact)
+        var editedContact = contact
+        editedContact.updatedAt = Date()
+        interactor?.sendEditedContactDetail(contact: editedContact)
     }
     
     func onEditPictureButtonPressed() {
