@@ -79,19 +79,9 @@ class ContactDetailPresenter: IContactDetailPresenter {
     }
     
     func sendContactDetailSuccess(contact: Contact) {
-        let contactDetail = ContactDetailEntity(
-            id: contact.id,
-            firstName: contact.firstName,
-            lastName: contact.lastName,
-            email: contact.email!,
-            phoneNumber: contact.phoneNumber!,
-            profilePic: contact.profilePic,
-            isFavorite: contact.isFavorite,
-            createdAt: contact.createdAt!,
-            updatedAt: contact.updatedAt!,
-            rows: [("mobile", contact.phoneNumber!),
-                   ("email", contact.email!)])
-        view?.showContactDetail(contact: contactDetail)
+        if contact.isFavorite {
+            view?.showSendContactDetailSuccess()
+        }
     }
     
     func sendContactDetailFailed() {

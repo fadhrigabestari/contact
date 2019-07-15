@@ -69,7 +69,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             cell.contactImage.image = UIImage(named: "default-contact-image")
         }
         cell.contactFavourite.text = "⭑"
-        cell.contactFavourite.isHidden = contact.isFavorite
+        cell.contactFavourite.isHidden = !contact.isFavorite
         
         return cell
     }

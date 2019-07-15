@@ -27,15 +27,12 @@ class ContactDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.startFetchingContactDetail(id: id!)
         
         setupNavigationBar()
         setupProfilePicture()
         setupTableView()
         setupButton()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        presenter?.startFetchingContactDetail(id: id!)
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -123,6 +120,8 @@ class ContactDetailViewController: UIViewController {
     @objc func tappedFavoriteIcon() {
         let currentFav = self.contact!.isFavorite
         self.contact?.isFavorite = !currentFav
+        
+        self.showContactDetail(contact: contact!)
         self.presenter?.onFavoriteButtonPressed(contact: self.contact!)
     }
 }

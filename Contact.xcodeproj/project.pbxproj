@@ -42,7 +42,6 @@
 		0FFFB15522D2F1FB00931382 /* HomeViewController+PresenterToView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB15422D2F1FB00931382 /* HomeViewController+PresenterToView.swift */; };
 		0FFFB15722D2F8AE00931382 /* ContactEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB15622D2F8AE00931382 /* ContactEntity.swift */; };
 		0FFFB16222D3010200931382 /* ContactDetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB16122D3010200931382 /* ContactDetailContracts.swift */; };
-		0FFFB16422D3017E00931382 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB16322D3017E00931382 /* ContactDetail.swift */; };
 		0FFFB16622D3042C00931382 /* ContactDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB16522D3042C00931382 /* ContactDetailEntity.swift */; };
 		0FFFB16822D3087A00931382 /* ContactDetailViewController+IContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB16722D3087A00931382 /* ContactDetailViewController+IContactDetailView.swift */; };
 		0FFFB16B22D31F6900931382 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB16922D31F6900931382 /* ContactDetailViewController.swift */; };
@@ -117,7 +116,6 @@
 		0FFFB15422D2F1FB00931382 /* HomeViewController+PresenterToView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+PresenterToView.swift"; sourceTree = "<group>"; };
 		0FFFB15622D2F8AE00931382 /* ContactEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntity.swift; sourceTree = "<group>"; };
 		0FFFB16122D3010200931382 /* ContactDetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailContracts.swift; sourceTree = "<group>"; };
-		0FFFB16322D3017E00931382 /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		0FFFB16522D3042C00931382 /* ContactDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailEntity.swift; sourceTree = "<group>"; };
 		0FFFB16722D3087A00931382 /* ContactDetailViewController+IContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactDetailViewController+IContactDetailView.swift"; sourceTree = "<group>"; };
 		0FFFB16922D31F6900931382 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				0FFF52D222CDE4FE00CD18D4 /* Contact.swift */,
-				0FFFB16322D3017E00931382 /* ContactDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -753,7 +750,6 @@
 				0FFFB15522D2F1FB00931382 /* HomeViewController+PresenterToView.swift in Sources */,
 				0FFFB17022D36B4500931382 /* ContactDetailViewCell.swift in Sources */,
 				0FFFB17722D373AF00931382 /* ContactDetailInteractor.swift in Sources */,
-				0FFFB16422D3017E00931382 /* ContactDetail.swift in Sources */,
 				0F7A6F2622D867D30034DA83 /* DateFormatter.swift in Sources */,
 				0F1D1E0222D4C005000CE4E3 /* RoundObject.swift in Sources */,
 				0F7A6F2222D729DA0034DA83 /* EditContactDetailEntity.swift in Sources */,

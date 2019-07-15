@@ -20,9 +20,10 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
         self.wireframe = wireframe
     }
     
-    func onDoneButtonPressed(contact: EditContactDetailEntity) {
+    func onDoneButtonPressed(navigationController: UINavigationController, contact: EditContactDetailEntity) {
         var editedContact = contact
         editedContact.updatedAt = Date()
+        wireframe?.pushToContactDetailScreen(navigationController: navigationController, contact: editedContact)
         let contactModel = Contact(id: editedContact.id,
                                    firstName: editedContact.firstName,
                                    lastName: editedContact.lastName,
@@ -41,21 +42,7 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
     }
     
     func sendEditedContactDetailSuccess(contact: Contact) {
-        let editContactDetail = EditContactDetailEntity(
-            id: contact.id,
-            firstName: contact.firstName,
-            lastName: contact.lastName,
-            email: contact.email!,
-            phoneNumber: contact.phoneNumber!,
-            profilePic: contact.profilePic,
-            isFavorite: contact.isFavorite,
-            createdAt: contact.createdAt!,
-            updatedAt: contact.updatedAt!,
-            rows: [("First Name", contact.firstName, "John"),
-                   ("Last Name", contact.lastName, "Doe"),
-                   ("mobile", contact.phoneNumber!, "+81234567890"),
-                   ("email", contact.email!, "john.doe@gmail.com")])
-        view?.showEditedContactDetail(contact: editContactDetail)
+        view?.showEditContactDetailSuccess()
     }
     
     func sendEditedContactDetailFailed() {
@@ -63,6 +50,6 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
     }
     
     func onCancelButtonPressed(navigationController: UINavigationController) {
-        wireframe?.pushToContactDetailScreen(navigationController: navigationController)
+        wireframe?.cancelToContactDetailScreen(navigationController: navigationController)
     }
 }

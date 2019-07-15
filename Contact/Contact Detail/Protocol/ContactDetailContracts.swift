@@ -11,6 +11,7 @@ import UIKit
 
 protocol IContactDetailView: class {
     func showContactDetail(contact: ContactDetailEntity)
+    func showSendContactDetailSuccess()
 }
 
 protocol IContactDetailPresenter: class {

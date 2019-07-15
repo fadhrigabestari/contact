@@ -79,7 +79,7 @@ class EditContactDetailViewController: UIViewController {
     }
     
     @objc func tappedDoneButton() {
-        self.presenter?.onDoneButtonPressed(contact: contact)
+        self.presenter?.onDoneButtonPressed(navigationController: self.navigationController!, contact: contact)
     }
     
     private func setupNotificationCenter() {

@@ -22,7 +22,25 @@ class EditContactDetailWireframe: IEditContactDetailWireframe {
         return view
     }
     
-    func pushToContactDetailScreen(navigationController: UINavigationController) {
+    func pushToContactDetailScreen(navigationController: UINavigationController, contact: EditContactDetailEntity) {
+        navigationController.popViewController(animated: true)
+        if let viewController = navigationController.topViewController as? ContactDetailViewController {
+            let contactDetail = ContactDetailEntity(id: contact.id,
+                                                    firstName: contact.firstName,
+                                                    lastName: contact.lastName,
+                                                    email: contact.email,
+                                                    phoneNumber: contact.phoneNumber,
+                                                    profilePic: contact.profilePic,
+                                                    isFavorite: contact.isFavorite,
+                                                    createdAt: contact.createdAt,
+                                                    updatedAt: contact.updatedAt,
+                                                    rows: [("mobile", contact.phoneNumber),
+                                                           ("email", contact.email)])
+            viewController.showContactDetail(contact: contactDetail)
+        }
+    }
+    
+    func cancelToContactDetailScreen(navigationController: UINavigationController) {
         _ = navigationController.popViewController(animated: true)
     }
 }
