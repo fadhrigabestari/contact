@@ -248,6 +248,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		0F7A6F2722DC265C0034DA83 /* Add Contact Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Add Contact Detail";
+			sourceTree = "<group>";
+		};
 		0FFF528522CDAE6800CD18D4 = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +285,7 @@
 				0FFF52C222CDAEBF00CD18D4 /* Home */,
 				0FFFB15822D2FF9000931382 /* Contact Detail */,
 				0F1D1E0322D5DC8A000CE4E3 /* Edit Contact Detail */,
+				0F7A6F2722DC265C0034DA83 /* Add Contact Detail */,
 				0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */,
 				0FFF529B22CDAE6900CD18D4 /* Assets.xcassets */,
 				0FFF529D22CDAE6900CD18D4 /* LaunchScreen.storyboard */,

@@ -10,6 +10,7 @@ import UIKit
 
 class EditContactDetailViewController: UIViewController {
     var presenter: IEditContactDetailPresenter?
+    var imagePicker = UIImagePickerController()
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
@@ -27,6 +28,7 @@ class EditContactDetailViewController: UIViewController {
         setupTableView()
         setupNotificationCenter()
         setupTapRecognizer()
+        setupImagePicker()
         // Do any additional setup after loading the view.
     }
     
@@ -107,12 +109,61 @@ class EditContactDetailViewController: UIViewController {
     }
     
     private func setupTapRecognizer() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedView))
+        var tap: UITapGestureRecognizer
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(tappedView))
         view.addGestureRecognizer(tap)
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(tappedCameraIcon))
+        cameraIcon.addGestureRecognizer(tap)
+        
     }
     
-    @objc private func tappedView() {
+    @objc func tappedView() {
         view.endEditing(true)
+    }
+    
+    @objc func tappedCameraIcon(_ sender: UIView) {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            alert.popoverPresentationController?.sourceView = sender
+            alert.popoverPresentationController?.sourceRect = sender.bounds
+            alert.popoverPresentationController?.permittedArrowDirections = .up
+        default:
+            break
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func openCamera(){
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery() {
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true, completion: nil)
     }
 }
 
@@ -165,5 +216,24 @@ extension EditContactDetailViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension EditContactDetailViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func setupImagePicker() {
+        imagePicker.delegate = self
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profilePicture.contentMode = .scaleAspectFit
+            profilePicture.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

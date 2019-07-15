@@ -31,7 +31,7 @@ class ContactDetailViewController: UIViewController {
         setupNavigationBar()
         setupProfilePicture()
         setupTableView()
-        setupButton()h
+        setupButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
