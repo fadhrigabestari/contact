@@ -11,6 +11,8 @@ import UIKit
 
 extension ContactDetailViewController: IContactDetailView {
     func showContactDetail(contact: ContactDetailEntity) {
+        self.setupTapGestureRecognizer()
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
         self.contact = contact
         if contact.profilePic.isValidURL {
             self.profilePicture.load(url: URL(string: contact.profilePic)!)
@@ -37,5 +39,25 @@ extension ContactDetailViewController: IContactDetailView {
         DispatchQueue.main.asyncAfter(deadline: when){
             alert.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    private func setupTapGestureRecognizer() {
+        var tap: UITapGestureRecognizer
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMessageIcon))
+        messageIcon.addGestureRecognizer(tap)
+        messageIcon.isUserInteractionEnabled = true
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedCallIcon))
+        callIcon.addGestureRecognizer(tap)
+        callIcon.isUserInteractionEnabled = true
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedEmailIcon))
+        emailIcon.addGestureRecognizer(tap)
+        emailIcon.isUserInteractionEnabled = true
+        
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedFavoriteIcon))
+        favoriteIcon.addGestureRecognizer(tap)
+        favoriteIcon.isUserInteractionEnabled = true
     }
 }

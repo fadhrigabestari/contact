@@ -41,6 +41,7 @@ class EditContactDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = cancelButton
         
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tappedDoneButton))
+        doneButton.isEnabled = contact.email.isValidEmail && contact.phoneNumber.isValidPhone
         self.navigationItem.rightBarButtonItem = doneButton
     }
     
@@ -207,11 +208,16 @@ extension EditContactDetailViewController: UITextFieldDelegate {
             break
         case 2:
             contact.phoneNumber = updatedString ?? ""
+            textField.keyboardType = .namePhonePad
             break
         case 3:
             contact.email = updatedString ?? ""
             break
         default: break
+        }
+        
+        if contact.email.isValidEmail && contact.phoneNumber.isValidPhone {
+            self.navigationItem.rightBarButtonItem!.isEnabled = true
         }
         
         return true

@@ -42,6 +42,7 @@ class ContactDetailViewController: UIViewController {
     
     private func setupNavigationBar() {
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.tappedEditButton))
+        editButton.isEnabled = false
         self.navigationItem.rightBarButtonItem = editButton
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -72,24 +73,6 @@ class ContactDetailViewController: UIViewController {
         applyRoundCorner(callIcon)
         applyRoundCorner(emailIcon)
         applyRoundCorner(favoriteIcon)
-        
-        var tap: UITapGestureRecognizer
-        
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMessageIcon))
-        messageIcon.addGestureRecognizer(tap)
-        messageIcon.isUserInteractionEnabled = true
-        
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedCallIcon))
-        callIcon.addGestureRecognizer(tap)
-        callIcon.isUserInteractionEnabled = true
-        
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedEmailIcon))
-        emailIcon.addGestureRecognizer(tap)
-        emailIcon.isUserInteractionEnabled = true
-
-        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedFavoriteIcon))
-        favoriteIcon.addGestureRecognizer(tap)
-        favoriteIcon.isUserInteractionEnabled = true
     }
     
     @objc func tappedMessageIcon() {
