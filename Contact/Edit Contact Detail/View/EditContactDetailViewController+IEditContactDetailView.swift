@@ -14,11 +14,8 @@ extension EditContactDetailViewController: IEditContactDetailView {
     }
     
     func showEditedContactDetail(contact: EditContactDetailEntity) {
-        self.contact.rows = [("First Name", contact.firstName, "John"),
-                             ("Last Name", contact.lastName, "Doe"),
-                             ("mobile", contact.phoneNumber, "+81234567890"),
-                             ("email", contact.email, "john.doe@gmail.com")]
         self.tableView.reloadData()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func showSendEditedContactDetailError() {

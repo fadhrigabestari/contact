@@ -18,7 +18,7 @@ protocol IEditContactDetailView: class {
 protocol IEditContactDetailPresenter: class {
     func onDoneButtonPressed(contact: EditContactDetailEntity)
     func onEditPictureButtonPressed()
-    func sendEditedContactDetailSuccess(contact: EditContactDetailEntity)
+    func sendEditedContactDetailSuccess(contact: Contact)
     func sendEditedContactDetailFailed()
     func onCancelButtonPressed(navigationController: UINavigationController)
 }
@@ -26,7 +26,7 @@ protocol IEditContactDetailPresenter: class {
 protocol IEditContactDetailInteractor: class {
     var presenter: IEditContactDetailPresenter? {get set}
     
-    func sendEditedContactDetail(contact: EditContactDetailEntity)
+    func sendEditedContactDetail(contact: Contact)
 }
 
 protocol IEditContactDetailWireframe: class {

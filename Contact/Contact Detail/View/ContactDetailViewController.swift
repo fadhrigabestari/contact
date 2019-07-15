@@ -90,9 +90,9 @@ class ContactDetailViewController: UIViewController {
         emailIcon.addGestureRecognizer(tap)
         emailIcon.isUserInteractionEnabled = true
 
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedFavoriteIcon))
-//        favoriteIcon.addGestureRecognizer(tap)
-//        favoriteIcon.isUserInteractionEnabled = true
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedFavoriteIcon))
+        favoriteIcon.addGestureRecognizer(tap)
+        favoriteIcon.isUserInteractionEnabled = true
     }
     
     @objc func tappedMessageIcon() {
@@ -118,6 +118,12 @@ class ContactDetailViewController: UIViewController {
     
     @objc func tappedEditButton() {
         self.presenter?.onEditButtonPressed(navigationController: self.navigationController!, contact: self.contact!)
+    }
+    
+    @objc func tappedFavoriteIcon() {
+        let currentFav = self.contact!.isFavorite
+        self.contact?.isFavorite = !currentFav
+        self.presenter?.onFavoriteButtonPressed(contact: self.contact!)
     }
 }
 

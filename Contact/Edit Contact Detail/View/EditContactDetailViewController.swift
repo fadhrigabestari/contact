@@ -80,7 +80,6 @@ class EditContactDetailViewController: UIViewController {
     
     @objc func tappedDoneButton() {
         self.presenter?.onDoneButtonPressed(contact: contact)
-        self.navigationController?.popViewController(animated: true)
     }
     
     private func setupNotificationCenter() {

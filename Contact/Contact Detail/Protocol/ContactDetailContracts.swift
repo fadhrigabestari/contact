@@ -17,17 +17,20 @@ protocol IContactDetailPresenter: class {
     func onMessageButtonPressed(number: String)
     func onCallButtonPressed(number: String)
     func onEmailButtonPressed(email: String)
-    func onFavoriteButtonPressed(navigationController: UINavigationController)
+    func onFavoriteButtonPressed(contact: ContactDetailEntity)
     func onEditButtonPressed(navigationController: UINavigationController, contact: ContactDetailEntity)
     func startFetchingContactDetail(id: Int)
     func contactDetailFetchSuccess(contact: Contact)
     func contactDetailFetchFailed()
+    func sendContactDetailSuccess(contact: Contact)
+    func sendContactDetailFailed()
 }
 
 protocol IContactDetailInteractor: class {
     var presenter: IContactDetailPresenter? {get set}
     
     func fetchContactDetail(id: Int)
+    func sendContactDetail(contact: Contact)
 }
 
 protocol IContactDetailWireframe: class {

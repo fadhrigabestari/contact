@@ -35,8 +35,18 @@ class ContactDetailPresenter: IContactDetailPresenter {
         wireframe?.pushToEmailScreen(email: email)
     }
     
-    func onFavoriteButtonPressed(navigationController: UINavigationController) {
-        //
+    func onFavoriteButtonPressed(contact: ContactDetailEntity) {
+        let contactModel = Contact(id: contact.id,
+                                   firstName: contact.firstName,
+                                   lastName: contact.lastName,
+                                   email: contact.email,
+                                   profilePic: contact.profilePic,
+                                   phoneNumber: contact.phoneNumber,
+                                   isFavorite: contact.isFavorite,
+                                   url: nil,
+                                   createdAt: contact.createdAt,
+                                   updatedAt: contact.updatedAt)
+        interactor?.sendContactDetail(contact: contactModel)
     }
     
     func onEditButtonPressed(navigationController: UINavigationController, contact: ContactDetailEntity) {
@@ -65,6 +75,26 @@ class ContactDetailPresenter: IContactDetailPresenter {
     }
     
     func contactDetailFetchFailed() {
+        //
+    }
+    
+    func sendContactDetailSuccess(contact: Contact) {
+        let contactDetail = ContactDetailEntity(
+            id: contact.id,
+            firstName: contact.firstName,
+            lastName: contact.lastName,
+            email: contact.email!,
+            phoneNumber: contact.phoneNumber!,
+            profilePic: contact.profilePic,
+            isFavorite: contact.isFavorite,
+            createdAt: contact.createdAt!,
+            updatedAt: contact.updatedAt!,
+            rows: [("mobile", contact.phoneNumber!),
+                   ("email", contact.email!)])
+        view?.showContactDetail(contact: contactDetail)
+    }
+    
+    func sendContactDetailFailed() {
         //
     }
 }

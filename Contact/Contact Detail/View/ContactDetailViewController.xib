@@ -143,7 +143,7 @@
                                                     <rect key="frame" x="10" y="10" width="24.5" height="24.5"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="j5Z-Nm-a91" secondAttribute="bottom" constant="10" id="8jg-PN-q6P"/>
                                                 <constraint firstItem="j5Z-Nm-a91" firstAttribute="top" secondItem="DQv-zF-40O" secondAttribute="top" constant="10" id="BFB-WK-cwx"/>
@@ -152,7 +152,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="DQv-zF-40O" firstAttribute="top" secondItem="87d-0c-k4E" secondAttribute="top" id="5cb-Qx-lXJ"/>
                                         <constraint firstAttribute="bottom" secondItem="DQv-zF-40O" secondAttribute="bottom" id="K0L-B3-9N5"/>

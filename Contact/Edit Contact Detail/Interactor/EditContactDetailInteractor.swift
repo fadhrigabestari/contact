@@ -12,7 +12,7 @@ import Alamofire
 class EditContactDetailInteractor: IEditContactDetailInteractor {
     var presenter: IEditContactDetailPresenter?
     
-    func sendEditedContactDetail(contact: EditContactDetailEntity) {
+    func sendEditedContactDetail(contact: Contact) {
         guard let url = URL(string: "https://gojek-contacts-app.herokuapp.com/contacts/\(contact.id).json") else {
             presenter?.sendEditedContactDetailFailed()
             return
@@ -21,16 +21,7 @@ class EditContactDetailInteractor: IEditContactDetailInteractor {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .formatted(DateFormatter.iso8601Full)
         do {
-            print(contact)
-            let  jsonData = try encoder.encode(Contact(id: contact.id,
-                                                       firstName: contact.firstName,
-                                                       lastName: contact.lastName,
-                                                       email: contact.email,
-                                                       profilePic: contact.profilePic,
-                                                       phoneNumber: contact.phoneNumber,
-                                                       isFavorite: contact.isFavorite,
-                                                       url: nil, createdAt: contact.createdAt,
-                                                       updatedAt: contact.updatedAt))
+            let jsonData = try encoder.encode(contact)
             var request = URLRequest(url: url)
             request.httpMethod = HTTPMethod.put.rawValue
             request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
