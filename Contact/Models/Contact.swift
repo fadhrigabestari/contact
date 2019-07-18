@@ -32,4 +32,11 @@ struct Contact: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+    
+    var toContactEntity: ContactEntity {
+        return ContactEntity(id: self.id,
+                            name: "\(self.firstName) + \(self.lastName)",
+                            profilePic: self.profilePic,
+                            isFavorite: self.isFavorite)
+    }
 }
