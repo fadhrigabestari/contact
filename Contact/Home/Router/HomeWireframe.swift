@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeWireframe: HomePresenterToWireframeProtocol {
+class HomeWireframe: IHomeWireframe {
     internal func createModule() -> HomeViewController {
         let view = HomeViewController(nibName: "HomeViewController", bundle: nil)
         let interactor = HomeInteractor()

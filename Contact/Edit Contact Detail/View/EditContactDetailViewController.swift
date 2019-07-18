@@ -208,7 +208,6 @@ extension EditContactDetailViewController: UITextFieldDelegate {
             break
         case 2:
             contact.phoneNumber = updatedString ?? ""
-            textField.keyboardType = .namePhonePad
             break
         case 3:
             contact.email = updatedString ?? ""
@@ -218,6 +217,8 @@ extension EditContactDetailViewController: UITextFieldDelegate {
         
         if contact.email.isValidEmail && contact.phoneNumber.isValidPhone {
             self.navigationItem.rightBarButtonItem!.isEnabled = true
+        } else {
+            self.navigationItem.rightBarButtonItem!.isEnabled = false
         }
         
         return true

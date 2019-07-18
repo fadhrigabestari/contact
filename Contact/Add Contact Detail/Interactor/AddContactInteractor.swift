@@ -1,20 +1,20 @@
 //
-//  EditContactDetailInteractor.swift
+//  AddContactInteractor.swift
 //  Contact
 //
-//  Created by PT. GOJEK INDONESIA on 10/07/19.
+//  Created by PT. GOJEK INDONESIA on 18/07/19.
 //  Copyright © 2019 PT. GOJEK INDONESIA. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 
-class EditContactDetailInteractor: IEditContactDetailInteractor {
-    var presenter: IEditContactDetailPresenter?
+class AddContactInteractor: IAddContactInteractor {
+    weak var presenter: IAddContactPresenter?
     
-    func sendEditedContactDetail(navigationController: UINavigationController, contact: Contact) {
-        guard let url = URL(string: "https://gojek-contacts-app.herokuapp.com/contacts/\(contact.id).json") else {
-            presenter?.sendEditedContactDetailFailed()
+    func sendAddContact(navigationController: UINavigationController, contact: Contact) {
+        guard let url = URL(string: "https://gojek-contacts-app.herokuapp.com/contacts.json") else {
+            presenter?.sendAddContactFailed()
             return
         }
         
@@ -23,22 +23,22 @@ class EditContactDetailInteractor: IEditContactDetailInteractor {
         do {
             let jsonData = try encoder.encode(contact)
             var request = URLRequest(url: url)
-            request.httpMethod = HTTPMethod.put.rawValue
+            request.httpMethod = HTTPMethod.post.rawValue
             request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
             Alamofire.request(request).responseJSON { response in
                 guard response.result.isSuccess else {
-                    self.presenter?.sendEditedContactDetailFailed()
+                    self.presenter?.sendAddContactFailed()
                     return
                 }
                 
-                self.presenter?.sendEditedContactDetailSuccess(navigationController: navigationController, contact: contact)
+                self.presenter?.sendAddContactSuccess(navigationController: navigationController, contact: contact)
                 return
             }
         } catch {
             print(error)
-            self.presenter?.sendEditedContactDetailFailed()
+            self.presenter?.sendAddContactFailed()
             return
         }
     }

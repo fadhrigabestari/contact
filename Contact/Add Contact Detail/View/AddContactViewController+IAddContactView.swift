@@ -1,17 +1,17 @@
 //
-//  EditContactDetailViewController+IEditContactDetailView.swift
+//  AddContactViewController+IAddContactView.swift
 //  Contact
 //
-//  Created by PT. GOJEK INDONESIA on 10/07/19.
+//  Created by PT. GOJEK INDONESIA on 18/07/19.
 //  Copyright © 2019 PT. GOJEK INDONESIA. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-extension EditContactDetailViewController: IEditContactDetailView {
-    func showSendEditContactDetailSuccess() {
-        let alert = UIAlertController(title: "Success!", message: "Contact detail successfully changed", preferredStyle: .alert)
+extension AddContactViewController: IAddContactView {
+    func showSendAddContactSuccess() {
+        let alert = UIAlertController(title: "Success!", message: "Contact successfully added", preferredStyle: .alert)
 //        alert.setValue(NSAttributedString(string: alert.message!, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium), NSAttributedStringKey.foregroundColor : UIColor.green]), forKey: "attributedMessage")
         self.present(alert, animated: true, completion: nil)
         
@@ -21,8 +21,8 @@ extension EditContactDetailViewController: IEditContactDetailView {
         }
     }
     
-    func showSendEditedContactDetailFailed() {
-        let alert = UIAlertController(title: "Failed!", message: "Contact detail failed to be changed", preferredStyle: .alert)
+    func showSendAddContactFailed() {
+        let alert = UIAlertController(title: "Failed!", message: "Contact failed to be added", preferredStyle: .alert)
 //        alert.setValue(NSAttributedString(string: alert.message!, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium), NSAttributedStringKey.foregroundColor : "FC100D".toUIColor()]), forKey: "attributedMessage")
         self.present(alert, animated: true, completion: nil)
         

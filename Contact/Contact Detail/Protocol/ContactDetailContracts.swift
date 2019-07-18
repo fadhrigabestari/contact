@@ -41,3 +41,7 @@ protocol IContactDetailWireframe: class {
     func pushToEmailScreen(email: String)
     func pushToEditScreen(navigationController: UINavigationController, contact: ContactDetailEntity)
 }
+
+protocol ContactDetailDelegate: class {
+    func onContactEditted(contact: Contact)
+}

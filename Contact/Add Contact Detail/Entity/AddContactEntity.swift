@@ -1,30 +1,26 @@
 //
-//  EditContactDetailHeaderEntity.swift
+//  AddContactEntity.swift
 //  Contact
 //
-//  Created by PT. GOJEK INDONESIA on 11/07/19.
+//  Created by PT. GOJEK INDONESIA on 18/07/19.
 //  Copyright © 2019 PT. GOJEK INDONESIA. All rights reserved.
 //
 
 import Foundation
 
-typealias RowItemEditContactDetail = (category: String, value: String, placeholder: String)
-
-struct EditContactDetailEntity {
-    var id: Int
-    var firstName: String
-    var lastName: String
-    var email: String
-    var phoneNumber: String
-    var profilePic: String
-    var isFavorite: Bool
-    var createdAt: Date
-    var updatedAt: Date
-    
-    var rows: [RowItemEditContactDetail]
+struct AddContactEntity {
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let email: String
+    let phoneNumber: String
+    let profilePic: String
+    let isFavorite: Bool
+    let createdAt: Date
+    let updatedAt: Date
 }
 
-extension EditContactDetailEntity {
+extension AddContactEntity {
     var toContactModel: Contact {
         return Contact(id: self.id,
                        firstName: self.firstName,

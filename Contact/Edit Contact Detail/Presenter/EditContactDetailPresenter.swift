@@ -21,32 +21,24 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
     }
     
     func onDoneButtonPressed(navigationController: UINavigationController, contact: EditContactDetailEntity) {
-        var editedContact = contact
-        editedContact.updatedAt = Date()
-        wireframe?.pushToContactDetailScreen(navigationController: navigationController, contact: editedContact)
-        let contactModel = Contact(id: editedContact.id,
-                                   firstName: editedContact.firstName,
-                                   lastName: editedContact.lastName,
-                                   email: editedContact.email,
-                                   profilePic: editedContact.profilePic,
-                                   phoneNumber: editedContact.phoneNumber,
-                                   isFavorite: editedContact.isFavorite,
-                                   url: nil,
-                                   createdAt: editedContact.createdAt,
-                                   updatedAt: editedContact.updatedAt)
-        interactor?.sendEditedContactDetail(contact: contactModel)
+        var updatedContact = contact
+        updatedContact.updatedAt = Date()
+        if contact.phoneNumber.first != "+" {
+            updatedContact.phoneNumber = "+\(contact.phoneNumber)"
+        }
+        interactor?.sendEditedContactDetail(navigationController: navigationController, contact: updatedContact.toContactModel)
     }
     
     func onEditPictureButtonPressed() {
-        view?.showEditedProfilePicture()
+        //
     }
     
-    func sendEditedContactDetailSuccess(contact: Contact) {
-        view?.showEditContactDetailSuccess()
+    func sendEditedContactDetailSuccess(navigationController: UINavigationController, contact: Contact) {
+        wireframe?.pushToContactDetailScreen(navigationController: navigationController, contact: contact)
     }
     
     func sendEditedContactDetailFailed() {
-        view?.showSendEditedContactDetailError()
+        view?.showSendEditedContactDetailFailed()
     }
     
     func onCancelButtonPressed(navigationController: UINavigationController) {

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class HomeViewController: UIViewController {
-    var presenter: HomeViewToPresenterProtocol?
+    var presenter: IHomePresenter?
 
     @IBOutlet weak var tableView: UITableView!
     

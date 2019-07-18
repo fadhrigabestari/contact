@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProtocol {
-    weak var view: HomePresenterToViewProtocol?
-    var interactor: HomePresenterToInteractorProtocol?
-    var wireframe: HomePresenterToWireframeProtocol?
-    var contactDict: [String:[ContactEntity]] = [:]
+class HomePresenter: IHomePresenter {
+    weak var view: IHomeView?
+    var interactor: IHomeInteractor?
+    var wireframe: IHomeWireframe?
+    var contacts: [Contact] = []
     let alphabets: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     
-    init(view: HomePresenterToViewProtocol, interactor: HomePresenterToInteractorProtocol, wireframe: HomePresenterToWireframeProtocol) {
+    init(view: IHomeView, interactor: IHomeInteractor, wireframe: IHomeWireframe) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
@@ -97,6 +97,7 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
     }
     
     func filterContacts(contacts: [Contact]) -> [ContactCollection] {
+        self.contacts = contacts
         var result: [ContactCollection] = []
         let favoritedContacts = filterContactByFavorite(contacts: contacts)
         var alphabetContact: [ContactEntity]
@@ -119,6 +120,10 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
         if nonAlphabetContact.count > 0 {
             result.append(ContactCollection(sectionName: "#",
                                             contacts: nonAlphabetContact))
+        }
+        
+        for index in 0..<result.count {
+            result[index].contacts = result[index].contacts.sorted(by: { $0.name < $1.name})
         }
         
         return result

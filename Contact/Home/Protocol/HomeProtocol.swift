@@ -9,31 +9,33 @@
 import Foundation
 import UIKit
 
-protocol HomeViewToPresenterProtocol: class {
+protocol IHomeView: class {
+    func showContacts(contacts: [ContactCollection])
+}
+
+protocol IHomePresenter: class {
+    var contacts: [Contact] {get set}
+
     func startFetchingContacts()
     func onAddButtonPressed(navigationController: UINavigationController)
     func onGroupsButtonPressed(navigationController: UINavigationController)
     func onContactsCellPressed(navigationController: UINavigationController, id: Int)
+    func contactsFetchSuccess(contacts: [Contact])
+    func contactsFetchFailed()
+    func filterContacts(contacts: [Contact]) -> [ContactCollection]
 }
 
-protocol HomePresenterToViewProtocol: class {
-    func showContacts(contacts: [ContactCollection])
+protocol IHomeInteractor: class {
+    var presenter: IHomePresenter? {get set}
+    
+    func fetchContacts()
 }
 
-protocol HomePresenterToWireframeProtocol: class {
+protocol IHomeWireframe: class {
     func createModule() -> HomeViewController
     func pushToAddScreen(navigationController: UINavigationController)
     func pushToGroupsScreen(navigationController: UINavigationController)
     func pushToContactDetailScreen(navigationController: UINavigationController, id: Int)
 }
 
-protocol HomePresenterToInteractorProtocol: class {
-    var presenter: HomeInteractorToPresenterProtocol? {get set}
-    
-    func fetchContacts()
-}
 
-protocol HomeInteractorToPresenterProtocol: class {
-    func contactsFetchSuccess(contacts: [Contact])
-    func contactsFetchFailed()
-}

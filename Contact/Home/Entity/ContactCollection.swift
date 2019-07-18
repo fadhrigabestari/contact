@@ -10,5 +10,5 @@ import Foundation
 
 struct ContactCollection {
     let sectionName: String
-    let contacts: [ContactEntity]
+    var contacts: [ContactEntity]
 }

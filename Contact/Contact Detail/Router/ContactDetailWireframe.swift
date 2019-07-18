@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class ContactDetailWireframe: IContactDetailWireframe {
+    var presenter: IContactDetailPresenter?
+    
     internal func createModule() -> ContactDetailViewController {
         let view = ContactDetailViewController(nibName: "ContactDetailViewController", bundle: nil)
         let interactor = ContactDetailInteractor()
@@ -17,6 +19,7 @@ class ContactDetailWireframe: IContactDetailWireframe {
         
         view.presenter = presenter
         interactor.presenter = presenter
+        self.presenter = presenter
         
         return view
     }
@@ -35,7 +38,7 @@ class ContactDetailWireframe: IContactDetailWireframe {
     
     func pushToEditScreen(navigationController: UINavigationController, contact: ContactDetailEntity) {
         let editContactDetailWireframe = EditContactDetailWireframe()
-        let editContactDetailViewController = editContactDetailWireframe.createModule()
+        let editContactDetailViewController = editContactDetailWireframe.createModule(delegate: self)
         
         let rows = [("First Name", contact.firstName, "John"),
                     ("Last Name", contact.lastName, "Doe"),
@@ -54,5 +57,11 @@ class ContactDetailWireframe: IContactDetailWireframe {
         editContactDetailViewController.contact = editContact
         navigationController.navigationItem.hidesBackButton = true
         navigationController.pushViewController(editContactDetailViewController, animated: true)
+    }
+}
+
+extension ContactDetailWireframe: ContactDetailDelegate {
+    func onContactEditted(contact: Contact) {
+        self.presenter?.contactDetailFetchSuccess(contact: contact)
     }
 }

@@ -10,34 +10,23 @@ import Foundation
 import UIKit
 
 class EditContactDetailWireframe: IEditContactDetailWireframe {
-    func createModule() -> EditContactDetailViewController {
+    weak var delegate: ContactDetailDelegate?
+    
+    func createModule(delegate: ContactDetailDelegate) -> EditContactDetailViewController {
         let view = EditContactDetailViewController()
         let interactor = EditContactDetailInteractor()
-        let wireframe = EditContactDetailWireframe()
-        let presenter = EditContactDetailPresenter(view: view, interactor: interactor, wireframe: wireframe)
+        let presenter = EditContactDetailPresenter(view: view, interactor: interactor, wireframe: self)
         
         view.presenter = presenter
         interactor.presenter = presenter
+        self.delegate = delegate
         
         return view
     }
     
-    func pushToContactDetailScreen(navigationController: UINavigationController, contact: EditContactDetailEntity) {
+    func pushToContactDetailScreen(navigationController: UINavigationController, contact: Contact) {
+        delegate?.onContactEditted(contact: contact)
         navigationController.popViewController(animated: true)
-        if let viewController = navigationController.topViewController as? ContactDetailViewController {
-            let contactDetail = ContactDetailEntity(id: contact.id,
-                                                    firstName: contact.firstName,
-                                                    lastName: contact.lastName,
-                                                    email: contact.email,
-                                                    phoneNumber: contact.phoneNumber,
-                                                    profilePic: contact.profilePic,
-                                                    isFavorite: contact.isFavorite,
-                                                    createdAt: contact.createdAt,
-                                                    updatedAt: contact.updatedAt,
-                                                    rows: [("mobile", contact.phoneNumber),
-                                                           ("email", contact.email)])
-            viewController.showContactDetail(contact: contactDetail)
-        }
     }
     
     func cancelToContactDetailScreen(navigationController: UINavigationController) {
