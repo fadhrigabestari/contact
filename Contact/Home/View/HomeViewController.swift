@@ -14,8 +14,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var contacts: [ContactEntity] = []
-    var contactsDictionary: [String:[ContactEntity]] = [:]
+    var contactCollection: [ContactCollection] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +50,15 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.contactsDictionary.count
+        return self.contactCollection.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return self.contactCollection[section].contacts.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.contactCollection[section].sectionName
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,7 +66,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         applyRoundCorner(cell.contactImage)
         
-        let contact = contacts[indexPath.row]
+        let contact = contactCollection[indexPath.section].contacts[indexPath.row]
         
         cell.selectionStyle = .none
         cell.contactName.text = contact.name
@@ -80,8 +83,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.onContactsCellPressed(navigationController: navigationController!, id: contacts[indexPath.row].id)
+        presenter?.onContactsCellPressed(navigationController: navigationController!, id: contactCollection[indexPath.section].contacts[indexPath.row].id)
     }
     
-    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        var sectionsTitles: [String] = []
+        for contacts in contactCollection {
+            if contacts.sectionName == "Favorite" {
+                sectionsTitles.append("⭑")
+            } else {
+                sectionsTitles.append(contacts.sectionName)
+            }
+        }
+        
+        return sectionsTitles
+    }
 }

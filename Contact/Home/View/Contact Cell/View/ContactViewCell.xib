@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="fadhriga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ci-Wm-dxW">
-                        <rect key="frame" x="75.5" y="24" width="190.5" height="20.5"/>
+                        <rect key="frame" x="75.5" y="24" width="206.5" height="20.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭑" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7f-Aj-UFc">
-                        <rect key="frame" x="282" y="17" width="20" height="30"/>
+                        <rect key="frame" x="298" y="17" width="20" height="30"/>
                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <color key="textColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,7 +48,7 @@
                     <constraint firstAttribute="bottom" secondItem="waW-ic-372" secondAttribute="bottom" constant="12" id="Lax-RR-1dN"/>
                     <constraint firstAttribute="bottom" secondItem="2Ci-Wm-dxW" secondAttribute="bottom" constant="23" id="Tu2-4F-Ehq"/>
                     <constraint firstItem="waW-ic-372" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cUv-9L-LdQ"/>
-                    <constraint firstAttribute="trailing" secondItem="B7f-Aj-UFc" secondAttribute="trailing" constant="32" id="dy0-gp-Jbd"/>
+                    <constraint firstAttribute="trailing" secondItem="B7f-Aj-UFc" secondAttribute="trailing" constant="16" id="dy0-gp-Jbd"/>
                     <constraint firstItem="2Ci-Wm-dxW" firstAttribute="leading" secondItem="waW-ic-372" secondAttribute="trailing" constant="16" id="haX-kh-AjU"/>
                     <constraint firstItem="B7f-Aj-UFc" firstAttribute="leading" secondItem="2Ci-Wm-dxW" secondAttribute="trailing" constant="16" id="oFr-UC-R3I"/>
                 </constraints>

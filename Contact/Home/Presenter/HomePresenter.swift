@@ -39,25 +39,11 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
     }
     
     func contactsFetchSuccess(contacts: [Contact]) {
-        view?.showContacts(contacts: streamlineContact(contacts: contacts), dictionary: filterContacts(contacts: contacts))
+        view?.showContacts(contacts: filterContacts(contacts: contacts))
     }
     
     func contactsFetchFailed() {
         // view?.showFail()
-    }
-    
-    func streamlineContact(contacts: [Contact]) -> [ContactEntity] {
-        let contactEntities = contacts.map { (contact) -> ContactEntity in
-            let name = "\(contact.firstName) \(contact.lastName)"
-            let isFavorite = contact.isFavorite
-            let contactEntity = ContactEntity(id: contact.id,
-                                          name: name,
-                                          profilePic: contact.profilePic,
-                                          isFavorite: isFavorite)
-            return contactEntity
-        }
-        
-        return contactEntities
     }
     
     func filterContactByFavorite(contacts: [Contact]) -> [ContactEntity] {
@@ -96,7 +82,7 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
         let contactEntities = contacts.filter{ (contact) -> Bool in
             let regularExpressionForPhone = "[\\d\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\-\\_\\+\\=\\`\\~\\[\\]\\{\\}\\;\\:\\,\\<\\.\\>\\/\\?].*"
             let testPhone = NSPredicate(format:"SELF MATCHES %@", regularExpressionForPhone)
-            return testPhone.evaluate(with: contact.firstName)
+            return !contact.isFavorite && testPhone.evaluate(with: contact.firstName)
             }.map { (contact) -> ContactEntity in
                 let name = "\(contact.firstName) + \(contact.lastName)"
                 let isFavorite = contact.isFavorite
@@ -110,25 +96,29 @@ class HomePresenter: HomeViewToPresenterProtocol, HomeInteractorToPresenterProto
         return contactEntities
     }
     
-    func filterContacts(contacts: [Contact]) -> [String:[ContactEntity]] {
-        var result: [String:[ContactEntity]] = [:]
+    func filterContacts(contacts: [Contact]) -> [ContactCollection] {
+        var result: [ContactCollection] = []
         let favoritedContacts = filterContactByFavorite(contacts: contacts)
         var alphabetContact: [ContactEntity]
         let nonAlphabetContact = filterContactsByNonAlphabet(contacts: contacts)
         
         if favoritedContacts.count > 0 {
-            result["Favorite"] = favoritedContacts
+            result.append(ContactCollection(sectionName: "Favorite",
+                                            contacts: favoritedContacts))
         }
         
         for alphabet in alphabets {
             alphabetContact = filterContactsByAlphabet(contacts: contacts, alphabet: alphabet)
             if alphabetContact.count > 0 {
-                result[alphabet] = alphabetContact
+                result.append(ContactCollection(sectionName:alphabet,
+                                                contacts: alphabetContact))
+
             }
         }
         
         if nonAlphabetContact.count > 0 {
-            result["#"] = nonAlphabetContact
+            result.append(ContactCollection(sectionName: "#",
+                                            contacts: nonAlphabetContact))
         }
         
         return result
