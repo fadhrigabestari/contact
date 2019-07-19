@@ -249,7 +249,7 @@ extension AddContactViewController: UINavigationControllerDelegate, UIImagePicke
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profilePicture.contentMode = .scaleAspectFit
+            profilePicture.contentMode = .scaleToFill
             profilePicture.image = pickedImage
         }
         

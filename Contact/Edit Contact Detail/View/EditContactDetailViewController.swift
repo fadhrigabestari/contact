@@ -249,8 +249,8 @@ extension EditContactDetailViewController: UINavigationControllerDelegate, UIIma
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            profilePicture.contentMode = .scaleAspectFit
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            profilePicture.contentMode = .scaleToFill
             profilePicture.image = pickedImage
         }
         
