@@ -15,9 +15,7 @@ class HomeInteractor: IHomeInteractor {
     
     func fetchContacts() {
         let contacts = fetchCoreData()
-        if contacts.count > 0 {
-            self.presenter?.contactsFetchSuccess(contacts: contacts)
-        }
+        self.presenter?.contactsFetchSuccess(contacts: contacts)
         
         guard let url = URL(string: "http://gojek-contacts-app.herokuapp.com/contacts.json") else {
             presenter?.contactsFetchFailed()

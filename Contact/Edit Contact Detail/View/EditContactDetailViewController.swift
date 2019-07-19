@@ -34,17 +34,20 @@ class EditContactDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        applyRoundCorner(self.profilePicture)
+        applyRoundCorner(self.cameraIcon)
+    }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
+            applyRoundCorner(self.profilePicture)
+            applyRoundCorner(self.cameraIcon)
             self.tableView.isScrollEnabled = UIDevice.current.orientation.isLandscape
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        applyRoundCorner(self.profilePicture)
-        applyRoundCorner(self.cameraIcon)
     }
     
     private func setupNavigationBar() {
@@ -66,9 +69,6 @@ class EditContactDetailViewController: UIViewController {
         } else {
             self.profilePicture.image = UIImage(named: "default-contact-image")
         }
-        
-        applyRoundCorner(self.profilePicture)
-        applyRoundCorner(self.cameraIcon)
         
         self.profilePicture.layer.borderColor = UIColor.white.cgColor
         self.profilePicture.layer.borderWidth = 3
