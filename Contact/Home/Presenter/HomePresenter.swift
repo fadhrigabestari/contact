@@ -50,13 +50,7 @@ class HomePresenter: IHomePresenter {
         let contactEntities = contacts.filter{ (contact) -> Bool in
             return contact.isFavorite
             }.map { (contact) -> ContactEntity in
-                let name = "\(contact.firstName) + \(contact.lastName)"
-                let isFavorite = contact.isFavorite
-                let contactEntity = ContactEntity(id: contact.id,
-                                                  name: name,
-                                                  profilePic: contact.profilePic,
-                                                  isFavorite: isFavorite)
-                return contactEntity
+                return contact.toContactEntity
         }
         
         return contactEntities
@@ -66,13 +60,7 @@ class HomePresenter: IHomePresenter {
         let contactEntities = contacts.filter{ (contact) -> Bool in
             return !contact.isFavorite && contact.firstName.uppercased().first == alphabet.uppercased().first
             }.map { (contact) -> ContactEntity in
-                let name = "\(contact.firstName) \(contact.lastName)"
-                let isFavorite = contact.isFavorite
-                let contactEntity = ContactEntity(id: contact.id,
-                                                  name: name,
-                                                  profilePic: contact.profilePic,
-                                                  isFavorite: isFavorite)
-                return contactEntity
+                return contact.toContactEntity
         }
         
         return contactEntities
@@ -84,13 +72,7 @@ class HomePresenter: IHomePresenter {
             let testPhone = NSPredicate(format:"SELF MATCHES %@", regularExpressionForPhone)
             return !contact.isFavorite && testPhone.evaluate(with: contact.firstName)
             }.map { (contact) -> ContactEntity in
-                let name = "\(contact.firstName) + \(contact.lastName)"
-                let isFavorite = contact.isFavorite
-                let contactEntity = ContactEntity(id: contact.id,
-                                                  name: name,
-                                                  profilePic: contact.profilePic,
-                                                  isFavorite: isFavorite)
-                return contactEntity
+                return contact.toContactEntity
         }
         
         return contactEntities

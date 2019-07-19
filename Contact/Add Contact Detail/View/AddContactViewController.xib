@@ -31,16 +31,16 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="WJn-eN-HpZ" userLabel="Profile Picture">
-                                    <rect key="frame" x="100" y="58" width="175" height="175"/>
+                                    <rect key="frame" x="65" y="58" width="245.5" height="245.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="WJn-eN-HpZ" secondAttribute="height" multiplier="1:1" id="LEc-xH-FQW"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAS-24-X69" userLabel="Camera Icon">
-                                    <rect key="frame" x="225" y="183" width="50" height="50"/>
+                                    <rect key="frame" x="261" y="253.5" width="49.5" height="49.5"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6hc-8M-uBT">
-                                            <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                            <rect key="frame" x="10" y="10" width="29.5" height="29.5"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,12 +56,12 @@
                             </subviews>
                             <color key="backgroundColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="0.17992829623287671" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="xAS-24-X69" secondAttribute="trailing" constant="100" id="GQu-yl-egp"/>
+                                <constraint firstItem="xAS-24-X69" firstAttribute="trailing" secondItem="WJn-eN-HpZ" secondAttribute="trailing" id="4q5-D2-Kwy"/>
                                 <constraint firstItem="WJn-eN-HpZ" firstAttribute="top" secondItem="FoL-SE-nHS" secondAttribute="top" constant="58" id="NwL-ai-5c8"/>
-                                <constraint firstItem="xAS-24-X69" firstAttribute="bottom" secondItem="WJn-eN-HpZ" secondAttribute="bottom" id="Pd2-lg-u5k"/>
-                                <constraint firstItem="WJn-eN-HpZ" firstAttribute="leading" secondItem="FoL-SE-nHS" secondAttribute="leading" constant="100" id="cEN-j2-Idh"/>
-                                <constraint firstItem="xAS-24-X69" firstAttribute="leading" secondItem="WJn-eN-HpZ" secondAttribute="trailing" constant="-50" id="rH0-ig-XwT"/>
-                                <constraint firstAttribute="trailing" secondItem="WJn-eN-HpZ" secondAttribute="trailing" constant="100" id="wwS-3w-8FR"/>
+                                <constraint firstItem="WJn-eN-HpZ" firstAttribute="centerX" secondItem="FoL-SE-nHS" secondAttribute="centerX" id="XgU-Zz-lPA"/>
+                                <constraint firstItem="xAS-24-X69" firstAttribute="top" secondItem="WJn-eN-HpZ" secondAttribute="bottom" constant="-50" id="aJw-w5-tKr"/>
+                                <constraint firstAttribute="bottom" secondItem="WJn-eN-HpZ" secondAttribute="bottom" constant="30" id="m0K-6N-5yY"/>
+                                <constraint firstAttribute="bottom" secondItem="xAS-24-X69" secondAttribute="bottom" constant="30.5" id="mYP-TB-QLQ"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-fI-ozd">

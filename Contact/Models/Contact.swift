@@ -37,7 +37,7 @@ struct Contact: Codable {
 extension Contact {
     var toContactEntity: ContactEntity {
         return ContactEntity(id: self.id,
-                             name: "\(self.firstName) + \(self.lastName)",
+                             name: "\(self.firstName) \(self.lastName)",
             profilePic: self.profilePic,
             isFavorite: self.isFavorite)
     }

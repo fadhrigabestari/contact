@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditContactDetailViewController" customModule="Contact" customModuleProvider="target">
             <connections>
-                <outlet property="cameraIcon" destination="bZb-rK-Jfj" id="gTC-JE-hq1"/>
-                <outlet property="profilePicture" destination="UBt-sT-rjo" id="Yzm-IS-h4v"/>
+                <outlet property="cameraIcon" destination="Uj0-dv-coG" id="JSX-lz-Bzr"/>
+                <outlet property="profilePicture" destination="s5F-Qk-Yq0" id="VSL-nc-nPs"/>
                 <outlet property="tableView" destination="8t3-Pf-KJY" id="pHw-32-6oZ"/>
                 <outlet property="topView" destination="9Da-Ry-ksN" id="2eg-R1-GFT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -21,53 +21,54 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Sm-bJ-gad">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Da-Ry-ksN" userLabel="Top View">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="UBt-sT-rjo">
-                                    <rect key="frame" x="100" y="58" width="175" height="175"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="s5F-Qk-Yq0" userLabel="Profile Picture">
+                                    <rect key="frame" x="27" y="58" width="360" height="360"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" secondItem="UBt-sT-rjo" secondAttribute="height" multiplier="1:1" id="0qc-sk-OaX"/>
+                                        <constraint firstAttribute="width" secondItem="s5F-Qk-Yq0" secondAttribute="height" multiplier="1:1" id="FVc-lm-ZJ5"/>
                                     </constraints>
                                 </imageView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZb-rK-Jfj">
-                                    <rect key="frame" x="225" y="183" width="50" height="50"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uj0-dv-coG" userLabel="Camera Icon">
+                                    <rect key="frame" x="337" y="368" width="50" height="50"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera-icon" translatesAutoresizingMaskIntoConstraints="NO" id="fQa-fa-JuB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera-icon" translatesAutoresizingMaskIntoConstraints="NO" id="UUU-5o-zXj">
                                             <rect key="frame" x="10" y="10" width="30" height="30"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="fQa-fa-JuB" firstAttribute="top" secondItem="bZb-rK-Jfj" secondAttribute="top" constant="10" id="4kl-E6-bMX"/>
-                                        <constraint firstAttribute="trailing" secondItem="fQa-fa-JuB" secondAttribute="trailing" constant="10" id="9zm-Bv-elv"/>
-                                        <constraint firstItem="fQa-fa-JuB" firstAttribute="leading" secondItem="bZb-rK-Jfj" secondAttribute="leading" constant="10" id="JHu-fo-5HM"/>
-                                        <constraint firstAttribute="width" secondItem="bZb-rK-Jfj" secondAttribute="height" multiplier="1:1" id="WlN-F6-YsX"/>
-                                        <constraint firstAttribute="bottom" secondItem="fQa-fa-JuB" secondAttribute="bottom" constant="10" id="lCj-iU-fDy"/>
+                                        <constraint firstAttribute="trailing" secondItem="UUU-5o-zXj" secondAttribute="trailing" constant="10" id="YoG-Dz-y7N"/>
+                                        <constraint firstItem="UUU-5o-zXj" firstAttribute="top" secondItem="Uj0-dv-coG" secondAttribute="top" constant="10" id="v1i-Jf-MQn"/>
+                                        <constraint firstAttribute="bottom" secondItem="UUU-5o-zXj" secondAttribute="bottom" constant="10" id="vcb-CN-cyd"/>
+                                        <constraint firstItem="UUU-5o-zXj" firstAttribute="leading" secondItem="Uj0-dv-coG" secondAttribute="leading" constant="10" id="xEU-m8-1GQ"/>
                                     </constraints>
+                                    <viewLayoutGuide key="safeArea" id="aia-zo-PRe"/>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="0.17915239726027396" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstItem="UBt-sT-rjo" firstAttribute="leading" secondItem="9Da-Ry-ksN" secondAttribute="leading" constant="100" id="3Xm-BE-N1u"/>
-                                <constraint firstAttribute="trailing" secondItem="UBt-sT-rjo" secondAttribute="trailing" constant="100" id="B4Y-kN-Tov"/>
-                                <constraint firstItem="UBt-sT-rjo" firstAttribute="bottom" secondItem="bZb-rK-Jfj" secondAttribute="bottom" id="br7-br-ggt"/>
-                                <constraint firstAttribute="trailing" secondItem="bZb-rK-Jfj" secondAttribute="trailing" constant="100" id="enY-Bl-lPf"/>
-                                <constraint firstItem="bZb-rK-Jfj" firstAttribute="leading" secondItem="UBt-sT-rjo" secondAttribute="trailing" constant="-50" id="fA2-vu-5km"/>
-                                <constraint firstItem="UBt-sT-rjo" firstAttribute="top" secondItem="9Da-Ry-ksN" secondAttribute="top" constant="58" id="kHT-9B-bnR"/>
+                                <constraint firstAttribute="bottom" secondItem="s5F-Qk-Yq0" secondAttribute="bottom" constant="30" id="Cu0-kz-qNo"/>
+                                <constraint firstItem="Uj0-dv-coG" firstAttribute="top" secondItem="s5F-Qk-Yq0" secondAttribute="bottom" constant="-50" id="JCR-aU-x4V"/>
+                                <constraint firstItem="s5F-Qk-Yq0" firstAttribute="top" secondItem="9Da-Ry-ksN" secondAttribute="top" constant="58" id="YK2-sF-q2h"/>
+                                <constraint firstItem="Uj0-dv-coG" firstAttribute="trailing" secondItem="s5F-Qk-Yq0" secondAttribute="trailing" id="a6h-B4-Thq"/>
+                                <constraint firstAttribute="bottom" secondItem="Uj0-dv-coG" secondAttribute="bottom" constant="30" id="aGz-BV-uja"/>
+                                <constraint firstItem="Uj0-dv-coG" firstAttribute="width" secondItem="Uj0-dv-coG" secondAttribute="height" multiplier="1:1" id="hJ8-lV-Wsf"/>
+                                <constraint firstItem="s5F-Qk-Yq0" firstAttribute="centerX" secondItem="9Da-Ry-ksN" secondAttribute="centerX" id="mlC-J2-El3"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adA-BX-NHz" userLabel="Bottom View">
-                            <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                            <rect key="frame" x="0.0" y="448" width="414" height="448"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8t3-Pf-KJY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
                             </subviews>

@@ -13,7 +13,11 @@ class ContactDetailViewController: UIViewController {
     var presenter: IContactDetailPresenter?
     
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var profilePicture: UIImageView! {
+        didSet {
+            applyRoundCorner(self.profilePicture)
+        }
+    }
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var messageIcon: UIView!
     @IBOutlet weak var callIcon: UIView!
@@ -35,9 +39,13 @@ class ContactDetailViewController: UIViewController {
         setupButton()
     }
     
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        self.tableView.separatorInset.left = UIScreen.main.bounds.width
-        self.tableView.reloadData()
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { _ in
+            self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
+            applyRoundCorner(self.profilePicture)
+            self.profilePicture.isHidden = UIDevice.current.orientation.isLandscape
+        }
     }
     
     private func setupNavigationBar() {
@@ -51,7 +59,6 @@ class ContactDetailViewController: UIViewController {
     }
     
     private func setupProfilePicture() {
-        self.profilePicture.roundImage()
         self.profilePicture.layer.borderColor = UIColor.white.cgColor
         self.profilePicture.layer.borderWidth = 3
     }
