@@ -13,16 +13,8 @@ class EditContactDetailViewController: UIViewController {
     var imagePicker = UIImagePickerController()
 
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var profilePicture: UIImageView! {
-        didSet {
-            applyRoundCorner(self.profilePicture)
-        }
-    }
-    @IBOutlet weak var cameraIcon: UIView! {
-        didSet {
-            applyRoundCorner(self.cameraIcon)
-        }
-    }
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var cameraIcon: UIView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -46,11 +38,14 @@ class EditContactDetailViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
-            applyRoundCorner(self.profilePicture)
             self.tableView.isScrollEnabled = UIDevice.current.orientation.isLandscape
         }
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        applyRoundCorner(self.profilePicture)
+        applyRoundCorner(self.cameraIcon)
+    }
     
     private func setupNavigationBar() {
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(tappedCancelButton))
@@ -71,6 +66,9 @@ class EditContactDetailViewController: UIViewController {
         } else {
             self.profilePicture.image = UIImage(named: "default-contact-image")
         }
+        
+        applyRoundCorner(self.profilePicture)
+        applyRoundCorner(self.cameraIcon)
         
         self.profilePicture.layer.borderColor = UIColor.white.cgColor
         self.profilePicture.layer.borderWidth = 3

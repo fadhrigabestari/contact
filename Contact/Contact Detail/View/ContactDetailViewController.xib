@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -26,23 +26,23 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="C8K-nE-jFL">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGv-Nm-nYG" userLabel="Top View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="431"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="pYi-tC-3bn" userLabel="Profile Picture">
-                                    <rect key="frame" x="80" y="58" width="254.5" height="254.5"/>
+                                    <rect key="frame" x="109" y="58" width="157" height="157"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="pYi-tC-3bn" secondAttribute="height" multiplier="1:1" id="0pT-aF-WEz"/>
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sUx-Do-7RH">
-                                    <rect key="frame" x="35" y="353.5" width="344" height="72.5"/>
+                                    <rect key="frame" x="35" y="256" width="305" height="72.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OQM-xm-1UJ">
                                             <rect key="frame" x="0.0" y="0.0" width="51.5" height="72.5"/>
@@ -89,7 +89,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Eje-Px-caw">
-                                            <rect key="frame" x="97.5" y="0.0" width="51.5" height="72.5"/>
+                                            <rect key="frame" x="84.5" y="0.0" width="51.5" height="72.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aU2-I1-Cgh" userLabel="Call UIView">
                                                     <rect key="frame" x="0.0" y="0.0" width="51.5" height="51.5"/>
@@ -135,7 +135,7 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JiC-V4-Mqw">
-                                            <rect key="frame" x="195" y="0.0" width="51.5" height="72.5"/>
+                                            <rect key="frame" x="169" y="0.0" width="51.5" height="72.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpB-mn-Da4" userLabel="Email UIView">
                                                     <rect key="frame" x="0.0" y="0.0" width="51.5" height="51.5"/>
@@ -178,7 +178,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Szk-nq-OWU">
-                                            <rect key="frame" x="292.5" y="0.0" width="51.5" height="72.5"/>
+                                            <rect key="frame" x="253.5" y="0.0" width="51.5" height="72.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87d-0c-k4E" userLabel="Favorite UIView">
                                                     <rect key="frame" x="0.0" y="0.0" width="51.5" height="51.5"/>
@@ -223,7 +223,7 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoD-sX-LDC">
-                                    <rect key="frame" x="44" y="320.5" width="326" height="25"/>
+                                    <rect key="frame" x="44" y="223" width="287" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="3qZ-6F-Wh8"/>
                                     </constraints>
@@ -246,10 +246,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wr-JB-CSC" userLabel="Buttom View">
-                            <rect key="frame" x="0.0" y="431" width="414" height="431"/>
+                            <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IVL-Ds-84R">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="431"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                     <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="0.14701947773972604" colorSpace="custom" customColorSpace="sRGB"/>
                                 </tableView>
                             </subviews>

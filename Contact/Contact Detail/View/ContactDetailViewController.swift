@@ -13,11 +13,7 @@ class ContactDetailViewController: UIViewController {
     var presenter: IContactDetailPresenter?
     
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var profilePicture: UIImageView! {
-        didSet {
-            applyRoundCorner(self.profilePicture)
-        }
-    }
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var messageIcon: UIView!
     @IBOutlet weak var callIcon: UIView!
@@ -43,9 +39,12 @@ class ContactDetailViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
-            applyRoundCorner(self.profilePicture)
             self.profilePicture.isHidden = UIDevice.current.orientation.isLandscape
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        applyRoundCorner(self.profilePicture)
     }
     
     private func setupNavigationBar() {

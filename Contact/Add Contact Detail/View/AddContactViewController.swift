@@ -14,16 +14,8 @@ class AddContactViewController: UIViewController {
     var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var profilePicture: UIImageView! {
-        didSet {
-            applyRoundCorner(self.profilePicture)
-        }
-    }
-    @IBOutlet weak var cameraIcon: UIView! {
-        didSet {
-            applyRoundCorner(self.cameraIcon)
-        }
-    }
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var cameraIcon: UIView!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,10 +39,13 @@ class AddContactViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
-            applyRoundCorner(self.profilePicture)
-            applyRoundCorner(self.cameraIcon)
             self.tableView.isScrollEnabled = UIDevice.current.orientation.isLandscape
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        applyRoundCorner(self.profilePicture)
+        applyRoundCorner(self.cameraIcon)
     }
     
     private func setupNavigationBar() {

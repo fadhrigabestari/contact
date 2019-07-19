@@ -14,6 +14,10 @@ class ContactDetailInteractor: IContactDetailInteractor {
     weak var presenter: IContactDetailPresenter?
     
     func fetchContactDetail(id: Int) {
+        if let contact = fetchCoreData(id: id) {
+            presenter?.contactDetailFetchSuccess(contact: contact)
+        }
+        
         guard let url = URL(string: "https://gojek-contacts-app.herokuapp.com/contacts/\(id).json") else {
             presenter?.contactDetailFetchFailed()
             return
@@ -38,7 +42,7 @@ class ContactDetailInteractor: IContactDetailInteractor {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
                 let contactDetailDecoded = try decoder.decode(Contact.self, from: contactDetail)
-                if self.saveContactDetailToCoreData(id: id, contact: contactDetailDecoded) {
+                if self.saveContactDetailToCoreData(contact: contactDetailDecoded) {
                     self.presenter?.contactDetailFetchSuccess(contact: contactDetailDecoded)
                 } else {
                     self.presenter?.contactDetailFetchFailed()
@@ -73,7 +77,7 @@ class ContactDetailInteractor: IContactDetailInteractor {
                     return
                 }
                 
-                if self.saveContactDetailToCoreData(id: contact.id, contact: contact) {
+                if self.saveContactDetailToCoreData(contact: contact) {
                     self.presenter?.sendContactDetailSuccess(contact: contact)
                 } else {
                     self.presenter?.sendContactDetailFailed()
@@ -89,14 +93,14 @@ class ContactDetailInteractor: IContactDetailInteractor {
 }
 
 private extension ContactDetailInteractor {
-    func saveContactDetailToCoreData(id: Int, contact: Contact) -> Bool {
+    func saveContactDetailToCoreData(contact: Contact) -> Bool {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return false
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest:NSFetchRequest<ContactCore> = NSFetchRequest(entityName: "ContactCore")
-        fetchRequest.predicate = NSPredicate(format: "id == %ld", id)
+        fetchRequest.predicate = NSPredicate(format: "id == %ld", contact.id)
         do {
             let contacts = try managedContext.fetch(fetchRequest)
             contacts[0].setValue(contact.email, forKey: "email")
@@ -112,9 +116,9 @@ private extension ContactDetailInteractor {
         }
     }
     
-    func fetchCoreData(id: Int) -> [Contact] {
+    func fetchCoreData(id: Int) -> Contact? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return []
+            return nil
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -135,10 +139,10 @@ private extension ContactDetailInteractor {
                                         createdAt: contactCore.createdAt,
                                         updatedAt: contactCore.updatedAt))
             }
-            return contacts
+            return contacts[0]
         } catch let error {
             print(error)
-            return []
+            return nil
         }
     }
 }

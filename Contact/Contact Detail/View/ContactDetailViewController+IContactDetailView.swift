@@ -33,7 +33,6 @@ extension ContactDetailViewController: IContactDetailView {
     
     func showSendContactDetailSuccess() {
         let alert = UIAlertController(title: "Success!", message: "Contact successfully favorited", preferredStyle: .alert)
-//        alert.setValue(NSAttributedString(string: alert.message!, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium), NSAttributedStringKey.foregroundColor : UIColor.green]), forKey: "attributedMessage")
         self.present(alert, animated: true, completion: nil)
         
         let when = DispatchTime.now() + 1

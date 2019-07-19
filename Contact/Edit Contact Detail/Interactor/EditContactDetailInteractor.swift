@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 class EditContactDetailInteractor: IEditContactDetailInteractor {
     var presenter: IEditContactDetailPresenter?
@@ -43,7 +44,11 @@ class EditContactDetailInteractor: IEditContactDetailInteractor {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
                     let contactDecoded = try decoder.decode(Contact.self, from: newContact)
-                    self.presenter?.sendEditedContactDetailSuccess(navigationController: navigationController, contact: contactDecoded)
+                    if self.saveContactDetailToCoreData(contact: contactDecoded) {
+                        self.presenter?.sendEditedContactDetailSuccess(navigationController: navigationController, contact: contactDecoded)
+                    } else {
+                        self.presenter?.sendEditedContactDetailFailed()
+                    }
                     return
                 } catch {
                     print(error)
@@ -55,6 +60,31 @@ class EditContactDetailInteractor: IEditContactDetailInteractor {
             print(error)
             self.presenter?.sendEditedContactDetailFailed()
             return
+        }
+    }
+}
+
+private extension EditContactDetailInteractor {
+    func saveContactDetailToCoreData(contact: Contact) -> Bool {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest<ContactCore> = NSFetchRequest(entityName: "ContactCore")
+        fetchRequest.predicate = NSPredicate(format: "id == %ld", contact.id)
+        do {
+            let contacts = try managedContext.fetch(fetchRequest)
+            contacts[0].setValue(contact.firstName, forKey: "firstName")
+            contacts[0].setValue(contact.lastName, forKey: "lastName")
+            contacts[0].setValue(contact.email, forKey: "email")
+            contacts[0].setValue(contact.phoneNumber, forKey: "phoneNumber")
+            contacts[0].setValue(contact.updatedAt, forKey: "updatedAt")
+            try managedContext.save()
+            return true
+        } catch let error as NSError {
+            print("\(error), \(error.userInfo)")
+            return false
         }
     }
 }
