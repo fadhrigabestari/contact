@@ -20,17 +20,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mobile" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isb-S5-mxt">
-                        <rect key="frame" x="24" y="20" width="48.5" height="17.5"/>
+                        <rect key="frame" x="24" y="20" width="55" height="17.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="48.5" id="v3H-BN-LWB"/>
+                            <constraint firstAttribute="width" constant="55" id="v3H-BN-LWB"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="+6281340952530" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkU-yo-83O">
-                        <rect key="frame" x="104.5" y="20" width="206.5" height="17.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="111" y="20" width="200" height="17.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
