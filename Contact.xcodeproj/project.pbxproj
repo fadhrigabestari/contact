@@ -30,6 +30,7 @@
 		0F7A6F3F22E077300034DA83 /* AddContactInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A6F3E22E077300034DA83 /* AddContactInteractor.swift */; };
 		0F7A6F4122E077560034DA83 /* AddContactPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A6F4022E077560034DA83 /* AddContactPresenter.swift */; };
 		0F7A6F4322E078B10034DA83 /* AddContactViewController+IAddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A6F4222E078B10034DA83 /* AddContactViewController+IAddContactView.swift */; };
+		0F7A6F4522E0A3A50034DA83 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A6F4422E0A3A50034DA83 /* ProgressHUD.swift */; };
 		0FFF529222CDAE6800CD18D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */; };
 		0FFF529A22CDAE6800CD18D4 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529822CDAE6800CD18D4 /* Contact.xcdatamodeld */; };
 		0FFF529C22CDAE6900CD18D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF529B22CDAE6900CD18D4 /* Assets.xcassets */; };
@@ -107,6 +108,7 @@
 		0F7A6F3E22E077300034DA83 /* AddContactInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactInteractor.swift; sourceTree = "<group>"; };
 		0F7A6F4022E077560034DA83 /* AddContactPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactPresenter.swift; sourceTree = "<group>"; };
 		0F7A6F4222E078B10034DA83 /* AddContactViewController+IAddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddContactViewController+IAddContactView.swift"; sourceTree = "<group>"; };
+		0F7A6F4422E0A3A50034DA83 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		0FFF528E22CDAE6800CD18D4 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF529922CDAE6800CD18D4 /* Contact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contact.xcdatamodel; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				0FFFB15022CF826F00931382 /* String.swift */,
 				0F1D1E0122D4C005000CE4E3 /* RoundObject.swift */,
 				0F7A6F2522D867D30034DA83 /* DateFormatter.swift */,
+				0F7A6F4422E0A3A50034DA83 /* ProgressHUD.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -838,6 +841,7 @@
 				0FFF52C522CDAF4D00CD18D4 /* HomeViewController.swift in Sources */,
 				0FFF52CA22CDCD6A00CD18D4 /* ContactViewCell.swift in Sources */,
 				0F1D1E1922D5E27F000CE4E3 /* EditContactDetailWireframe.swift in Sources */,
+				0F7A6F4522E0A3A50034DA83 /* ProgressHUD.swift in Sources */,
 				0FFFB16622D3042C00931382 /* ContactDetailEntity.swift in Sources */,
 				0F1D1E1022D5DD35000CE4E3 /* EditContactDetailContracts.swift in Sources */,
 				0F7A6F3722E075490034DA83 /* AddContactViewController.swift in Sources */,

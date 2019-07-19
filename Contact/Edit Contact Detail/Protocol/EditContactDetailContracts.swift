@@ -29,8 +29,8 @@ protocol IEditContactDetailInteractor: class {
 }
 
 protocol IEditContactDetailWireframe: class {
-    func createModule(delegate: ContactDetailDelegate) -> EditContactDetailViewController
+    func createModule(contactDetailDelegate: ContactDetailDelegate) -> EditContactDetailViewController
     
-    func pushToContactDetailScreen(navigationController: UINavigationController, contact: Contact)
+    func popToContactDetailScreen(navigationController: UINavigationController, contact: Contact)
     func cancelToContactDetailScreen(navigationController: UINavigationController)
 }

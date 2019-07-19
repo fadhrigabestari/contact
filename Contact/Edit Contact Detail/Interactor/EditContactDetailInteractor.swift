@@ -33,8 +33,23 @@ class EditContactDetailInteractor: IEditContactDetailInteractor {
                     return
                 }
                 
-                self.presenter?.sendEditedContactDetailSuccess(navigationController: navigationController, contact: contact)
-                return
+                guard let newContact = response.data else {
+                    print("Malformed data received from FetchContactDetail service")
+                    self.presenter?.sendEditedContactDetailFailed()
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                    let contactDecoded = try decoder.decode(Contact.self, from: newContact)
+                    self.presenter?.sendEditedContactDetailSuccess(navigationController: navigationController, contact: contactDecoded)
+                    return
+                } catch {
+                    print(error)
+                    self.presenter?.sendEditedContactDetailFailed()
+                    return
+                }
             }
         } catch {
             print(error)

@@ -19,6 +19,7 @@ class EditContactDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var contact: EditContactDetailEntity!
+    var progressHUD = ProgressHUD(text: "Loading")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class EditContactDetailViewController: UIViewController {
         setupNotificationCenter()
         setupTapRecognizer()
         setupImagePicker()
+        setupProgressHUD()
         // Do any additional setup after loading the view.
     }
     
@@ -41,7 +43,7 @@ class EditContactDetailViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = cancelButton
         
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tappedDoneButton))
-        doneButton.isEnabled = contact.email.isValidEmail && contact.phoneNumber.isValidPhone
+        doneButton.isEnabled = self.isInputValid()
         self.navigationItem.rightBarButtonItem = doneButton
     }
     
@@ -75,11 +77,17 @@ class EditContactDetailViewController: UIViewController {
         self.tableView.dataSource = self
     }
     
+    private func setupProgressHUD() {
+        self.view.addSubview(progressHUD)
+        self.progressHUD.hide()
+    }
+    
     @objc func tappedCancelButton() {
         self.presenter?.onCancelButtonPressed(navigationController: self.navigationController!)
     }
     
     @objc func tappedDoneButton() {
+        self.progressHUD.show()
         self.presenter?.onDoneButtonPressed(navigationController: self.navigationController!, contact: contact)
     }
     
@@ -165,6 +173,10 @@ class EditContactDetailViewController: UIViewController {
         imagePicker.allowsEditing = true
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
+    private func isInputValid() -> Bool {
+        return contact.firstName.isValidName && contact.lastName.isValidName && contact.email.isValidEmail && contact.phoneNumber.isValidPhone
+    }
 }
 
 extension EditContactDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -215,11 +227,7 @@ extension EditContactDetailViewController: UITextFieldDelegate {
         default: break
         }
         
-        if contact.email.isValidEmail && contact.phoneNumber.isValidPhone {
-            self.navigationItem.rightBarButtonItem!.isEnabled = true
-        } else {
-            self.navigationItem.rightBarButtonItem!.isEnabled = false
-        }
+        self.navigationItem.rightBarButtonItem!.isEnabled = self.isInputValid()
         
         return true
     }

@@ -8,16 +8,50 @@
 
 import Foundation
 
+typealias RowItemAddContact = (category: String, value: String, placeholder: String)
+
 struct AddContactEntity {
-    let id: Int
-    let firstName: String
-    let lastName: String
-    let email: String
-    let phoneNumber: String
-    let profilePic: String
-    let isFavorite: Bool
-    let createdAt: Date
-    let updatedAt: Date
+    var id: Int
+    var firstName: String
+    var lastName: String
+    var email: String
+    var phoneNumber: String
+    var profilePic: String
+    var isFavorite: Bool
+    var createdAt: Date
+    var updatedAt: Date
+    
+    var rows: [RowItemAddContact]
+    
+    init() {
+        id = 0
+        firstName = ""
+        lastName = ""
+        email = ""
+        phoneNumber = ""
+        profilePic = ""
+        isFavorite = false
+        createdAt = Date()
+        updatedAt = Date()
+        
+        rows =  [("First Name", self.firstName, "John"),
+                ("Last Name", self.lastName, "Doe"),
+                ("mobile", self.phoneNumber, "+1234567890"),
+                ("email", self.email, "john.doe@email.com")]
+    }
+    
+    init(id: Int, firstName: String, lastName: String, email: String, phoneNumber: String, profilePic: String, isFavorite: Bool, createdAt: Date, updatedAt: Date, rows: [RowItemAddContact]) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.phoneNumber = phoneNumber
+        self.profilePic = profilePic
+        self.isFavorite = isFavorite
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.rows = rows
+    }
 }
 
 extension AddContactEntity {

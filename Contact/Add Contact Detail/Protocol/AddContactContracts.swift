@@ -16,6 +16,7 @@ protocol IAddContactView: class {
 
 protocol IAddContactPresenter: class {
     func onDoneButtonPressed(navigationController: UINavigationController, contact: AddContactEntity)
+    func onCancelButtonPressed(navigationController: UINavigationController)
     func sendAddContactSuccess(navigationController: UINavigationController, contact: Contact)
     func sendAddContactFailed()
 }
@@ -27,7 +28,7 @@ protocol IAddContactInteractor: class {
 }
 
 protocol IAddContactWireframe: class {
-    func createModule() -> AddContactViewController
-    func pushToHomeScreen(navigationController: UINavigationController, contact: Contact)
+    func createModule(homeDelegate: HomeDelegate) -> AddContactViewController
+    func popToHomeScreen(navigationController: UINavigationController, contact: Contact)
     func cancelToHomeScreen(navigationController: UINavigationController)
 }

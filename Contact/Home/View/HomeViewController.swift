@@ -15,26 +15,25 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var contactCollection: [ContactCollection] = []
+    var progressHUD = ProgressHUD(text: "Loading")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationBar()
         setupTableView()
+        setupProgressHUD()
+        presenter?.startFetchingContacts()
         
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        presenter?.startFetchingContacts()
     }
     
     private func setupNavigationBar() {
         self.title = "Contact"
         self.navigationController?.navigationBar.tintColor = "#50E3C2".toUIColor()
         
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tappedAddButton))
         let groupsButton = UIBarButtonItem(title: "Groups", style: .plain, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = addButton
         self.navigationItem.leftBarButtonItem = groupsButton
@@ -45,6 +44,15 @@ class HomeViewController: UIViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "ContactCell")
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 64
+    }
+    
+    private func setupProgressHUD() {
+        self.view.addSubview(progressHUD)
+        self.progressHUD.show()
+    }
+    
+    @objc func tappedAddButton() {
+        presenter?.onAddButtonPressed(navigationController: self.navigationController!)
     }
 }
 

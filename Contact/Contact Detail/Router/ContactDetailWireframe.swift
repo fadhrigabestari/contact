@@ -38,7 +38,7 @@ class ContactDetailWireframe: IContactDetailWireframe {
     
     func pushToEditScreen(navigationController: UINavigationController, contact: ContactDetailEntity) {
         let editContactDetailWireframe = EditContactDetailWireframe()
-        let editContactDetailViewController = editContactDetailWireframe.createModule(delegate: self)
+        let editContactDetailViewController = editContactDetailWireframe.createModule(contactDetailDelegate: self)
         
         let rows = [("First Name", contact.firstName, "John"),
                     ("Last Name", contact.lastName, "Doe"),

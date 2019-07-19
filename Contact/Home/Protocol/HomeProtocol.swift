@@ -38,4 +38,8 @@ protocol IHomeWireframe: class {
     func pushToContactDetailScreen(navigationController: UINavigationController, id: Int)
 }
 
+protocol HomeDelegate: class {
+    func onContactAdded(contact: Contact)
+}
+
 

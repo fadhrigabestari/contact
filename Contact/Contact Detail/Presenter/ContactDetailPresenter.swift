@@ -62,14 +62,14 @@ class ContactDetailPresenter: IContactDetailPresenter {
             id: contact.id,
             firstName: contact.firstName,
             lastName: contact.lastName,
-            email: contact.email!,
-            phoneNumber: contact.phoneNumber!,
+            email: contact.email ?? "",
+            phoneNumber: contact.phoneNumber ?? "",
             profilePic: contact.profilePic,
             isFavorite: contact.isFavorite,
-            createdAt: contact.createdAt!,
-            updatedAt: contact.updatedAt!,
-            rows: [("mobile", contact.phoneNumber!),
-                   ("email", contact.email!)])
+            createdAt: contact.createdAt ?? Date(),
+            updatedAt: contact.updatedAt ?? Date(),
+            rows: [("mobile", contact.phoneNumber ?? ""),
+                   ("email", contact.email ?? "")])
         
         view?.showContactDetail(contact: contactDetail)
     }

@@ -28,13 +28,29 @@ class AddContactInteractor: IAddContactInteractor {
             request.httpBody = jsonData
             
             Alamofire.request(request).responseJSON { response in
+                print(response)
                 guard response.result.isSuccess else {
                     self.presenter?.sendAddContactFailed()
                     return
                 }
                 
-                self.presenter?.sendAddContactSuccess(navigationController: navigationController, contact: contact)
-                return
+                guard let newContact = response.data else {
+                    print("Malformed data received from FetchContactDetail service")
+                    self.presenter?.sendAddContactFailed()
+                    return
+                }
+                
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                    let contactDecoded = try decoder.decode(Contact.self, from: newContact)
+                    self.presenter?.sendAddContactSuccess(navigationController: navigationController, contact: contactDecoded)
+                    return
+                } catch {
+                    print(error)
+                    self.presenter?.sendAddContactFailed()
+                    return
+                }
             }
         } catch {
             print(error)

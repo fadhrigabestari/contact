@@ -34,7 +34,8 @@ class EditContactDetailPresenter: IEditContactDetailPresenter {
     }
     
     func sendEditedContactDetailSuccess(navigationController: UINavigationController, contact: Contact) {
-        wireframe?.pushToContactDetailScreen(navigationController: navigationController, contact: contact)
+        view?.showSendEditContactDetailSuccess()
+        wireframe?.popToContactDetailScreen(navigationController: navigationController, contact: contact)
     }
     
     func sendEditedContactDetailFailed() {

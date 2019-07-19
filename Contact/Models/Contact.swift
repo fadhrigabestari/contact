@@ -81,6 +81,10 @@ extension Contact {
                                 profilePic: self.profilePic,
                                 isFavorite: self.isFavorite,
                                 createdAt: self.createdAt ?? Date(),
-                                updatedAt: self.updatedAt ?? Date())
+                                updatedAt: self.updatedAt ?? Date(),
+                                rows: [("First Name", self.firstName, "John"),
+                                       ("Last Name", self.lastName, "Doe"),
+                                       ("mobile", self.phoneNumber ?? "", "+1234567890"),
+                                       ("email", self.email ?? "", "john.doe@email.com")])
     }
 }

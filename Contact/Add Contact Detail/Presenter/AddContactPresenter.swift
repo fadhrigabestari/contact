@@ -25,8 +25,12 @@ class AddContactPresenter: IAddContactPresenter {
         interactor?.sendAddContact(navigationController: navigationController, contact: contactModel)
     }
     
+    func onCancelButtonPressed(navigationController: UINavigationController) {
+        wireframe?.cancelToHomeScreen(navigationController: navigationController)
+    }
+    
     func sendAddContactSuccess(navigationController: UINavigationController, contact: Contact) {
-        wireframe?.pushToHomeScreen(navigationController: navigationController, contact: contact)
+        wireframe?.popToHomeScreen(navigationController: navigationController, contact: contact)
     }
     
     func sendAddContactFailed() {

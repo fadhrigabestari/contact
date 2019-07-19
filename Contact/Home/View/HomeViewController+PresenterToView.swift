@@ -10,6 +10,7 @@ import Foundation
 
 extension HomeViewController: IHomeView {
     func showContacts(contacts: [ContactCollection]) {
+        self.progressHUD.hide()
         self.contactCollection = contacts
         self.tableView.reloadData()
     }

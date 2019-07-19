@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class HomeWireframe: IHomeWireframe {
+    var presenter: IHomePresenter?
+    
     internal func createModule() -> HomeViewController {
         let view = HomeViewController(nibName: "HomeViewController", bundle: nil)
         let interactor = HomeInteractor()
@@ -17,13 +19,14 @@ class HomeWireframe: IHomeWireframe {
         
         view.presenter = presenter
         interactor.presenter = presenter
-        
+        self.presenter = presenter
         return view
     }
     
     func pushToAddScreen(navigationController: UINavigationController) {
-//        let addModule = AddWireframe.createModule()
-//        navigationController.pushViewController(addModule, animated: true)
+        let addContactWireframe = AddContactWireframe()
+        let addModule = addContactWireframe.createModule(homeDelegate: self)
+        navigationController.pushViewController(addModule, animated: true)
     }
     
     func pushToGroupsScreen(navigationController: UINavigationController) {
@@ -36,5 +39,12 @@ class HomeWireframe: IHomeWireframe {
         let contactDetailModule = contactDetailWireframe.createModule()
         contactDetailModule.id = id
         navigationController.pushViewController(contactDetailModule, animated: true)
+    }
+}
+
+extension HomeWireframe: HomeDelegate {
+    func onContactAdded(contact: Contact) {
+        presenter?.contacts.append(contact)
+        presenter?.contactsFetchSuccess(contacts: presenter!.contacts)
     }
 }

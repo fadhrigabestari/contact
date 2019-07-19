@@ -66,7 +66,7 @@ class HomePresenter: IHomePresenter {
         let contactEntities = contacts.filter{ (contact) -> Bool in
             return !contact.isFavorite && contact.firstName.uppercased().first == alphabet.uppercased().first
             }.map { (contact) -> ContactEntity in
-                let name = "\(contact.firstName) + \(contact.lastName)"
+                let name = "\(contact.firstName) \(contact.lastName)"
                 let isFavorite = contact.isFavorite
                 let contactEntity = ContactEntity(id: contact.id,
                                                   name: name,

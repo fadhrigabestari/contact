@@ -10,22 +10,22 @@ import Foundation
 import UIKit
 
 class EditContactDetailWireframe: IEditContactDetailWireframe {
-    weak var delegate: ContactDetailDelegate?
+    weak var contactDetailDelegate: ContactDetailDelegate?
     
-    func createModule(delegate: ContactDetailDelegate) -> EditContactDetailViewController {
+    func createModule(contactDetailDelegate: ContactDetailDelegate) -> EditContactDetailViewController {
         let view = EditContactDetailViewController()
         let interactor = EditContactDetailInteractor()
         let presenter = EditContactDetailPresenter(view: view, interactor: interactor, wireframe: self)
         
         view.presenter = presenter
         interactor.presenter = presenter
-        self.delegate = delegate
+        self.contactDetailDelegate = contactDetailDelegate
         
         return view
     }
     
-    func pushToContactDetailScreen(navigationController: UINavigationController, contact: Contact) {
-        delegate?.onContactEditted(contact: contact)
+    func popToContactDetailScreen(navigationController: UINavigationController, contact: Contact) {
+        contactDetailDelegate?.onContactEditted(contact: contact)
         navigationController.popViewController(animated: true)
     }
     

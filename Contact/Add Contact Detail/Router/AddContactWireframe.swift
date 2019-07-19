@@ -10,25 +10,23 @@ import Foundation
 import UIKit
 
 class AddContactWireframe: IAddContactWireframe {
-    func createModule() -> AddContactViewController {
+    weak var homeDelegate: HomeDelegate?
+    
+    func createModule(homeDelegate: HomeDelegate) -> AddContactViewController {
         let view = AddContactViewController()
         let interactor = AddContactInteractor()
-        let wireframe = AddContactWireframe()
-        let presenter = AddContactPresenter(view: view, interactor: interactor, wireframe: wireframe)
+        let presenter = AddContactPresenter(view: view, interactor: interactor, wireframe: self)
         
         view.presenter = presenter
         interactor.presenter = presenter
+        self.homeDelegate = homeDelegate
         return view
     }
     
-    func pushToHomeScreen(navigationController: UINavigationController, contact: Contact) {
+    func popToHomeScreen(navigationController: UINavigationController, contact: Contact) {
         navigationController.popViewController(animated: true)
-        if let viewController = navigationController.topViewController as? HomeViewController {
-            var contacts = viewController.presenter!.contacts
-            contacts.append(contact)
-            let collection = viewController.presenter!.filterContacts(contacts: contacts)
-            viewController.showContacts(contacts: collection)
-        }
+        homeDelegate?.onContactAdded(contact: contact)
+        navigationController.popViewController(animated: true)
     }
     
     func cancelToHomeScreen(navigationController: UINavigationController) {
