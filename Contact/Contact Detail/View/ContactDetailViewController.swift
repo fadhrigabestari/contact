@@ -27,12 +27,11 @@ class ContactDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.startFetchingContactDetail(id: id!)
-        
         setupNavigationBar()
         setupProfilePicture()
         setupTableView()
         setupButton()
+        presenter?.startFetchingContactDetail(id: id!)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

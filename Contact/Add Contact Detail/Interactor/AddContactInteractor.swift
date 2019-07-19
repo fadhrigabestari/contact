@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 class AddContactInteractor: IAddContactInteractor {
     weak var presenter: IAddContactPresenter?
@@ -44,7 +45,11 @@ class AddContactInteractor: IAddContactInteractor {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
                     let contactDecoded = try decoder.decode(Contact.self, from: newContact)
-                    self.presenter?.sendAddContactSuccess(navigationController: navigationController, contact: contactDecoded)
+                    if self.saveContactDetailToCoreData(contact: contactDecoded) {
+                        self.presenter?.sendAddContactSuccess(navigationController: navigationController, contact: contactDecoded)
+                    } else {
+                        self.presenter?.sendAddContactFailed()
+                    }
                     return
                 } catch {
                     print(error)
@@ -56,6 +61,37 @@ class AddContactInteractor: IAddContactInteractor {
             print(error)
             self.presenter?.sendAddContactFailed()
             return
+        }
+    }
+}
+
+private extension AddContactInteractor {
+    func saveContactDetailToCoreData(contact: Contact) -> Bool {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "ContactCore", in: managedContext)
+        
+        let contactCore = NSManagedObject(entity: entity!, insertInto: managedContext)
+        contactCore.setValue(contact.id, forKey: "id")
+        contactCore.setValue(contact.firstName, forKey: "firstName")
+        contactCore.setValue(contact.lastName, forKey: "lastName")
+        contactCore.setValue(contact.email, forKey: "email")
+        contactCore.setValue(contact.phoneNumber, forKey: "phoneNumber")
+        contactCore.setValue(contact.profilePic, forKey: "profilePic")
+        contactCore.setValue(contact.isFavorite, forKey: "isFavorite")
+        contactCore.setValue(contact.createdAt, forKey: "createdAt")
+        contactCore.setValue(contact.updatedAt, forKey: "updatedAt")
+        contactCore.setValue(contact.url, forKey: "url")
+        
+        do {
+            try managedContext.save()
+            return true
+        } catch let error as NSError {
+            print("\(error), \(error.userInfo)")
+            return false
         }
     }
 }

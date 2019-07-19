@@ -14,8 +14,11 @@ class ContactDetailInteractor: IContactDetailInteractor {
     weak var presenter: IContactDetailPresenter?
     
     func fetchContactDetail(id: Int) {
-        if let contact = fetchCoreData(id: id) {
+        if let contact = fetchCoreData(id: id),
+            let _ = contact.email,
+            let _ = contact.phoneNumber {
             presenter?.contactDetailFetchSuccess(contact: contact)
+            return
         }
         
         guard let url = URL(string: "https://gojek-contacts-app.herokuapp.com/contacts/\(id).json") else {
