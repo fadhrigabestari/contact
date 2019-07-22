@@ -30,13 +30,13 @@ class ContactDetailViewController: UIViewController {
         setupNavigationBar()
         setupProfilePicture()
         setupTableView()
-        setupButton()
+        setupRoundIcon()
         presenter?.startFetchingContactDetail(id: id!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        applyRoundCorner(self.profilePicture)
+        setupRoundIcon()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -44,8 +44,6 @@ class ContactDetailViewController: UIViewController {
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
             applyRoundCorner(self.profilePicture)
-
-            self.profilePicture.isHidden = UIDevice.current.orientation.isLandscape
         }
     }
     
@@ -76,11 +74,12 @@ class ContactDetailViewController: UIViewController {
         tableView.separatorInset.left = UIScreen.main.bounds.width
     }
     
-    private func setupButton() {
-        applyRoundCorner(messageIcon)
-        applyRoundCorner(callIcon)
-        applyRoundCorner(emailIcon)
-        applyRoundCorner(favoriteIcon)
+    private func setupRoundIcon() {
+        applyRoundCorner(self.messageIcon)
+        applyRoundCorner(self.callIcon)
+        applyRoundCorner(self.emailIcon)
+        applyRoundCorner(self.favoriteIcon)
+        applyRoundCorner(self.profilePicture)
     }
     
     @objc func tappedMessageIcon() {

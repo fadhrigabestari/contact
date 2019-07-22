@@ -32,21 +32,20 @@ class AddContactViewController: UIViewController {
         setupTapRecognizer()
         setupImagePicker()
         setupProgressHUD()
+        setupRoundButton()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        applyRoundCorner(self.profilePicture)
-        applyRoundCorner(self.cameraIcon)
+        setupRoundButton()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
-            applyRoundCorner(self.profilePicture)
-            applyRoundCorner(self.cameraIcon)
+            self.setupRoundButton()
             self.tableView.isScrollEnabled = UIDevice.current.orientation.isLandscape
         }
     }
@@ -63,6 +62,11 @@ class AddContactViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+    }
+    
+    private func setupRoundButton() {
+        applyRoundCorner(self.profilePicture)
+        applyRoundCorner(self.cameraIcon)
     }
     
     private func setupProfilePicture() {

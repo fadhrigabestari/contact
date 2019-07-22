@@ -31,21 +31,20 @@ class EditContactDetailViewController: UIViewController {
         setupTapRecognizer()
         setupImagePicker()
         setupProgressHUD()
+        setupRoundIcon()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        applyRoundCorner(self.profilePicture)
-        applyRoundCorner(self.cameraIcon)
+        setupRoundIcon()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
             self.tableView.separatorInset = UIEdgeInsetsMake(0, UIScreen.main.bounds.width, 0, 0)
-            applyRoundCorner(self.profilePicture)
-            applyRoundCorner(self.cameraIcon)
+            self.setupRoundIcon()
             self.tableView.isScrollEnabled = UIDevice.current.orientation.isLandscape
         }
     }
@@ -57,6 +56,11 @@ class EditContactDetailViewController: UIViewController {
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(tappedDoneButton))
         doneButton.isEnabled = self.isInputValid()
         self.navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    private func setupRoundIcon() {
+        applyRoundCorner(self.profilePicture)
+        applyRoundCorner(self.cameraIcon)
     }
     
     private func setupProfilePicture() {

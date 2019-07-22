@@ -35,7 +35,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="kkU-yo-83O" firstAttribute="leading" secondItem="Isb-S5-mxt" secondAttribute="trailing" constant="32" id="Bh5-0G-EPe"/>
                     <constraint firstAttribute="bottom" secondItem="Isb-S5-mxt" secondAttribute="bottom" constant="20" id="Jvz-s0-k7R"/>

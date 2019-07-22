@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,26 +21,26 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-6b-GP3">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoL-SE-nHS" userLabel="TopView">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="333.5" height="375"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-contact-image" translatesAutoresizingMaskIntoConstraints="NO" id="WJn-eN-HpZ" userLabel="Profile Picture">
-                                    <rect key="frame" x="65" y="58" width="245.5" height="245.5"/>
+                                    <rect key="frame" x="37.5" y="58" width="259" height="259"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="WJn-eN-HpZ" secondAttribute="height" multiplier="1:1" id="LEc-xH-FQW"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAS-24-X69" userLabel="Camera Icon">
-                                    <rect key="frame" x="261" y="253.5" width="49.5" height="49.5"/>
+                                    <rect key="frame" x="246.5" y="267" width="50" height="50"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera-icon" translatesAutoresizingMaskIntoConstraints="NO" id="6hc-8M-uBT">
-                                            <rect key="frame" x="10" y="10" width="29.5" height="29.5"/>
+                                            <rect key="frame" x="10" y="10" width="30" height="30"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,27 +60,46 @@
                                 <constraint firstItem="WJn-eN-HpZ" firstAttribute="top" secondItem="FoL-SE-nHS" secondAttribute="top" constant="58" id="NwL-ai-5c8"/>
                                 <constraint firstItem="WJn-eN-HpZ" firstAttribute="centerX" secondItem="FoL-SE-nHS" secondAttribute="centerX" id="XgU-Zz-lPA"/>
                                 <constraint firstItem="xAS-24-X69" firstAttribute="top" secondItem="WJn-eN-HpZ" secondAttribute="bottom" constant="-50" id="aJw-w5-tKr"/>
-                                <constraint firstAttribute="bottom" secondItem="WJn-eN-HpZ" secondAttribute="bottom" constant="30" id="m0K-6N-5yY"/>
-                                <constraint firstAttribute="bottom" secondItem="xAS-24-X69" secondAttribute="bottom" constant="30.5" id="mYP-TB-QLQ"/>
+                                <constraint firstAttribute="bottom" secondItem="WJn-eN-HpZ" secondAttribute="bottom" constant="58" id="m0K-6N-5yY"/>
+                                <constraint firstAttribute="bottom" secondItem="xAS-24-X69" secondAttribute="bottom" constant="58" id="mYP-TB-QLQ"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7VZ-fI-ozd">
-                            <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                            <rect key="frame" x="333.5" y="0.0" width="333.5" height="375"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0DF-kP-YxN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                    <rect key="frame" x="0.0" y="58" width="333.5" height="317"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="0DF-kP-YxN" firstAttribute="leading" secondItem="7VZ-fI-ozd" secondAttribute="leading" id="4WU-xg-2qJ"/>
                                 <constraint firstItem="0DF-kP-YxN" firstAttribute="top" secondItem="7VZ-fI-ozd" secondAttribute="top" id="MWg-7y-6HR"/>
                                 <constraint firstAttribute="bottom" secondItem="0DF-kP-YxN" secondAttribute="bottom" id="bur-OL-gDc"/>
                                 <constraint firstAttribute="trailing" secondItem="0DF-kP-YxN" secondAttribute="trailing" id="hTd-4f-4LN"/>
+                                <constraint firstItem="0DF-kP-YxN" firstAttribute="top" secondItem="7VZ-fI-ozd" secondAttribute="top" constant="58" id="zzi-ds-0ne"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="zzi-ds-0ne"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=compact-widthClass=compact">
+                                <mask key="constraints">
+                                    <exclude reference="MWg-7y-6HR"/>
+                                    <include reference="zzi-ds-0ne"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=compact-widthClass=regular">
+                                <mask key="constraints">
+                                    <exclude reference="MWg-7y-6HR"/>
+                                    <include reference="zzi-ds-0ne"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
+                    <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                    <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
