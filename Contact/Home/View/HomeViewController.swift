@@ -23,10 +23,13 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupProgressHUD()
-        presenter?.startFetchingContacts()
         
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presenter?.startFetchingContacts()
     }
     
     private func setupNavigationBar() {
