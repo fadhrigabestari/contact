@@ -12,3 +12,10 @@ struct ContactCollection {
     let sectionName: String
     var contacts: [ContactEntity]
 }
+
+extension ContactCollection: Equatable {
+    static func == (lhs: ContactCollection, rhs: ContactCollection) -> Bool {
+        return lhs.sectionName == rhs.sectionName &&
+        lhs.contacts == rhs.contacts
+    }
+}

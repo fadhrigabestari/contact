@@ -33,6 +33,7 @@
 		0F7A6F4522E0A3A50034DA83 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7A6F4422E0A3A50034DA83 /* ProgressHUD.swift */; };
 		0FF0D85622E6D67D006EF056 /* HomePresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D85522E6D67D006EF056 /* HomePresenterSpec.swift */; };
 		0FF0D85922E6D70F006EF056 /* HomeWireframeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D85822E6D70F006EF056 /* HomeWireframeSpec.swift */; };
+		0FF0D85D22E6EA02006EF056 /* HomeViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D85C22E6EA02006EF056 /* HomeViewControllerSpec.swift */; };
 		0FFF529222CDAE6800CD18D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */; };
 		0FFF529A22CDAE6800CD18D4 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529822CDAE6800CD18D4 /* Contact.xcdatamodeld */; };
 		0FFF529C22CDAE6900CD18D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF529B22CDAE6900CD18D4 /* Assets.xcassets */; };
@@ -103,6 +104,7 @@
 		0F7A6F4422E0A3A50034DA83 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		0FF0D85522E6D67D006EF056 /* HomePresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterSpec.swift; sourceTree = "<group>"; };
 		0FF0D85822E6D70F006EF056 /* HomeWireframeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireframeSpec.swift; sourceTree = "<group>"; };
+		0FF0D85C22E6EA02006EF056 /* HomeViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerSpec.swift; sourceTree = "<group>"; };
 		0FFF528E22CDAE6800CD18D4 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF529922CDAE6800CD18D4 /* Contact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contact.xcdatamodel; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				0FF0D85522E6D67D006EF056 /* HomePresenterSpec.swift */,
 				0FF0D85822E6D70F006EF056 /* HomeWireframeSpec.swift */,
+				0FF0D85C22E6EA02006EF056 /* HomeViewControllerSpec.swift */,
 			);
 			path = "Home Specs";
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF0D85D22E6EA02006EF056 /* HomeViewControllerSpec.swift in Sources */,
 				0FF0D85922E6D70F006EF056 /* HomeWireframeSpec.swift in Sources */,
 				0FF0D85622E6D67D006EF056 /* HomePresenterSpec.swift in Sources */,
 			);
