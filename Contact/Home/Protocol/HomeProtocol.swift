@@ -32,6 +32,8 @@ protocol IHomeInteractor: class {
 }
 
 protocol IHomeWireframe: class {
+    var presenter: IHomePresenter? {get set}
+    
     func createModule() -> HomeViewController
     func pushToAddScreen(navigationController: UINavigationController)
     func pushToGroupsScreen(navigationController: UINavigationController)
@@ -41,5 +43,3 @@ protocol IHomeWireframe: class {
 protocol HomeDelegate: class {
     func onContactAdded(contact: Contact)
 }
-
-

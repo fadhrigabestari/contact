@@ -34,6 +34,21 @@ struct Contact: Codable {
     }
 }
 
+extension Contact: Equatable {
+    static func == (lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.firstName == rhs.firstName &&
+        lhs.lastName == rhs.lastName &&
+        lhs.email == rhs.email &&
+        lhs.profilePic == rhs.profilePic &&
+        lhs.phoneNumber == rhs.phoneNumber &&
+        lhs.isFavorite == rhs.isFavorite &&
+        lhs.url == rhs.url &&
+        lhs.createdAt == rhs.createdAt &&
+        lhs.updatedAt == rhs.updatedAt
+    }
+}
+
 extension Contact {
     var toContactEntity: ContactEntity {
         return ContactEntity(id: self.id,

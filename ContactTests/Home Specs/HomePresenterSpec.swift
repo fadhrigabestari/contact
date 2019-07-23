@@ -111,6 +111,8 @@ extension HomePresenterSpec {
     }
     
     class MockHomeWireframe: IHomeWireframe {
+        var presenter: IHomePresenter?
+        
         var createModuleCounter = 0
         var pushToAddScreenCounter = 0
         var pushToGroupsScreenCounter = 0

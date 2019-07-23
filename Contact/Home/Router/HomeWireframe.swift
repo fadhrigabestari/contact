@@ -44,7 +44,7 @@ class HomeWireframe: IHomeWireframe {
 
 extension HomeWireframe: HomeDelegate {
     func onContactAdded(contact: Contact) {
-        presenter?.contacts.append(contact)
-        presenter?.contactsFetchSuccess(contacts: presenter!.contacts)
+        self.presenter?.contacts.append(contact)
+        self.presenter?.contactsFetchSuccess(contacts: self.presenter!.contacts)
     }
 }
