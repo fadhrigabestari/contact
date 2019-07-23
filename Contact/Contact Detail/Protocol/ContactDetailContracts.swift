@@ -35,6 +35,8 @@ protocol IContactDetailInteractor: class {
 }
 
 protocol IContactDetailWireframe: class {
+    var presenter: IContactDetailPresenter? {get set}
+    
     func createModule() -> ContactDetailViewController
     func pushToMessageScreen(number: String)
     func pushToCallScreen(number: String)
