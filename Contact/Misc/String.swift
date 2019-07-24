@@ -42,7 +42,7 @@ extension String {
     }
     
     var isValidName: Bool {
-        let regularExpressionForName = "[A-Z0-9a-z._%+-]{2,64}"
+        let regularExpressionForName = "[A-Z0-9a-z`~!@#$%^&*()-_=+{};:'\",<.>?\\s]{2,64}"
         let testName = NSPredicate(format:"SELF MATCHES %@", regularExpressionForName)
         return testName.evaluate(with: self)
     }

@@ -55,6 +55,7 @@
 		0FF0D88C22E856BE006EF056 /* MockAddContactDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88B22E856BE006EF056 /* MockAddContactDetailInteractor.swift */; };
 		0FF0D88E22E856CC006EF056 /* MockAddContactDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88D22E856CC006EF056 /* MockAddContactDetailWireframe.swift */; };
 		0FF0D89022E858B5006EF056 /* AddContactDetailPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88F22E858B5006EF056 /* AddContactDetailPresenterSpec.swift */; };
+		0FF0D89322E85D00006EF056 /* UIImageViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D89222E85D00006EF056 /* UIImageViewSpec.swift */; };
 		0FFF529222CDAE6800CD18D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */; };
 		0FFF529A22CDAE6800CD18D4 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529822CDAE6800CD18D4 /* Contact.xcdatamodeld */; };
 		0FFF529C22CDAE6900CD18D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF529B22CDAE6900CD18D4 /* Assets.xcassets */; };
@@ -146,6 +147,7 @@
 		0FF0D88B22E856BE006EF056 /* MockAddContactDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddContactDetailInteractor.swift; sourceTree = "<group>"; };
 		0FF0D88D22E856CC006EF056 /* MockAddContactDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddContactDetailWireframe.swift; sourceTree = "<group>"; };
 		0FF0D88F22E858B5006EF056 /* AddContactDetailPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactDetailPresenterSpec.swift; sourceTree = "<group>"; };
+		0FF0D89222E85D00006EF056 /* UIImageViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewSpec.swift; sourceTree = "<group>"; };
 		0FFF528E22CDAE6800CD18D4 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF529922CDAE6800CD18D4 /* Contact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contact.xcdatamodel; sourceTree = "<group>"; };
@@ -436,6 +438,14 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		0FF0D89122E85CCE006EF056 /* Misc Specs */ = {
+			isa = PBXGroup;
+			children = (
+				0FF0D89222E85D00006EF056 /* UIImageViewSpec.swift */,
+			);
+			path = "Misc Specs";
+			sourceTree = "<group>";
+		};
 		0FFF528522CDAE6800CD18D4 = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +487,7 @@
 		0FFF52A822CDAE6900CD18D4 /* ContactTests */ = {
 			isa = PBXGroup;
 			children = (
+				0FF0D89122E85CCE006EF056 /* Misc Specs */,
 				0FF0D85722E6D6DF006EF056 /* Home Specs */,
 				0FF0D85E22E6EE43006EF056 /* Contact Detail Specs */,
 				0FF0D86722E81DE7006EF056 /* Edit Contact Detail Specs */,
@@ -941,6 +952,7 @@
 				0FF0D87A22E84EB6006EF056 /* MockContactDetailWireframe.swift in Sources */,
 				0FF0D88C22E856BE006EF056 /* MockAddContactDetailInteractor.swift in Sources */,
 				0FF0D87622E84E41006EF056 /* MockContactDetailView.swift in Sources */,
+				0FF0D89322E85D00006EF056 /* UIImageViewSpec.swift in Sources */,
 				0FF0D86A22E81E18006EF056 /* EditContactDetailPresenterSpec.swift in Sources */,
 				0FF0D87822E84E8E006EF056 /* MockContactDetailInteractor.swift in Sources */,
 			);
