@@ -96,7 +96,5 @@ extension ContactDetailWireframeSpec {
         func sendContactDetailFailed() {
             //
         }
-        
-        
     }
 }

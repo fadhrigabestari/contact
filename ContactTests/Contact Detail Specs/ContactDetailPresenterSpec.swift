@@ -56,6 +56,14 @@ class ContactDetailPresenterSpec: QuickSpec {
                 }
             }
             
+            context("screen is displayed") {
+                it("should call interactor to fetch contact detail data from server") {
+                    let testId = 1
+                    self.presenter.startFetchingContactDetail(id: testId)
+                    expect(self.interactor.fetchContactDetailCounter).to(equal(1))
+                }
+            }
+            
             context("on edit button is pressed") {
                 it("should call wireframe to push to edit button") {
                    let navigationController = UINavigationController()
@@ -148,5 +156,3 @@ extension ContactDetailPresenterSpec {
         }
     }
 }
-
-
