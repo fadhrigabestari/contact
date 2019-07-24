@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ContactDetailWireframe: IContactDetailWireframe {
-    var presenter: IContactDetailPresenter?
+    weak var presenter: IContactDetailPresenter?
     
     internal func createModule() -> ContactDetailViewController {
         let view = ContactDetailViewController(nibName: "ContactDetailViewController", bundle: nil)

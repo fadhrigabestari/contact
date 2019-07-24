@@ -24,7 +24,7 @@ class HomeWireframeSpec: QuickSpec {
         }
         
         describe("HomeWireframe") {
-            context("create module") {
+            context("called to create module") {
                 it("should return proper HomeViewController") {
                     let view = self.wireframe.createModule()
                     expect(view).to(beAnInstanceOf(HomeViewController.self))

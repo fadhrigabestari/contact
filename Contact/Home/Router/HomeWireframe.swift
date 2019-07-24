@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class HomeWireframe: IHomeWireframe {
-    var presenter: IHomePresenter?
+    weak var presenter: IHomePresenter?
     
     internal func createModule() -> HomeViewController {
         let view = HomeViewController(nibName: "HomeViewController", bundle: nil)

@@ -35,6 +35,7 @@
 		0FF0D85922E6D70F006EF056 /* HomeWireframeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D85822E6D70F006EF056 /* HomeWireframeSpec.swift */; };
 		0FF0D86022E6EE5D006EF056 /* ContactDetailPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D85F22E6EE5D006EF056 /* ContactDetailPresenterSpec.swift */; };
 		0FF0D86222E70E9D006EF056 /* HomeInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D86122E70E9D006EF056 /* HomeInteractorSpec.swift */; };
+		0FF0D86422E80A96006EF056 /* ContactDetailWireframeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D86322E80A96006EF056 /* ContactDetailWireframeSpec.swift */; };
 		0FFF529222CDAE6800CD18D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */; };
 		0FFF529A22CDAE6800CD18D4 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529822CDAE6800CD18D4 /* Contact.xcdatamodeld */; };
 		0FFF529C22CDAE6900CD18D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF529B22CDAE6900CD18D4 /* Assets.xcassets */; };
@@ -107,6 +108,7 @@
 		0FF0D85822E6D70F006EF056 /* HomeWireframeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWireframeSpec.swift; sourceTree = "<group>"; };
 		0FF0D85F22E6EE5D006EF056 /* ContactDetailPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailPresenterSpec.swift; sourceTree = "<group>"; };
 		0FF0D86122E70E9D006EF056 /* HomeInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorSpec.swift; sourceTree = "<group>"; };
+		0FF0D86322E80A96006EF056 /* ContactDetailWireframeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailWireframeSpec.swift; sourceTree = "<group>"; };
 		0FFF528E22CDAE6800CD18D4 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF529922CDAE6800CD18D4 /* Contact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contact.xcdatamodel; sourceTree = "<group>"; };
@@ -318,8 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				0FF0D85522E6D67D006EF056 /* HomePresenterSpec.swift */,
-				0FF0D85822E6D70F006EF056 /* HomeWireframeSpec.swift */,
 				0FF0D86122E70E9D006EF056 /* HomeInteractorSpec.swift */,
+				0FF0D85822E6D70F006EF056 /* HomeWireframeSpec.swift */,
 			);
 			path = "Home Specs";
 			sourceTree = "<group>";
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				0FF0D85F22E6EE5D006EF056 /* ContactDetailPresenterSpec.swift */,
+				0FF0D86322E80A96006EF056 /* ContactDetailWireframeSpec.swift */,
 			);
 			path = "Contact Detail Specs";
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				0FF0D85922E6D70F006EF056 /* HomeWireframeSpec.swift in Sources */,
 				0FF0D86022E6EE5D006EF056 /* ContactDetailPresenterSpec.swift in Sources */,
 				0FF0D86222E70E9D006EF056 /* HomeInteractorSpec.swift in Sources */,
+				0FF0D86422E80A96006EF056 /* ContactDetailWireframeSpec.swift in Sources */,
 				0FF0D85622E6D67D006EF056 /* HomePresenterSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
