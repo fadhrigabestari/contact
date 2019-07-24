@@ -26,7 +26,7 @@ extension ContactDetailViewController: IContactDetailView {
             self.favoriteIcon.backgroundColor = UIColor.white
             self.favoriteIconImageView.image = UIImage(named: "non-favorite-icon-grey")
         }
-        self.profilePicture.roundImage()
+        applyRoundCorner(self.profilePicture)
         self.fullName.text = "\(contact.firstName) \(contact.lastName)"
         self.tableView.reloadData()
     }

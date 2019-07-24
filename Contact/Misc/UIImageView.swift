@@ -21,10 +21,4 @@ extension UIImageView {
             }
         }
     }
-    
-    func roundImage() {
-        let imageLayer: CALayer? = self.layer
-        imageLayer!.cornerRadius = self.frame.width / 2
-        imageLayer!.masksToBounds = true
-    }
 }

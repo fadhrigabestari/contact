@@ -64,7 +64,6 @@
 		0FFF52CA22CDCD6A00CD18D4 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF52C822CDCD6A00CD18D4 /* ContactViewCell.swift */; };
 		0FFF52CB22CDCD6A00CD18D4 /* ContactViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF52C922CDCD6A00CD18D4 /* ContactViewCell.xib */; };
 		0FFF52D322CDE4FE00CD18D4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF52D222CDE4FE00CD18D4 /* Contact.swift */; };
-		0FFFB14022CEF5DA00931382 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB13F22CEF5DA00931382 /* JSONDecoder.swift */; };
 		0FFFB14222CF03E500931382 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB14122CF03E500931382 /* UIImageView.swift */; };
 		0FFFB14822CF455E00931382 /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB14722CF455E00931382 /* HomeProtocol.swift */; };
 		0FFFB14A22CF5AEB00931382 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFFB14922CF5AEB00931382 /* HomeInteractor.swift */; };
@@ -160,7 +159,6 @@
 		0FFF52C822CDCD6A00CD18D4 /* ContactViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
 		0FFF52C922CDCD6A00CD18D4 /* ContactViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactViewCell.xib; sourceTree = "<group>"; };
 		0FFF52D222CDE4FE00CD18D4 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		0FFFB13F22CEF5DA00931382 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		0FFFB14122CF03E500931382 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		0FFFB14722CF455E00931382 /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		0FFFB14922CF5AEB00931382 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -549,7 +547,6 @@
 		0FFFB13E22CEF5C500931382 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				0FFFB13F22CEF5DA00931382 /* JSONDecoder.swift */,
 				0FFFB14122CF03E500931382 /* UIImageView.swift */,
 				0FFFB15022CF826F00931382 /* String.swift */,
 				0F1D1E0122D4C005000CE4E3 /* RoundObject.swift */,
@@ -877,7 +874,6 @@
 				0FFFB14822CF455E00931382 /* HomeProtocol.swift in Sources */,
 				0F7A6F3322E0740B0034DA83 /* AddContactEntity.swift in Sources */,
 				0F7A6F4122E077560034DA83 /* AddContactPresenter.swift in Sources */,
-				0FFFB14022CEF5DA00931382 /* JSONDecoder.swift in Sources */,
 				0F7A6F4322E078B10034DA83 /* AddContactViewController+IAddContactView.swift in Sources */,
 				0FFFB17522D3731C00931382 /* ContactDetailWireframe.swift in Sources */,
 				0F1D1E1422D5E188000CE4E3 /* EditContactDetailInteractor.swift in Sources */,
