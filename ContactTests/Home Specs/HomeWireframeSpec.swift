@@ -13,12 +13,17 @@ import Nimble
 @testable import Contact
 
 class HomeWireframeSpec: QuickSpec {
+    var presenter: IHomePresenter!
     var wireframe: HomeWireframe!
     
     override func spec() {
-        describe("HomeWireframe") {
+        beforeEach {
             self.wireframe = HomeWireframe()
-            
+            self.presenter = MockHomePresenter()
+            self.wireframe.presenter = self.presenter
+        }
+        
+        describe("HomeWireframe") {
             context("create module") {
                 it("should return proper HomeViewController") {
                     let view = self.wireframe.createModule()
@@ -60,7 +65,7 @@ class HomeWireframeSpec: QuickSpec {
                                               createdAt: Date(),
                                               updatedAt: Date())
                     self.wireframe.onContactAdded(contact: testContact)
-                    expect(self.wireframe.presenter?.contacts).to(equal([testContact]))
+                    expect(self.presenter.contacts).to(equal([testContact]))
                 }
             }
         }
