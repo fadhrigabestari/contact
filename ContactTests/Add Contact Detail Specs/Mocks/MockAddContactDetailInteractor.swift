@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+@testable import Contact
+
+class MockaddContactDetailInteractor: IAddContactInteractor {
+    var presenter: IAddContactPresenter?
+    
+    var isAddContactSent = false
+    func sendAddContact(navigationController: UINavigationController, contact: Contact) {
+        self.isAddContactSent = true
+    }
+}

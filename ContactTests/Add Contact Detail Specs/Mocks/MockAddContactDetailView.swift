@@ -7,3 +7,16 @@
 //
 
 import Foundation
+@testable import Contact
+
+class MockAddContactDetailView: IAddContactView {
+    var isSendAddContactSuccessShown = false
+    func showSendAddContactSuccess() {
+        self.isSendAddContactSuccessShown = true
+    }
+    
+    var isSendAddContactFailedShown = false
+    func showSendAddContactFailed() {
+        self.isSendAddContactFailedShown = true
+    }
+}
