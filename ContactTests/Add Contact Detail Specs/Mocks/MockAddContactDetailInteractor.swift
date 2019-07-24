@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 @testable import Contact
 
-class MockaddContactDetailInteractor: IAddContactInteractor {
+class MockAddContactDetailInteractor: IAddContactInteractor {
     var presenter: IAddContactPresenter?
     
     var isAddContactSent = false
