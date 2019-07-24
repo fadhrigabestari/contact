@@ -50,6 +50,10 @@
 		0FF0D88122E84F92006EF056 /* MockEditContactDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88022E84F92006EF056 /* MockEditContactDetailPresenter.swift */; };
 		0FF0D88322E84F9F006EF056 /* MockEditContactDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88222E84F9F006EF056 /* MockEditContactDetailInteractor.swift */; };
 		0FF0D88522E84FA8006EF056 /* MockEditContactDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88422E84FA8006EF056 /* MockEditContactDetailWireframe.swift */; };
+		0FF0D88722E852DE006EF056 /* EditContactDetailInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88622E852DE006EF056 /* EditContactDetailInteractorSpec.swift */; };
+		0FF0D88A22E856AA006EF056 /* MockAddContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88922E856AA006EF056 /* MockAddContactDetailView.swift */; };
+		0FF0D88C22E856BE006EF056 /* MockAddContactDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88B22E856BE006EF056 /* MockAddContactDetailInteractor.swift */; };
+		0FF0D88E22E856CC006EF056 /* MockAddContactDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0D88D22E856CC006EF056 /* MockAddContactDetailWireframe.swift */; };
 		0FFF529222CDAE6800CD18D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */; };
 		0FFF529A22CDAE6800CD18D4 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF529822CDAE6800CD18D4 /* Contact.xcdatamodeld */; };
 		0FFF529C22CDAE6900CD18D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF529B22CDAE6900CD18D4 /* Assets.xcassets */; };
@@ -137,6 +141,10 @@
 		0FF0D88022E84F92006EF056 /* MockEditContactDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEditContactDetailPresenter.swift; sourceTree = "<group>"; };
 		0FF0D88222E84F9F006EF056 /* MockEditContactDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEditContactDetailInteractor.swift; sourceTree = "<group>"; };
 		0FF0D88422E84FA8006EF056 /* MockEditContactDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEditContactDetailWireframe.swift; sourceTree = "<group>"; };
+		0FF0D88622E852DE006EF056 /* EditContactDetailInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactDetailInteractorSpec.swift; sourceTree = "<group>"; };
+		0FF0D88922E856AA006EF056 /* MockAddContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddContactDetailView.swift; sourceTree = "<group>"; };
+		0FF0D88B22E856BE006EF056 /* MockAddContactDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddContactDetailInteractor.swift; sourceTree = "<group>"; };
+		0FF0D88D22E856CC006EF056 /* MockAddContactDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddContactDetailWireframe.swift; sourceTree = "<group>"; };
 		0FFF528E22CDAE6800CD18D4 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF529122CDAE6800CD18D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF529922CDAE6800CD18D4 /* Contact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Contact.xcdatamodel; sourceTree = "<group>"; };
@@ -371,6 +379,7 @@
 			children = (
 				0FF0D87D22E84F5D006EF056 /* Mocks */,
 				0FF0D86922E81E18006EF056 /* EditContactDetailPresenterSpec.swift */,
+				0FF0D88622E852DE006EF056 /* EditContactDetailInteractorSpec.swift */,
 			);
 			path = "Edit Contact Detail Specs";
 			sourceTree = "<group>";
@@ -378,6 +387,7 @@
 		0FF0D86822E81DFD006EF056 /* Add Contact Detail Specs */ = {
 			isa = PBXGroup;
 			children = (
+				0FF0D88822E8568F006EF056 /* Mocks */,
 			);
 			path = "Add Contact Detail Specs";
 			sourceTree = "<group>";
@@ -411,6 +421,16 @@
 				0FF0D88022E84F92006EF056 /* MockEditContactDetailPresenter.swift */,
 				0FF0D88222E84F9F006EF056 /* MockEditContactDetailInteractor.swift */,
 				0FF0D88422E84FA8006EF056 /* MockEditContactDetailWireframe.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		0FF0D88822E8568F006EF056 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0FF0D88922E856AA006EF056 /* MockAddContactDetailView.swift */,
+				0FF0D88B22E856BE006EF056 /* MockAddContactDetailInteractor.swift */,
+				0FF0D88D22E856CC006EF056 /* MockAddContactDetailWireframe.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -904,18 +924,22 @@
 				0FF0D86F22E84D1D006EF056 /* MockHomePresenter.swift in Sources */,
 				0FF0D86022E6EE5D006EF056 /* ContactDetailPresenterSpec.swift in Sources */,
 				0FF0D86222E70E9D006EF056 /* HomeInteractorSpec.swift in Sources */,
+				0FF0D88A22E856AA006EF056 /* MockAddContactDetailView.swift in Sources */,
 				0FF0D88122E84F92006EF056 /* MockEditContactDetailPresenter.swift in Sources */,
 				0FF0D87F22E84F75006EF056 /* MockEditContactDetailView.swift in Sources */,
 				0FF0D86D22E84CF2006EF056 /* MockHomeView.swift in Sources */,
 				0FF0D86422E80A96006EF056 /* ContactDetailWireframeSpec.swift in Sources */,
 				0FF0D85622E6D67D006EF056 /* HomePresenterSpec.swift in Sources */,
+				0FF0D88E22E856CC006EF056 /* MockAddContactDetailWireframe.swift in Sources */,
 				0FF0D88522E84FA8006EF056 /* MockEditContactDetailWireframe.swift in Sources */,
 				0FF0D87122E84DAE006EF056 /* MockHomeInteractor.swift in Sources */,
 				0FF0D87322E84DC7006EF056 /* MockHomeWireframe.swift in Sources */,
 				0FF0D86622E811FF006EF056 /* ContactDetailInteractorSpec.swift in Sources */,
 				0FF0D88322E84F9F006EF056 /* MockEditContactDetailInteractor.swift in Sources */,
 				0FF0D87C22E84EDD006EF056 /* MockContactDetailPresenter.swift in Sources */,
+				0FF0D88722E852DE006EF056 /* EditContactDetailInteractorSpec.swift in Sources */,
 				0FF0D87A22E84EB6006EF056 /* MockContactDetailWireframe.swift in Sources */,
+				0FF0D88C22E856BE006EF056 /* MockAddContactDetailInteractor.swift in Sources */,
 				0FF0D87622E84E41006EF056 /* MockContactDetailView.swift in Sources */,
 				0FF0D86A22E81E18006EF056 /* EditContactDetailPresenterSpec.swift in Sources */,
 				0FF0D87822E84E8E006EF056 /* MockContactDetailInteractor.swift in Sources */,
